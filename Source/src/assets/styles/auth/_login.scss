@@ -1,0 +1,36 @@
+#login {
+    padding: $offset5;
+    .ant-tabs {
+        max-width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+        .ant-tabs-nav-list {
+            width: 100%;
+            justify-content: space-between;
+            padding-bottom: $offset5;
+            .ant-tabs-tab {
+                font-size: 18px;
+                padding-top: 0;
+                padding-bottom: $offset1;
+                &.ant-tabs-tab-active {
+                    color: var(--medium_teal_blue);
+                    border-bottom: solid 2px var(--medium_teal_blue);
+                }
+                .ant-tabs-tab-btn {
+                    line-height: 38px;
+                }
+            }
+        }
+    }
+    .remeber-me-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .google-login {
+        margin-bottom: $offset3;
+    }
+    .signup {
+        text-align: center;
+    }
+}

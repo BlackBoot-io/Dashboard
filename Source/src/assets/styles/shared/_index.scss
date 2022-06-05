@@ -1,0 +1,221 @@
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+ul {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+ul,
+ol {
+    padding: 0;
+}
+
+.ltr-elm {
+    direction: ltr;
+    text-align: left !important;
+}
+
+.ltr-elm input {
+    direction: ltr;
+    text-align: left !important;
+}
+.ltr-input input {
+    direction: ltr;
+    text-align: left !important;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+.ltr input {
+    direction: ltr;
+}
+
+.text-center input {
+    text-align: center;
+}
+
+.va-middle {
+    vertical-align: middle;
+}
+
+.w-100 {
+    width: 100%;
+}
+.ant-row {
+    width: 100%;
+}
+/*-----------------------------------
+           utilities 
+      ------------------------------------*/
+.d-flex {
+    display: flex;
+}
+.jc-c {
+    justify-content: center;
+}
+.ai-c {
+    align-items: center;
+}
+.center {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+/*-----------------------------------
+           remove browser autofill 
+      ------------------------------------*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background-color: none;
+    -webkit-transition: background-color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/*-----------------------------------
+                    place holder
+      ------------------------------------*/
+.ph-c::-webkit-input-placeholder {
+    text-align: center;
+}
+
+.ph-c:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+}
+
+.ph-c::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
+}
+
+.ph-c:-ms-input-placeholder {
+    text-align: center;
+}
+
+.ph-r::-webkit-input-placeholder {
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.ph-r input::-webkit-input-placeholder {
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.ph-r:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.ph-r input:-moz-placeholder {
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.ph-r::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.ph-r input::-moz-placeholder {
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.ph-r:-ms-input-placeholder {
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.ph-r input:-ms-input-placeholder {
+    text-align: right;
+    font-family: "iransans";
+    direction: rtl;
+    font-size: 0.9rem;
+}
+
+.d-none {
+    display: none;
+}
+
+.ant-form-item-explain-error {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.ant-message {
+    font-size: 12px !important;
+}
+
+.ant-input-lg {
+    font-size: 13px !important;
+}
+
+.ant-select-item-option-content {
+    font-size: 12px;
+}
+
+.drop-down-menu {
+    background: rgb(255 255 255) !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+    box-shadow: 0 4px 13px -5px rgb(0 0 0 / 6%);
+    min-width: 170px;
+}
+.ant-form-item {
+    .ant-form-item-label {
+        margin-bottom: $offset1 !important;
+        > label {
+            color: var(--star-dust);
+            height: auto !important;
+        }
+    }
+}
+.ant-form-item-control-input-content {
+    .ant-input {
+        border-color: var(--soft-peach);
+    }
+    .ant-input-suffix {
+        color: var(--star-dust);
+        font-size: 13px;
+    }
+}
+@import "./layout";
+@import "./button";

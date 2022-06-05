@@ -1,0 +1,20 @@
+@mixin btn {
+    line-height: 40px;
+    min-width: 40px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    .ant-spin {
+        margin: 0 $offset1;
+    }
+}
+.btn-primary {
+    @include btn;
+    background-color: var(--blue_whale);
+    color: var(--white);
+}
+.btn-secondary {
+    @include btn;
+    background-color: var(--catskill_white);
+    color: var(--star-dust);
+}

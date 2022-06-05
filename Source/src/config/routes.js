@@ -1,8 +1,9 @@
 const routes = {
-  refreshToken:"/auth/refresh",
+  refreshToken: "/auth/refresh",
   login: "login",
+  signup: "signup",
   recoverPassword: "recoverPassword",
   home: "home",
-  transaction:"transaction"
+  transaction: "transaction",
 };
 export default routes;

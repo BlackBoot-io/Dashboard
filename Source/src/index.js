@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import App from "./components/App";
+import App from "./components";
 import i18n from "locales";
-import store from "app/store";
+import store from "redux/store";
 import "assets/styles/index.scss";
 import reportWebVitals from "reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import 'antd/dist/antd.css';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
