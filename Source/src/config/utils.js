@@ -1,7 +1,7 @@
 import CryptoJS from "crypto-js";
 import config from "config/settings";
 
-export default class Utils{
+export default class Utils {
   static decrypt = (txt) => {
     if (!txt) return null;
     var bytes = CryptoJS.AES.decrypt(txt, config.salt);
@@ -28,8 +28,6 @@ export default class Utils{
   };
   static arraySum = (arr, field) =>
     arr.reduce((acc, x) => acc + (field ? x[field] : x), 0);
-
- 
 
   static copyToClipboard(text) {
     const range = document.createRange();
@@ -124,5 +122,14 @@ export default class Utils{
         else return 0;
       }
     };
+  };
+  static getStoredData = (key) => {
+    let value = localStorage.getItem(key);
+    if (value) return this.decrypt(value);
+    return null;
+  };
+  static storedData = (key, value) => {
+    if (!value) return;
+    localStorage.setItem(key, this.encrypt(value));
   };
 }
