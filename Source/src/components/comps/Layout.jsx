@@ -10,21 +10,27 @@ const Layout = ({}) => {
   let token = localStorage.getItem(storageKeys.token);
   const { user } = useSelector((x) => x.auth);
   const location = useLocation();
-  if (!token)
+
+  if (user)
     return (
-      <Navigate to={`/${routes.login}`} state={{ from: location }} replace />
+      <AntLayout>
+        <Sider>Sider</Sider>
+        <AntLayout>
+          <Header>Header</Header>
+          <Content>
+            <Outlet />
+          </Content>
+        </AntLayout>
+      </AntLayout>
     );
-  else if (!user) return <Splash />;
-  return (
-    <AntLayout>
-      <Sider>Sider</Sider>
-      <Layout>
-        <Header>Header</Header>
-        <Content>
-          <Outlet />
-        </Content>
-      </Layout>
-    </AntLayout>
-  );
+  else if (token) return <Splash />;
+  else
+    return (
+      <Navigate
+        to={`/${routes.auth}/${routes.login}`}
+        state={{ from: location }}
+        replace
+      />
+    );
 };
 export default Layout;

@@ -1,5 +1,5 @@
 const routes = {
-  refreshToken: "/auth/refresh",
+  auth:"auth",
   login: "login",
   signup: "signup",
   recoverPassword: "recoverPassword",

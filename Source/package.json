@@ -27,6 +27,7 @@
     "eject": "react-scripts eject",
     "build": "SET \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "dev": "env-cmd -f ./env/.env.dev npm run start",
+    "shahrooz": "env-cmd -f ./env/.env.shahrooz npm run start",
     "build-prod": "env-cmd -f ./env/.env.prod react-scripts --max_old_space_size=4096 build"
   },
   "eslintConfig": {

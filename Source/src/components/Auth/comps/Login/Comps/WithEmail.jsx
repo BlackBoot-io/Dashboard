@@ -2,9 +2,10 @@ import { useTranslation } from "react-i18next";
 import { Form, Input, Space, Checkbox } from "antd";
 import Button from "components/comps/Button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import routes from "config/routes";
 import Icon from "components/comps/Icon";
+import Alert from "components/comps/Alert";
 import GoogleImage from "assets/images/google.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "api/account";
@@ -13,11 +14,19 @@ import { setCredentials } from "redux/auth";
 const ByEmail = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, error, isError }] = useLoginMutation();
+  const [errorMsg, setErrorMsg] = useState("");
+  const nav = useNavigate();
   const handleSubmit = async (values) => {
-    console.log(values);
-    const userData = await login(values).unwrap();
-    dispatch(setCredentials({ ...userData }));
+    setErrorMsg("");
+    const call = await login(values).unwrap();
+    console.log("after call", call.data);
+    if (!call.isSuccess) {
+      setErrorMsg(t("wrongUsernameOrPassword"));
+      return;
+    }
+    dispatch(setCredentials(call.data));
+    nav(`/${routes.home}`);
   };
   const invalid = () => {};
   return (
@@ -39,6 +48,9 @@ const ByEmail = () => {
         }
       >
         <Space direction="vertical" size={10} className="w-100">
+          {errorMsg || isError ? (
+            <Alert message={errorMsg ?? t("unknownError")} type="error" />
+          ) : null}
           <Form.Item
             label={t("email")}
             name="email"
@@ -79,7 +91,7 @@ const ByEmail = () => {
       </div>
       <div className="signup">
         <span>{t("notSignedup")}</span>&nbsp;
-        <Link to={`/${routes.signup}`}>{t("signup")}</Link>
+        <Link to={`/${routes.auth}/${routes.signup}`}>{t("signup")}</Link>
       </div>
     </div>
   );

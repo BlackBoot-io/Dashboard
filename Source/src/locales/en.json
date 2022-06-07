@@ -12,6 +12,8 @@
   "enterYourPassword": "Enter Your Password",
   "recoverPassword": "Recover Password",
   "rememberMe": "Remember Me",
-  "notSignedup":"Don't have an account?",
-  "signup":"Sign up"
+  "notSignedup": "Don't have an account?",
+  "signup": "Sign up",
+  "wrongUsernameOrPassword": "Username or password is wrong",
+  "loading": "Loading"
 }

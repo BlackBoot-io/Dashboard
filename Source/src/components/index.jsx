@@ -10,14 +10,14 @@ import Signup from "components/Auth/comps/Signup";
 function App() {
   return (
     <Routes>
-      <Route element={<Auth />}>
+      <Route path={routes.auth} element={<Auth />}>
         <Route index path={routes.login} element={<Login />} />
         <Route path={routes.signup} element={<Signup />} />
         <Route path={routes.recoverPassword} element={<RecoverPasword />} />
       </Route>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route index path={routes.home} element={<Home />} />
+        <Route path={routes.home} element={<Home />} />
       </Route>
     </Routes>
   );

@@ -3,7 +3,7 @@ import { useGetCurrentUserInfoQuery } from "api/account";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "redux/auth";
+import { setCurrentUser } from "redux/auth";
 const Splash = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -15,13 +15,14 @@ const Splash = () => {
     error,
   } = useGetCurrentUserInfoQuery();
   useEffect(() => {
+    console.log("spalsh", data, isSuccess, isError);
     if (isSuccess) {
-      dispatch(setCredentials(data));
+      dispatch(setCurrentUser(data.data));
     }
   }, [isSuccess, isError]);
   return (
     <div id="splash">
-      <h1>{t("loading")}</h1>
+      <h1>{t("loading")}...</h1>
       <Spin />
     </div>
   );
