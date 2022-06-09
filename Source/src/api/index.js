@@ -11,7 +11,6 @@ const baseQuery = fetchBaseQuery({
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = Utils.getStoredData(storageKeys.token);
-    console.log("baseQuery",token)
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }
@@ -20,7 +19,6 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
-  console.log("baseQueryWithReauth", args, api, extraOptions);
   let result = await baseQuery(args, api, extraOptions);
   if (result?.error?.originalStatus === 403) {
     console.log("sending refresh token");
