@@ -13,6 +13,7 @@ import transactionsImage from "assets/images/menus/transactions.png";
 import crowdsaleImage from "assets/images/menus/crowdsale.png";
 import buyImage from "assets/images/menus/buy.png";
 import widthrawImage from "assets/images/menus/widthraw.png";
+import NotificationImage from "assets/images/menus/notification.png";
 const { Header, Sider, Content } = AntLayout;
 const Layout = ({}) => {
   let token = localStorage.getItem(storageKeys.token);
@@ -27,32 +28,58 @@ const Layout = ({}) => {
         key: "overview",
         label: t("overview"),
         icon: <img src={overviewImage} alt="overview" />,
-        childrens: [
+        children: [
           {
-            key: "transactions",
+            key: routes.transactions,
             label: t("transactions"),
             icon: <img src={transactionsImage} alt="overview" />,
           },
           {
-            key: "crowdsale",
-            label: t("crowdsaleSchecule"),
-            icon: <img src={crowdsaleImage} alt="overview" />,
+            key: routes.crowdsaleSchedule,
+            label: t("crowdsaleSchedule"),
+            icon: <img src={crowdsaleImage} alt={t("crowdsaleSchedule")} />,
           },
         ],
       },
       {
-        key: "buy",
+        key: routes.buyToken,
         label: t("buyToken"),
         icon: <img src={buyImage} alt={t("buyToken")} />,
       },
       {
-        key: "widthraw",
-        label: t("widthrawToken"),
-        icon: <img src={widthrawImage} alt={t("widthrawToken")} />,
+        key: routes.withdrawToken,
+        label: t("withdrawToken"),
+        icon: <img src={widthrawImage} alt={t("withdrawToken")} />,
+      },
+      {
+        key: routes.notifications,
+        label: t("notifications"),
+        icon: <img src={NotificationImage} alt={t("notifications")} />,
       },
     ],
     []
   );
+  // return (
+  //   <AntLayout id="main-layout">
+  //     <Drawer
+  //       placement={i18n.dir() === "rtl" ? "right" : "left"}
+  //       onClose={() => dispatch(toggle())}
+  //       visible={isOpen}
+  //       className="drawer"
+  //     >
+  //       <Menu items={menus} mobileSize={true} />
+  //     </Drawer>
+  //     <Sider width={257}>
+  //       <Menu items={menus} mobileSize={false} />
+  //     </Sider>
+  //     <AntLayout>
+  //       <Header>Header</Header>
+  //       <Content>
+  //         <Outlet />
+  //       </Content>
+  //     </AntLayout>
+  //   </AntLayout>
+  // );
   if (user)
     return (
       <AntLayout>

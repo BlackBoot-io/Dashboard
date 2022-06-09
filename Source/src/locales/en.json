@@ -1,4 +1,5 @@
 {
+  "appName": "Black Boot",
   "required": "This field is Required",
   "login": "Login",
   "Welcome": "Welcom to Our Website",
@@ -35,5 +36,11 @@
   "RefferalCode": "Refferal Code",
   "Token": "Token",
   "BounesToken": "Bounes Token",
-  "TotalTokens": "Total Tokens"
+  "TotalTokens": "Total Tokens",
+  "overview": "Overview",
+  "transactions": "Transactions",
+  "buyToken": "Buy Token",
+  "withdrawToken": "Withdraw Token",
+  "notifications": "Notifications",
+  "crowdsaleSchedule": "Crowsale Schedule"
 }

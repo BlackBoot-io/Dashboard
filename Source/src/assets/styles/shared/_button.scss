@@ -10,11 +10,11 @@
 }
 .btn-primary {
     @include btn;
-    background-color: var(--blue_whale);
+    background-color: var(--blue-whale);
     color: var(--white);
 }
 .btn-secondary {
     @include btn;
-    background-color: var(--catskill_white);
+    background-color: var(--catskill-white);
     color: var(--star-dust);
 }
