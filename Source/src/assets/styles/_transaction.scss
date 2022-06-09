@@ -1,0 +1,61 @@
+#transaction {
+    margin: $offset3;
+
+    .transaction-header-logo {
+        display: flex;
+        column-gap: $offset2;
+        align-items: center;
+
+        h1 {
+            margin-bottom: 0;
+        }
+    }
+
+    .transaction-header-action {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        column-gap: $offset1;
+    }
+
+    .transaction-header-action-pager {
+        display: flex;
+        column-gap: $offset2;
+        align-items: center;
+
+        h4 {
+            margin-bottom: 0;
+        }
+    }
+
+    .transaction-header-action-filters {
+        display: flex;
+        column-gap: $offset3;
+        margin-top: $offset6;
+    }
+
+    .transaction-table-container {
+        margin-top: $offset5;
+    }
+
+    .transaction-modal .transaction-modal-divider {
+        text-align: center;
+
+        &::before {
+            content: "";
+            background-color: rgba(#000, .2);
+            height: 2px;
+            width: 100%;
+            margin-right: 1rem;
+        }
+
+        &::after {
+            content: "";
+            background-color: rgba(#000, .2);
+            height: 2px;
+            width: 100%;
+            margin-left: 1rem;
+        }
+    }
+
+}

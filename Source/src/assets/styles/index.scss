@@ -8,6 +8,7 @@
   --soft-peach: #efeff0;
   --white: #fff;
 }
+
 $offset1: 4px;
 $offset2: 8px;
 $offset3: 12px;
@@ -22,20 +23,24 @@ $xxl: 1600px;
 $fs0:10px;
 $fs1:12px;
 $fs2:14px;
+
 html {
   min-height: 100%;
   font-size: 12px;
   $white: #fff;
 }
+
 body.dark-mode {
   --white: #000;
 }
+
 @font-face {
   font-family: "iransans";
   src: url(../fonts/iransans.eot) format("embedded-opentype"), url(../fonts/iransans.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 html {
   &:lang(fa) {
     body {
@@ -43,6 +48,7 @@ html {
       text-align: right !important;
     }
   }
+
   &:lang(ar) {
     body {
       font-family: "iransans" !important;
@@ -50,6 +56,7 @@ html {
     }
   }
 }
+
 body {
   min-height: 100vh;
   background-color: #fff;
@@ -61,3 +68,4 @@ body {
 @import "./shared";
 @import "./auth";
 @import "./spalsh";
+@import "./transaction";

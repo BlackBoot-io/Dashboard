@@ -6,6 +6,7 @@ import routes from "config/routes";
 import Login from "components/Auth/comps/Login";
 import RecoverPasword from "components/Auth/comps/RecoverPasword";
 import Signup from "components/Auth/comps/Signup";
+import Transaction from "./Transaction/transaction";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path={routes.home} element={<Home />} />
+        <Route path={routes.transaction} element={<Transaction />} />
       </Route>
     </Routes>
   );
