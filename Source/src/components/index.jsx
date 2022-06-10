@@ -7,6 +7,10 @@ import Login from "components/Auth/comps/Login";
 import RecoverPasword from "components/Auth/comps/RecoverPasword";
 import Signup from "components/Auth/comps/Signup";
 import Transaction from "./Transaction/transaction";
+import Profile from "./Profile";
+import UpdateProfile from "./Profile/comps/UpdateProfile";
+import ChangePassword from "./Profile/comps/ChangePassword";
+import UpdateWallet from "./Profile/comps/UpdateWallet";
 
 function App() {
   return (
@@ -20,6 +24,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.transaction} element={<Transaction />} />
+        <Route path={routes.profile} element={<Profile />} />
       </Route>
     </Routes>
   );

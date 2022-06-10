@@ -3,6 +3,10 @@ const routes = {
   login: "login",
   signup: "signup",
   recoverPassword: "recoverPassword",
+  profile: "profile",
+  //updateProfile: 'updateProfile',
+  //changePassword: 'changePassword',
+  //updateWallet: 'updateWallet',
   home: "home",
   transaction: "transaction",
 };
