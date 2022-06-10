@@ -1,4 +1,4 @@
-import { Col, Row, Card, Select, Segmented, Input, Button } from "antd";
+import { Col, Row, Card, Segmented, Input, Button } from "antd";
 import { useTranslation } from "react-i18next";
 import BuyTokenIcon from "assets/images/buy-token.svg";
 import BagIcon from "assets/images/bag.svg";
@@ -9,11 +9,6 @@ import EtheriumIcon from "assets/images/networks/etherium.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 import BlueCircleBg from "assets/images/blue-circle-bg.svg";
-
-import { useEffect, useState } from "react";
-import { useGetAllQuery } from "api/transaction";
-import Utils from "config/utils";
-const { Option } = Select;
 
 const BuyToken = () => {
   const { t } = useTranslation();
