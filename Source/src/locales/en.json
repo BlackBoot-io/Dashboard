@@ -35,5 +35,7 @@
   "RefferalCode": "Refferal Code",
   "Token": "Token",
   "BounesToken": "Bounes Token",
-  "TotalTokens": "Total Tokens"
+  "TotalTokens": "Total Tokens",
+
+  "buyToken": "Buy Token"
 }

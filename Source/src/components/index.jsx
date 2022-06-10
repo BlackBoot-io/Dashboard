@@ -7,6 +7,7 @@ import Login from "components/Auth/comps/Login";
 import RecoverPasword from "components/Auth/comps/RecoverPasword";
 import Signup from "components/Auth/comps/Signup";
 import Transaction from "./Transaction/transaction";
+import BuyToken from "./BuyToken/buyToken";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.transaction} element={<Transaction />} />
+        <Route path={routes.buy} element={<BuyToken />} />
       </Route>
     </Routes>
   );

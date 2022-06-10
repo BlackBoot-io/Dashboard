@@ -5,5 +5,6 @@ const routes = {
   recoverPassword: "recoverPassword",
   home: "home",
   transaction: "transaction",
+  buy: "buy",
 };
 export default routes;
