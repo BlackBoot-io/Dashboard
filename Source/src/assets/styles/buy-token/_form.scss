@@ -1,0 +1,52 @@
+#buy-form {
+    .buy-button {
+        line-height: 48px !important;
+    }
+    .ant-segmented {
+        background-color: var(--white);
+
+        @mixin ant-segment {
+            box-shadow: none;
+            border-radius: 8px;
+            padding: 12px 0;
+        }
+
+        .ant-segmented-item {
+            @include ant-segment;
+        }
+
+        .ant-segmented-item-selected {
+            background: #edf6fa;
+        }
+
+        .ant-segmented-thumb {
+            @include ant-segment;
+            background: #edf6fa;
+        }
+    }
+    .buy-card {
+        background: var(--white);
+        border: 1px solid #f2f2f5;
+        box-shadow: 0px 3px 10px rgba(47, 83, 109, 0.03);
+        border-radius: 20px;
+
+        .blue-circle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+
+    .buy-p {
+        font-style: normal;
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 25px;
+        color: #4e4e53;
+
+        &.inline {
+            display: inline-block;
+        }
+    }
+}

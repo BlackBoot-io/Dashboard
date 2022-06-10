@@ -48,6 +48,13 @@
   "withdraw": "Withdraw",
   "walleteAddress": "Wallete Address",
   "withdrawalAmount": "Withdrawal Amount",
-  "withdrawalNotices": "Withdrawal Notices",
-  "days": "Days"
+  "withdrawalNotices": "Withdrawal Notices", 
+  "days": "Days",
+  "publicSale": "Public Sale",
+  "tokenForSale": "Token For Sale",
+  "yourContribution": "Your Contribution",
+  "raised": "Raised",
+  "goal": "Goal",
+  "startAt": "Start at",
+  "endIn": "End in"
 }
