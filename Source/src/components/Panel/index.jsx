@@ -80,26 +80,36 @@ const Layout = ({}) => {
   //     </AntLayout>
   //   </AntLayout>
   // );
+  if (user)
     return (
+      <AntLayout>
+        <Drawer
+          placement={i18n.dir() === "rtl" ? "right" : "left"}
+          onClose={() => dispatch(toggle())}
+          visible={isOpen}
+          className="drawer"
+        >
+          <Menu items={menus} mobileSize={true} />
+        </Drawer>
+        <Sider>
+          <Menu items={menus} mobileSize={false} />
+        </Sider>
         <AntLayout>
-            <Drawer
-                placement={i18n.dir() === "rtl" ? "right" : "left"}
-                onClose={() => dispatch(toggle())}
-                visible={isOpen}
-                className="drawer"
-            >
-                <Menu items={menus} mobileSize={true} />
-            </Drawer>
-            <Sider>
-               {/* <Menu items={menus} mobileSize={false} />*/}
-            </Sider>
-            <AntLayout>
-                <Header>Header</Header>
-                <Content>
-                    <Outlet />
-                </Content>
-            </AntLayout>
+          <Header>Header</Header>
+          <Content>
+            <Outlet />
+          </Content>
         </AntLayout>
+      </AntLayout>
+    );
+  else if (token) return <Splash />;
+  else
+    return (
+      <Navigate
+        to={`/${routes.auth}/${routes.login}`}
+        state={{ from: location }}
+        replace
+      />
     );
 };
 export default Layout;
