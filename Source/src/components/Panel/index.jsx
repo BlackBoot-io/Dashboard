@@ -59,27 +59,27 @@ const Layout = ({}) => {
     ],
     []
   );
-  return (
-    <AntLayout id="main-layout">
-      <Drawer
-        placement={i18n.dir() === "rtl" ? "right" : "left"}
-        onClose={() => dispatch(toggle())}
-        visible={isOpen}
-        className="drawer"
-      >
-        <Menu items={menus} mobileSize={true} />
-      </Drawer>
-      <Sider width={257}>
-        <Menu items={menus} mobileSize={false} />
-      </Sider>
-      <AntLayout>
-        <Header>Header</Header>
-        <Content>
-          <Outlet />
-        </Content>
-      </AntLayout>
-    </AntLayout>
-  );
+  // return (
+  //   <AntLayout id="main-layout">
+  //     <Drawer
+  //       placement={i18n.dir() === "rtl" ? "right" : "left"}
+  //       onClose={() => dispatch(toggle())}
+  //       visible={isOpen}
+  //       className="drawer"
+  //     >
+  //       <Menu items={menus} mobileSize={true} />
+  //     </Drawer>
+  //     <Sider width={257}>
+  //       <Menu items={menus} mobileSize={false} />
+  //     </Sider>
+  //     <AntLayout>
+  //       <Header>Header</Header>
+  //       <Content>
+  //         <Outlet />
+  //       </Content>
+  //     </AntLayout>
+  //   </AntLayout>
+  // );
   if (user)
     return (
       <AntLayout>

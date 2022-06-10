@@ -1,4 +1,4 @@
-import { Col, Row, Card, Segmented, Input, Button, Progress } from "antd";
+import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import BuyTokenIcon from "assets/images/buy-token.svg";
 

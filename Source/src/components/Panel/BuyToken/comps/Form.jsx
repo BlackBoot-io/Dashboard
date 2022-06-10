@@ -42,13 +42,13 @@ const Form = () => {
         </p>
         <Row gutter={[24, 16]}>
           <Col xs={24} md={24} lg={8}>
-            <Input addonAfter={<span>USD</span>} />
+            <Input className="custom-input" addonAfter={<span>USD</span>} />
           </Col>
           <Col xs={24} md={24} lg={8}>
-            <Input addonAfter={<span>ETH</span>} />
+            <Input className="custom-input" addonAfter={<span>ETH</span>} />
           </Col>
           <Col xs={24} md={24} lg={8}>
-            <Input addonAfter={<span>AVN</span>} />
+            <Input className="custom-input" addonAfter={<span>AVN</span>} />
           </Col>
           <Col xs={24} md={24} lg={24} style={{ marginTop: 20 }}>
             <img
