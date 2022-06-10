@@ -1,0 +1,32 @@
+#buy-token {
+    padding: $offset5;
+    background: var(--white) !important;
+    .ant-row {
+        width: inherit !important;
+    }
+    .buy-header {
+		display: flex;
+		column-gap: $offset2;
+		align-items: center;
+
+		.logo-holder {
+			width: 44px;
+			height: 44px;
+			background: #00CCA0;
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.header-title {
+			margin-bottom: 0;
+			font-style: normal;
+			font-weight: 600;
+			font-size: 23px;
+			line-height: 56px;
+		}
+	}
+    @import "./form";
+    @import "./info";
+}

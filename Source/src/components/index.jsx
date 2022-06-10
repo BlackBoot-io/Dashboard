@@ -7,7 +7,7 @@ import Login from "components/Auth/comps/Login";
 import RecoverPasword from "components/Auth/comps/RecoverPasword";
 import Signup from "components/Auth/comps/Signup";
 import Transaction from "./Panel/Transaction/transaction";
-import BuyToken from "./Panel/BuyToken/buyToken";
+import BuyToken from "./Panel/BuyToken";
 
 function App() {
   return (

@@ -1,20 +1,24 @@
 @mixin btn {
-    line-height: 40px;
-    min-width: 40px;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
+    line-height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    box-shadow: 0px 4px 14px rgba(47, 83, 109, 0.2) !important;
+    height: auto!important;
+    border: none!important;
     .ant-spin {
-        margin: 0 $offset1;
+        margin: 0 $offset1 !important;
     }
 }
 .btn-primary {
     @include btn;
-    background-color: var(--blue-whale);
-    color: var(--white);
+    background-color: var(--blue-whale) !important;
+    color: var(--white) !important;
 }
 .btn-secondary {
     @include btn;
-    background-color: var(--catskill-white);
-    color: var(--star-dust);
+    background-color: var(--catskill-white) !important;
+    color: var(--star-dust) !important;
 }
