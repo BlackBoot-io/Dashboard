@@ -45,5 +45,12 @@
   "buyToken": "Buy Token",
   "beginTransaction": "Begin Transaction",
   "remainingTimetobuy": "Remaining time to buy",
-  "days": "Days"
+  "days": "Days",
+  "publicSale": "Public Sale",
+  "tokenForSale": "Token For Sale",
+  "yourContribution": "Your Contribution",
+  "raised": "Raised",
+  "goal": "Goal",
+  "startAt": "Start at",
+  "endIn": "End in"
 }

@@ -69,7 +69,7 @@
 		column-gap: $offset2;
 		align-items: center;
 
-		span {
+		.logo-holder {
 			width: 44px;
 			height: 44px;
 			background: #00CCA0;
@@ -79,7 +79,7 @@
 			justify-content: center;
 		}
 
-		h1 {
+		.header-title {
 			margin-bottom: 0;
 			font-style: normal;
 			font-weight: 600;
@@ -119,6 +119,7 @@
 		color: var(--white);
 		font-size: 16px;
 		line-height: 26px;
+		margin-top: 20px;
 		box-shadow: 0px 4px 14px rgba(47, 83, 109, 0.2);
 		border-radius: 8px;
 		display: flex;
@@ -154,6 +155,87 @@
 			text-transform: capitalize;
 			color: var(--white);
 			margin-left: auto;
+		}
+	}
+
+	.remain-subhead {
+		position: relative;
+		font-size: 17px;
+		text-transform: capitalize;
+		color: #646972;
+		padding-left: 30px;
+		margin-top: 20px;
+		z-index: 9;
+
+		&:before,
+		&:after {
+			position: absolute;
+			top: 50%;
+			left: 10px;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;;
+		}
+
+		&::before {
+			content: "";
+			width: 18px;
+			height: 18px;
+			background: #18A84B;
+			border: 2px solid #16D359;;
+		}
+
+		&::after {
+			content: "";
+			width: 10px;
+			height: 10px;
+			background-color: #007542;
+		}
+	}
+
+	.remain-list {
+		position: relative;
+		margin: 55px 0;
+		z-index: 9;
+
+		li {
+			list-style-type: none;
+			font-size: 20px;
+			line-height: 56px;
+			text-transform: capitalize;
+			color: #202020;
+
+			span {
+				float: right;
+				font-size: 17px;
+				color: #4E4E4F;
+			}
+		}
+	}
+
+	.remain-progress {
+		span {
+			display: block;
+		}
+
+		.progress-title {
+			font-weight: 500;
+			font-size: 17px;
+			text-transform: capitalize;
+			color: #646972;
+		}
+
+		.progress-sub {
+			font-weight: 400;
+			font-size: 15px;
+			text-transform: capitalize;
+			color: #646972;
+		}
+
+		.progress-text {
+			font-weight: 300;
+			font-size: 12px;
+			text-transform: capitalize;
+			color: #646972;
 		}
 	}
 }
