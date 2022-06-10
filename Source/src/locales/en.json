@@ -1,4 +1,5 @@
 {
+  "appName": "Black Boot",
   "required": "This field is Required",
   "login": "Login",
   "Welcome": "Welcom to Our Website",
@@ -41,5 +42,25 @@
   "RefferalCode": "Refferal Code",
   "Token": "Token",
   "BounesToken": "Bounes Token",
-  "TotalTokens": "Total Tokens"
+  "TotalTokens": "Total Tokens",
+  "overview": "Overview",
+  "transactions": "Transactions",
+  "withdrawToken": "Withdraw Token",
+  "notifications": "Notifications",
+  "crowdsaleSchedule": "Crowsale Schedule",
+  "buyToken": "Buy Token",
+  "beginTransaction": "Begin Transaction",
+  "remainingTimetobuy": "Remaining time to buy",
+  "withdraw": "Withdraw",
+  "walleteAddress": "Wallete Address",
+  "withdrawalAmount": "Withdrawal Amount",
+  "withdrawalNotices": "Withdrawal Notices", 
+  "days": "Days",
+  "publicSale": "Public Sale",
+  "tokenForSale": "Token For Sale",
+  "yourContribution": "Your Contribution",
+  "raised": "Raised",
+  "goal": "Goal",
+  "startAt": "Start at",
+  "endIn": "End in"
 }
