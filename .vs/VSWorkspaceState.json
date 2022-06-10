@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Source",
+    "\\Source\\src",
+    "\\Source\\src\\assets",
+    "\\Source\\src\\assets\\styles",
+    "\\Source\\src\\components",
+    "\\Source\\src\\components\\Panel",
+    "\\Source\\src\\components\\Panel\\BuyToken",
+    "\\Source\\src\\components\\Panel\\BuyToken\\comps",
+    "\\Source\\src\\locales"
+  ],
+  "SelectedNode": "\\Source\\src\\components\\Panel\\BuyToken\\comps\\Info.jsx",
+  "PreviewInSolutionExplorer": true
+}
