@@ -2,6 +2,7 @@ import { Col, Row, Card, Select, Segmented, Input, Button } from "antd";
 import { useTranslation } from "react-i18next";
 import BuyTokenIcon from "assets/images/buy-token.svg";
 import BagIcon from "assets/images/bag.svg";
+import ClockIcon from "assets/images/clock.svg";
 import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
 import EtheriumIcon from "assets/images/networks/etherium.svg";
@@ -23,7 +24,7 @@ const BuyToken = () => {
           <span>
             <img src={BuyTokenIcon} alt="logo" />
           </span>
-          <h1>{t("buyToken")} </h1>
+          <h1>{t("buyToken")}</h1>
         </Col>
         <Col xs={24} md={24} lg={16}>
           <Card style={{ width: '100%' }} className="buy-card">
@@ -85,7 +86,7 @@ const BuyToken = () => {
                 </p>
                 <Button className="buy-button" style={{ marginTop: 20 }}>
                   <img src={BagIcon} style={{ marginRight: 7 }} alt="bag logo" />
-                  Begin Transaction
+                  {t("beginTransaction")}
                 </Button>
               </Col>
             </Row>
@@ -94,6 +95,11 @@ const BuyToken = () => {
         <Col xs={24} md={24} lg={8}>
           <Card style={{ width: '100%' }} className="buy-card">
             <img src={BlueCircleBg} className="blue-circle-bg" alt="blue circle background" />
+            <div className="remain-head">
+              <img src={ClockIcon} alt="clock icon" />
+              <h4 className="remain-title">{t("remainingTimetobuy")}</h4>
+              <span className="remain-time">30 {t("days")}</span>
+            </div>
           </Card>
         </Col>
       </Row>

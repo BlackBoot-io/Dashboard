@@ -1,4 +1,5 @@
 {
+  "appName": "Black Boot",
   "required": "This field is Required",
   "login": "Login",
   "Welcome": "Welcom to Our Website",
@@ -36,6 +37,13 @@
   "Token": "Token",
   "BounesToken": "Bounes Token",
   "TotalTokens": "Total Tokens",
-
-  "buyToken": "Buy Token"
+  "overview": "Overview",
+  "transactions": "Transactions",
+  "withdrawToken": "Withdraw Token",
+  "notifications": "Notifications",
+  "crowdsaleSchedule": "Crowsale Schedule",
+  "buyToken": "Buy Token",
+  "beginTransaction": "Begin Transaction",
+  "remainingTimetobuy": "Remaining time to buy",
+  "days": "Days"
 }

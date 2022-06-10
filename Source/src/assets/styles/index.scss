@@ -1,12 +1,15 @@
 :root {
-  --catskill_white: #f1f4f8;
-  --science_blue: #005dd2;
-  --medium_teal_blue: #004fba;
-  --blue_whale: #023047;
+  --catskill-white: #f1f4f8;
+  --science-blue: #005dd2;
+  --medium-teal-blue: #004fba;
+  --blue-whale: #023047;
   --mid-grey: #5b626e;
   --star-dust: #989aa3;
   --soft-peach: #efeff0;
   --white: #fff;
+  --alabaster: #fafafc;
+  --white-smoke1: #f4f4f4;
+  --white-smoke2: #f5f5f6;
 }
 
 $offset1: 4px;
@@ -20,9 +23,9 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1600px;
-$fs0:10px;
-$fs1:12px;
-$fs2:14px;
+$fs0: 10px;
+$fs1: 12px;
+$fs2: 14px;
 
 html {
   min-height: 100%;
