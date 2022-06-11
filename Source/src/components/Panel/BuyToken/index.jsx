@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
+import Icon from "components/comps/Icon";
 import BuyTokenIcon from "assets/images/buy-token.svg";
 
 import Form from "components/Panel/BuyToken/comps/Form";
@@ -13,6 +14,7 @@ const BuyToken = () => {
         <Col xs={24} md={24} lg={24} className="buy-header">
           <span className="logo-holder">
             <img src={BuyTokenIcon} alt="logo" />
+            {/* <Icon name={'FaDownload'} size={24} /> */}
           </span>
           <h1 className="header-title">{t("buyToken")}</h1>
         </Col>
