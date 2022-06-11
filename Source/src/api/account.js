@@ -13,7 +13,28 @@ export const authApiSlice = apiSlice.injectEndpoints({
     getCurrentUserInfo: builder.query({
       query: () => `/${addresses.account_getCurrentUser}`,
     }),
+    updateProfile: builder.mutation({
+      query: (credentials) => ({
+        url: `/${addresses.account_updateProfile}`,
+        method: "POST",
+        body: { ...credentials },
+      }),
+    }),
+    changePassword: builder.mutation({
+      query: (credentials) => ({
+        url: `/${addresses.account_changePassword}`,
+        method: "POST",
+        body: { ...credentials },
+      }),
+    }),
+    updateWallet: builder.mutation({
+      query: (credentials) => ({
+        url: `/${addresses.account_updateWallet}`,
+        method: "POST",
+        body: { ...credentials },
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useGetCurrentUserInfoQuery } = authApiSlice;
+export const { useLoginMutation, useGetCurrentUserInfoQuery, useUpdateProfileMutation, useChangePasswordMutation, useUpdateWalletMutation } = authApiSlice;

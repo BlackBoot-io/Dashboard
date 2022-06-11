@@ -1,0 +1,30 @@
+#profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+    background: var(--catskill_white) no-repeat center center;
+    padding: $offset5;
+    flex-direction: column;
+
+    .profile-title {
+        font-weight: 600;
+        font-size: 23px;
+        line-height: 56px;
+    }
+
+    .update-profile {
+        display: flex;
+        flex-direction: column;
+
+        .input-label {
+            color: #004FBA;
+        }
+
+        .update-profile-button {
+            width: 169px!important;
+            height: 48px!important;
+        }
+    }
+
+}

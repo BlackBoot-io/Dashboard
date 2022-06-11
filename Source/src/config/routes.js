@@ -3,6 +3,7 @@ const routes = {
   login: "login",
   signup: "signup",
   recoverPassword: "recoverPassword",
+  profile: "profile",
   home: "home",
   transactions: "transactions",
   crowdsaleSchedule: "crowdsale-schedule",
