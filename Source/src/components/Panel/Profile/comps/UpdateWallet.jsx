@@ -13,7 +13,7 @@ const UpdateWallet = () => {
             <div><Input /></div> */}
         </div>
         <div id="update-button">
-            <Button>{t("updateProfile")}</Button>
+            <Button>{t("updateWallet")}</Button>
         </div>
   </div>;
 };

@@ -22,6 +22,8 @@
   "gender": "Gender",
   "nationality": "Nationality",
   "updateProfile": "Update Profile",
+  "changePassword": "Change Password",
+  "updateWallet": "Update Wallet",
   "loading": "Loading",
   "Transactions": "Transactions",
   "ShowRows": "Show Rows",

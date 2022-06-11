@@ -13,7 +13,7 @@ const ChangePassword = () => {
             <div><Input /></div> */}
         </div>
         <div id="update-button">
-            <Button>{t("updateProfile")}</Button>
+            <Button>{t("changePassword")}</Button>
         </div>
   </div>;
 };
