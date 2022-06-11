@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Auth from "components/Auth";
-import Home from "components/Panel/Home";
 import Panel from "components/Panel";
 import routes from "config/routes";
 import Login from "components/Auth/comps/Login";
@@ -19,8 +18,7 @@ function App() {
                 <Route path={routes.recoverPassword} element={<RecoverPasword />} />
             </Route>
             <Route element={<Panel />}>
-                <Route index element={<Home />} />
-                <Route path={routes.home} element={<Home />} />
+                <Route index element={<Transaction />} />
                 <Route path={routes.transactions} element={<Transaction />} />
                 <Route path={routes.buyToken} element={<BuyToken />} />
                 <Route path={routes.withdrawToken} element={<WithdrawToken />} />
