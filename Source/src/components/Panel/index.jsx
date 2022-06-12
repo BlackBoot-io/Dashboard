@@ -82,7 +82,7 @@ const Layout = ({}) => {
   //     </AntLayout>
   //   </AntLayout>
   // );
-  if (user)
+  // if (user)
     return (
       <AntLayout id="main-layout">
         <Drawer
@@ -104,14 +104,14 @@ const Layout = ({}) => {
         </AntLayout>
       </AntLayout>
     );
-  else if (token) return <Splash />;
-  else
-    return (
-      <Navigate
-        to={`/${routes.auth}/${routes.login}`}
-        state={{ from: location }}
-        replace
-      />
-    );
+  // else if (token) return <Splash />;
+  // else
+  //   return (
+  //     <Navigate
+  //       to={`/${routes.auth}/${routes.login}`}
+  //       state={{ from: location }}
+  //       replace
+  //     />
+  //   );
 };
 export default Layout;

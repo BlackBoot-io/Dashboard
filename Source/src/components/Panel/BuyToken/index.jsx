@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Icon from "components/comps/Icon";
 import BuyTokenIcon from "assets/images/buy-token.svg";
 
-import Form from "components/Panel/BuyToken/comps/Form";
+import BuyTokenForm from "components/Panel/BuyToken/comps/Form";
 import Info from "components/Panel/BuyToken/comps/Info";
 
 const BuyToken = () => {
@@ -18,7 +18,7 @@ const BuyToken = () => {
           </span>
           <h1 className="header-title">{t("buyToken")}</h1>
         </Col>
-        <Form />
+        <BuyTokenForm />
         <Info />
       </Row>
     </div>
