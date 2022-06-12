@@ -1,0 +1,31 @@
+#update-profile {
+    display: flex;
+    flex-direction: column;
+
+    .input-label {
+        color: #004FBA;
+    }
+
+    .custom-input {
+        width: 348px;
+        height: 42px;
+    }
+
+    .ant-select-selector {
+        width: 348px;
+        height: 42px;
+        border: 1px solid #D7E3FF;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+    }
+
+    .update-profile-button {
+        width: 169px !important;
+        height: 48px !important;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 10px;
+    }
+}

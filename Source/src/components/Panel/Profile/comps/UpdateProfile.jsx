@@ -41,34 +41,34 @@ const UpdateProfile = ({data}) => {
         >
             <Row gutter={[24, 16]} style={{ marginBottom: '20px' }}>
                 <Col xs={8}>
-                    <Form.Item label={t("name")} className="input-label">
+                    <Form.Item label={<span className="input-label">{t("name")}</span>}>
                         <Input className="custom-input" />
                     </Form.Item>
                 </Col>
                 <Col xs={8}>
-                    <Form.Item label={t("email")} className="input-label">
+                    <Form.Item label={<span className="input-label">{t("email")}</span>}>
                         <Input className="custom-input" />
                     </Form.Item>
                 </Col>
                 <Col xs={8}>
-                    <Form.Item label={t("birthdayDate")} className="input-label">
-                        <DatePicker />
+                    <Form.Item label={<span className="input-label">{t("birthdayDate")}</span>}>
+                        <DatePicker className="custom-input"/>
                     </Form.Item>
                 </Col>
             </Row>
             <Row gutter={[24, 16]} style={{ marginBottom: '28px' }}>
                 <Col xs={8}>
-                    <Form.Item label={t("gender")} className="input-label">
-                        <Select>
-                            <Select.Option value={1}>Male</Select.Option>
-                            <Select.Option value={0}>Female</Select.Option>
+                    <Form.Item label={<span className="input-label">{t("gender")}</span>}>
+                        <Select >
+                            <Select.Option key={1} value={1}>Male</Select.Option>
+                            <Select.Option key={0} value={0}>Female</Select.Option>
                         </Select>
                     </Form.Item>
                 </Col>
                 <Col xs={8}>
-                    <Form.Item label={t("nationality")} className="input-label">
-                        <Select>
-                            {nations.map(nation => <Select.Option value={nation}>{nation}</Select.Option>)}
+                    <Form.Item label={<span className="input-label">{t("nationality")}</span>}>
+                        <Select className="custom-input">
+                            {nations.map(nation => <Select.Option key={nation} value={nation}>{nation}</Select.Option>)}
                         </Select>
                     </Form.Item>
                 </Col>

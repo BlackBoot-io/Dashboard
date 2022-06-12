@@ -4,9 +4,11 @@ import SlideImage from "assets/images/auth-slide.svg";
 import UpdateProfile from "./comps/UpdateProfile";
 import ChangePassword from "./comps/ChangePassword";
 import UpdateWallet from "./comps/UpdateWallet";
+import { useGetCurrentUserInfoQuery } from "api/account";
 
 const Profile = () => {
     const { t } = useTranslation();
+    const { data } = useGetCurrentUserInfoQuery();
 
     return (
         <div id="profile">
@@ -17,9 +19,9 @@ const Profile = () => {
                 </Col>
             </Row>
             <Row>
-                <Tabs defaultActiveKey="1">
+                <Tabs tabBarGutter={90} tabBarStyle={{ marginBottom: '28px', borderBottom: '1px solid #E8E5E5' }} defaultActiveKey="1">
                     <Tabs.TabPane tab={t("updateProfile")} key="1">
-                        <UpdateProfile />
+                        <UpdateProfile data={data}/>
                     </Tabs.TabPane>
                     <Tabs.TabPane tab={t("changePassword")} key="2">
                         <ChangePassword />

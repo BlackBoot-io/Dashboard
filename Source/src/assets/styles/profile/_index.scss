@@ -7,24 +7,29 @@
     padding: $offset5;
     flex-direction: column;
 
+    .ant-tabs-tab-active {
+        font-size: 17px;
+        line-height: 10px;
+        color: #002EFF;
+        border-bottom: 3px solid #002EFF;
+    }
+
+    .ant-tabs-tab {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 10px;
+        color: #5B626E;
+    }
+
     .profile-title {
         font-weight: 600;
         font-size: 23px;
         line-height: 56px;
-    }
-
-    .update-profile {
         display: flex;
-        flex-direction: column;
-
-        .input-label {
-            color: #004FBA;
-        }
-
-        .update-profile-button {
-            width: 169px!important;
-            height: 48px!important;
-        }
+        flex-direction: row;
     }
 
+    @import "./changePassword";
+    @import "./updateProfile";
+    @import "./updateWallet";
 }
