@@ -1,15 +1,50 @@
 import { Menu as AntMenu } from "antd";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoImage from "assets/images/logo.png";
+import { useEffect, useState, useCallback } from "react";
 const Menu = ({ items }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [state, setState] = useState({
+    openKey: "overview",
+    selectedKey: "transactions",
+  });
   const onClick = (e) => {
     console.log("click ", e);
-    navigate(`/${e.key}`)
+    navigate(`/${e.key}`);
   };
-
+  const location = useLocation();
+  const setCurrentMenu = useCallback(() => {
+    let pathname = window.location.pathname;
+    let item = items.find(
+      (item) => !item.childrens && pathname.indexOf(item.key) > -1
+    );
+    if (item) {
+      setState({
+        openKey: item.key,
+        selectedKey: item.key,
+      });
+    } else {
+      let parent = null;
+      let child = null;
+      for (let x of items.filter((i) => i.children)) {
+        child = x.children.find((c) => pathname.indexOf(c.key) > -1);
+        if (child) parent = x;
+        break;
+      }
+      setState({
+        openKey: parent.key,
+        selectedKey: child.key,
+      });
+    }
+  }, []);
+  const onOpenChange = (path) => {
+    setState((s) => ({ ...s, openKey: path[1] }));
+  };
+  useEffect(() => {
+    setCurrentMenu();
+  }, [location]);
   return (
     <div id="menu">
       <Link to="/" className="logo">
@@ -20,8 +55,9 @@ const Menu = ({ items }) => {
       </Link>
       <AntMenu
         onClick={onClick}
+        onOpenChange={onOpenChange}
         style={{ width: 256 }}
-        selectedKeys={["transactions"]}
+        selectedKeys={[state.selectedKey]}
         openKeys={["overview"]}
         mode="inline"
         items={items}

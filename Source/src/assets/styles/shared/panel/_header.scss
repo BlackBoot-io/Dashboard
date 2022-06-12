@@ -1,0 +1,11 @@
+#header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white);
+    padding-left: $offset5;
+    padding-right: $offset5;
+    .user {
+        font-weight: 500;
+        font-size: 27px;
+    }
+}

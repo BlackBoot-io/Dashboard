@@ -26,7 +26,7 @@ const ByEmail = () => {
       return;
     }
     dispatch(setCredentials(call.data));
-    nav(`/${routes.home}`);
+    nav(`/${routes.transactions}`);
   };
   const invalid = () => {};
   return (

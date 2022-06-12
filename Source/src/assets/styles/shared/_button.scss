@@ -6,19 +6,32 @@
     cursor: pointer !important;
     padding: 0 !important;
     box-shadow: 0px 4px 14px rgba(47, 83, 109, 0.2) !important;
-    height: auto!important;
-    border: none!important;
+    height: auto !important;
+    border: none !important;
     .ant-spin {
         margin: 0 $offset1 !important;
+        display: inline-flex;
+        justify-content: center;
+        margin-left: $offset1;
     }
 }
 .btn-primary {
     @include btn;
     background-color: var(--blue-whale) !important;
     color: var(--white) !important;
+    .ant-spin-dot-item {
+        background-color: var(--white)!important;
+    }
 }
 .btn-secondary {
     @include btn;
     background-color: var(--catskill-white) !important;
     color: var(--star-dust) !important;
+}
+html:lang(ar) {
+    .btn-primary {
+        .ant-spin {
+            margin-right: $offset1;
+        }
+    }
 }

@@ -64,5 +64,6 @@
   "raised": "Raised",
   "goal": "Goal",
   "startAt": "Start at",
-  "endIn": "End in"
+  "endIn": "End in",
+  "hello":"Hello"
 }

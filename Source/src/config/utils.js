@@ -124,12 +124,20 @@ export default class Utils {
     };
   };
   static getStoredData = (key) => {
-    let value = localStorage.getItem(key);
-    if (value) return this.decrypt(value);
-    return null;
+    try {
+      let value = localStorage.getItem(key);
+      if (value) return this.decrypt(value);
+      return null;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
   };
   static storedData = (key, value) => {
     if (!value) return;
     localStorage.setItem(key, this.encrypt(value));
+  };
+  static removeStoredData = (key) => {
+    localStorage.removeItem(key);
   };
 }
