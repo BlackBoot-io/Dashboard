@@ -22,39 +22,27 @@ const authSlice = createSlice({
         user,
         //nav,
       } = action.payload;
-      console.log("credentials", {
-        accessToken,
-        accesTokenExpireTime,
-        refreshToken,
-        refreshTokenExpiretime,
-        user,
-        //nav,
-      });
-      localStorage.setItem(storageKeys.token, Utils.encrypt(accessToken));
-      localStorage.setItem(
-        storageKeys.tokenExpiretime,
-        Utils.encrypt(accesTokenExpireTime)
-      );
-      localStorage.setItem(
-        storageKeys.refreshToken,
-        Utils.encrypt(refreshToken)
-      );
-      localStorage.setItem(
+      Utils.storedData(storageKeys.token, accessToken);
+      Utils.storedData(storageKeys.tokenExpiretime, accesTokenExpireTime);
+      if (refreshToken) {
+        Utils.storedData(storageKeys.refreshToken, refreshToken);
+        state.refreshToken = accessToken;
+      }
+      Utils.storedData(
         storageKeys.refreshTokenExpiretime,
-        Utils.encrypt(refreshTokenExpiretime)
+        refreshTokenExpiretime
       );
       state.token = accessToken;
       state.tokenExpireTime = accesTokenExpireTime;
-      state.refreshToken = accessToken;
       state.refreshTokenExpiretime = accessToken;
       state.user = user;
       //nav(`/${routes.home}`);
     },
     setCurrentUser: (state, action) => {
-      let token = localStorage.getItem(storageKeys.token);
-      let tokenExpireTime = localStorage.getItem(storageKeys.tokenExpiretime);
-      let refreshToken = localStorage.getItem(storageKeys.refreshToken);
-      let refreshTokenExpiretime = localStorage.getItem(
+      let token = Utils.getStoredData(storageKeys.token);
+      let tokenExpireTime = Utils.getStoredData(storageKeys.tokenExpiretime);
+      let refreshToken = Utils.getStoredData(storageKeys.refreshToken);
+      let refreshTokenExpiretime = Utils.getStoredData(
         storageKeys.refreshTokenExpiretime
       );
       state.user = action.payload;
@@ -66,6 +54,10 @@ const authSlice = createSlice({
     logOut: (state, action) => {
       state.user = null;
       state.token = null;
+      Utils.removeStoredData(storageKeys.token);
+      Utils.removeStoredData(storageKeys.tokenExpiretime);
+      Utils.removeStoredData(storageKeys.refreshToken);
+      Utils.removeStoredData(storageKeys.refreshTokenExpiretime);
     },
   },
   // extraReducers:{

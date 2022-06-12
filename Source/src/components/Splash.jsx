@@ -16,7 +16,7 @@ const Splash = () => {
   } = useGetCurrentUserInfoQuery();
   useEffect(() => {
     console.log("spalsh", data, isSuccess, isError);
-    if (isSuccess && data) {
+    if (isSuccess && data && data.isSuccess) {
       dispatch(setCurrentUser(data?.data));
     }
   }, [isSuccess, isError]);

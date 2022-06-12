@@ -22,13 +22,20 @@
             border-left: none;
             border-right: none;
             background-color: transparent;
+            @mixin menu-item {
+                position: relative;
+                padding-top: $offset2;
+                padding-bottom: $offset2;
+                margin: 0 !important;
+                height: auto;
+            }
             .ant-menu-sub {
                 padding-top: $offset3;
                 > .ant-menu-item {
-                    position: relative;
-                    padding-top: $offset2;
-                    padding-bottom: $offset2;
-                    margin: 0 !important;
+                    @include menu-item;
+                    &:active {
+                        background-color: transparent;
+                    }
                     &:after {
                         content: "";
                         position: absolute;
@@ -63,13 +70,16 @@
             .ant-menu-title-content {
                 font-size: 15px;
             }
+            @mixin active-menu {
+                background-color: var(--white-smoke2) !important;
+                border-radius: 6px;
+                color: var(--blue-whale);
+                font-weight: 600;
+            }
             .ant-menu-submenu-selected {
                 color: var(--blue-whale);
                 .ant-menu-submenu-title {
-                    background-color: var(--white-smoke2) !important;
-                    border-radius: 6px;
-                    color: var(--blue-whale);
-                    font-weight: 600;
+                    @include active-menu();
                 }
                 .ant-menu-sub {
                     .ant-menu-title-content {
@@ -81,6 +91,12 @@
                     }
                 }
             }
+            > .ant-menu-item-selected {
+                @include active-menu();
+                &:after {
+                    display: none;
+                }
+            }
             // .ant-menu-item-selected {
 
             //     &:after {
@@ -89,6 +105,9 @@
             // }
             .ant-menu-submenu-title:hover {
                 background-color: var(--white-smoke2) !important;
+            }
+            > .ant-menu-item {
+                @include menu-item;
             }
         }
     }

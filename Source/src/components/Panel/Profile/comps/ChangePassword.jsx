@@ -1,5 +1,5 @@
 import Button from "components/comps/Button";
-import Input from "components/comps/Input";
+//import Input from "components/comps/Input";
 import { useTranslation } from "react-i18next";
 
 const ChangePassword = () => {
