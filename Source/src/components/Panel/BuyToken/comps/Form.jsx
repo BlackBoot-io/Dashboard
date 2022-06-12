@@ -71,6 +71,8 @@ const Form = () => {
               The contribution will be calculated based on the exchange rate at
               the moment that your transaction is confirmed.
             </p>
+          </Col>
+          <Col xs={24} md={24} lg={24}>
             <Button className="btn-primary w-100 buy-button">
               <img src={BagIcon} style={{ marginRight: 7 }} alt="bag logo" />
               {t("beginTransaction")}
