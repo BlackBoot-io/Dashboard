@@ -53,7 +53,7 @@ const ChangePassword = () => {
       <Row>
         <Form.Item>
           <Button
-            className="btn-primary w-100"
+            className="btn-primary w-100 change-password-button"
             type="submit"
             loading={isLoading}
           >

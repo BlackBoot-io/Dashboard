@@ -66,7 +66,7 @@ const UpdateWallet = () => {
       <Row>
         <Form.Item>
           <Button
-            className="btn-primary w-100"
+            className="btn-primary w-100 update-wallet-button"
             type="submit"
             loading={isLoading}
           >
