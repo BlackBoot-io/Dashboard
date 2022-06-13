@@ -1,3 +1,16 @@
-#changeWallet {
-    
+#update-wallet {
+    .descriptions {
+        margin-bottom: 25px;
+
+        .description {
+            .text-box {
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .custom-input {
+        height: 42px;
+    }
 }

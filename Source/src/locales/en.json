@@ -27,6 +27,7 @@
   "confirmNewPassword": "Confirm New Password",
   "changePassword": "Change Password",
   "updateWallet": "Update Wallet",
+  "selectWallet": "Select Wallet",
   "loading": "Loading",
   "Transactions": "Transactions",
   "ShowRows": "Show Rows",
