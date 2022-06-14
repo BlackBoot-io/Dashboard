@@ -5,7 +5,7 @@ import ClockIcon from "assets/images/clock.svg";
 const Info = () => {
   const { t } = useTranslation();
   return (
-    <Col xs={24} xxl={8}>
+    <Col xs={24} xxl={8} id="buy-info">
       <Card style={{ width: "100%" }} className="custom-card with-bg">
         <div className="remain-head">
           <img src={ClockIcon} alt="clock icon" />
