@@ -8,8 +8,11 @@ import EthereumIcon from "assets/images/networks/etherium.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 
+import Confirm from "./Confirm";
+
 const BuyTokenForm = () => {
   const [token, setToken] = useState('eth');
+  const [modalVisibility, setModalVisibility] = useState(false);
 
   const { t } = useTranslation();
 
@@ -21,8 +24,16 @@ const BuyTokenForm = () => {
     console.log('Failed:', errorInfo);
   };
 
+  const openDetailModal = () => {
+    setModalVisibility(true);
+  };
+  const closeDetailModal = () => {
+    setModalVisibility(false);
+  };
+
   return (
     <Col xs={24} xxl={16} id="buy-form">
+      <Confirm modalVisibility={modalVisibility} onClose={closeDetailModal} />
       <Card style={{ width: "100%" }} className="buy-card">
         <p className="buy-p">
           Plese choose the network you are going to transfer through.
@@ -106,7 +117,7 @@ const BuyTokenForm = () => {
               </p>
             </Col>
             <Col xs={24} md={24} lg={24}>
-              <Button className="btn-primary w-100 buy-button" htmlType="submit">
+              <Button className="btn-primary w-100 buy-button" htmlType="submit" onClick={openDetailModal}>
                 <img src={BagIcon} style={{ marginRight: 7 }} alt="bag logo" />
                 {t("beginTransaction")}
               </Button>

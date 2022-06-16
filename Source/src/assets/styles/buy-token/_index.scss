@@ -1,9 +1,11 @@
 #buy-token {
     padding: $offset5;
     background: var(--white) !important;
+
     .ant-row {
 			width: inherit !important;
     }
+		
     .buy-header {
 		display: flex;
 		column-gap: $offset2;
@@ -33,3 +35,5 @@
 	@import "./form";
 	@import "./info";
 }
+
+@import "./buy";
