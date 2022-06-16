@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "antd";
 import Icon from "components/comps/Icon";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
+import EthereumIcon from "assets/images/networks/etheriumIcon.svg";
 import CopyIcon from "assets/images/copy.svg";
 import qrCode from "assets/images/QR.svg";
 
@@ -35,8 +36,8 @@ const Confirm = (props) => {
             <Col xs={24} sm={12}>
               <h3 className="buy-title">{t("finalTransfarableValue")}</h3>
             </Col>
-            <Col xs={24} sm={12}>
-              <p></p>
+            <Col xs={24} sm={12} className="final-transfarable" style={{textAlign: 'right'}}>
+              <span className="dollar-amount">$214</span><span className="almost-eq">≃</span><span className="token-amount">0.012</span><span><img src={EthereumIcon} alt="ethereumIcon" /></span>
             </Col>
           </Row>
         </Row>
