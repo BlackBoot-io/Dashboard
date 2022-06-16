@@ -1,7 +1,8 @@
 import Icon from "components/comps/Icon";
 import { useTranslation } from "react-i18next";
 import Utils from "config/utils";
-import { Row, Table } from "antd";
+import { Row } from "antd";
+import DataTable from "components/comps/DataTable";
 
 const List = (props) => {
   const columns = [
@@ -94,13 +95,11 @@ const List = (props) => {
   return (
     <>
       <Row className="transaction-table-container">
-        <Table
-          size="large"
+        <DataTable
           columns={columns}
-          dataSource={props.data}
-          loading={props.isLoading}
-          pagination={{ position: ["none"], pageSize: props.pageSize }}
-          scroll={{ x: "100vh", y: "90vh" }}
+          data={props.data}
+          loading={props.loading}
+          pageSize={props.pageSize}
         />
       </Row>
     </>

@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { useGetAllQuery } from "api/transaction";
+import { useGetAllQuery, useGetByIdQuery } from "api/transaction";
 
 import Detail from "./comps/Detail";
 import Filter from "./comps/Filter";
 import List from "./comps/List";
 
 const Transaction = () => {
-  const data = [];
   const [dataSource, setDataSource] = useState([]);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [pageSize, setPageSize] = useState(50);
+  const [data, isSuccess, isError] = useGetAllQuery();
 
-  const getTransactions = (network, status, type) => {
+  const getTransactions = async (network, status, type) => {
     debugger;
-    let filterdData = data.map((value) => {
+    let filterdData = [].map((value) => {
       return {
         key: value.transactionId,
         ...value,
@@ -47,12 +47,11 @@ const Transaction = () => {
   };
 
   useEffect(() => {
-    // if (isSuccess && data) {
-    getTransactions();
-    // }
-  }, []);
-  // }, [isSuccess, isError]);
-
+    console.log("transaction", data, isSuccess, isError);
+    if (data && isSuccess) {
+      getTransactions();
+    }
+  }, [data]);
   return (
     <div id="transaction">
       <Filter
@@ -63,7 +62,7 @@ const Transaction = () => {
       />
       <List
         data={dataSource}
-        isLoading={false}
+        Loading={false}
         pageSize={pageSize}
         onOpenDetail={openDetailModal}
       />
