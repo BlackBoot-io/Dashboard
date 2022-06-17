@@ -56,7 +56,7 @@
   "transactions": "Transactions",
   "withdrawToken": "Withdraw Token",
   "notifications": "Notifications",
-  "crowdsaleSchedule": "Crowsale Schedule",
+  "crowdsaleSchedule": "Crowdsale Schedule",
   "buyToken": "Buy Token",
   "yourDeposit": "Your deposit",
   "recieveToken": "Recieve token",
@@ -69,7 +69,7 @@
   "withdraw": "Withdraw",
   "walleteAddress": "Wallete Address",
   "withdrawalAmount": "Withdrawal Amount",
-  "withdrawalNotices": "Withdrawal Notices", 
+  "withdrawalNotices": "Withdrawal Notices",
   "days": "Days",
   "publicSale": "Public Sale",
   "tokenForSale": "Token For Sale",
@@ -78,5 +78,7 @@
   "goal": "Goal",
   "startAt": "Start at",
   "endIn": "End in",
-  "hello":"Hello"
+  "hello": "Hello",
+  "lightMode": "Light Mode",
+  "darkMode": "Dark Mode"
 }

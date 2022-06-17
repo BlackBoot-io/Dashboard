@@ -4,8 +4,60 @@
     background-color: var(--white);
     padding-left: $offset5;
     padding-right: $offset5;
+    color: var(--black);
     .user {
         font-weight: 500;
         font-size: 27px;
+    }
+    .actions {
+        display: flex;
+        align-items: center;
+        > *:not(:last-child) {
+            margin-right: $offset3;
+        }
+        .mode {
+            display: flex;
+            align-items: center;
+            > *:not(:last-child) {
+                margin-right: $offset3;
+            }
+            .mode-name {
+                font-weight: 400;
+                font-size: 18px;
+                color: var(--black);
+            }
+            svg {
+                color: var(--cloud);
+            }
+            .active {
+                svg {
+                    color: var(--black);
+                }
+            }
+        }
+        .a-notif {
+            color: var(--black);
+            position: relative;
+            &.active:after {
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: var(--sinopia);
+                top: 4px;
+                right: 3px;
+            }
+        }
+    }
+}
+html[dir="rtl"] {
+    #header {
+        .actions {
+            .mode {
+                margin-left: 0;
+                margin-right: $offset2;
+            }
+        }
     }
 }

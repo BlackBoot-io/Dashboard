@@ -1,5 +1,6 @@
 :root {
-  --white:#fff;
+  --white: #fff;
+  --black: #000;
   --catskill-white: #f1f4f8;
   --science-blue: #005dd2;
   --medium-teal-blue: #004fba;
@@ -7,10 +8,13 @@
   --mid-grey: #5b626e;
   --star-dust: #989aa3;
   --soft-peach: #efeff0;
-  --white: #fff;
   --alabaster: #fafafc;
   --white-smoke1: #f4f4f4;
   --white-smoke2: #f5f5f6;
+  --mercury: #e8e5e5;
+  --cloud: #c4c4c4;
+  --sinopia: #d22600;
+  --oslo-grey: #8c9097;
 }
 
 $offset1: 4px;
@@ -27,15 +31,28 @@ $xxl: 1600px;
 $fs0: 10px;
 $fs1: 12px;
 $fs2: 14px;
+$fs3: 18px;
 
 html {
   min-height: 100%;
   font-size: 12px;
-  $white: #fff;
+  color: var(--black);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--black);
+  }
 }
 
-body.dark-mode {
+body.dark {
   --white: #000;
+  --black: #fff;
+  --alabaster: #242526;
+  --white-smoke2: #5a5c5e;
+  --blue-whale: #fff;
 }
 
 @font-face {
@@ -74,5 +91,6 @@ body {
 @import "./spalsh";
 @import "./transaction";
 @import "./profile";
-@import "./buy-token"; 
+@import "./buy-token";
 @import "./withdraw";
+@import "./crowdsale-schedule";

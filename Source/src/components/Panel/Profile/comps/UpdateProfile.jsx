@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment'
 
-const UpdateProfile = ({data}) => {
+const UpdateProfile = ({ data }) => {
     const [form] = Form.useForm();
     const { t } = useTranslation();
     const [nations, setNations] = useState([]);
@@ -32,14 +32,14 @@ const UpdateProfile = ({data}) => {
                 const countryNames = countries.map(c => c.name);
                 setNations(countryNames);
             });
-            
+
         form.setFieldsValue({
             fullname: user.fullName,
             email: user.email,
             birthdayDate: moment(new Date(user.birthdayDate), 'YYYY/MM/DD'),
             gender: user.gender,
             nationality: user.nationality
-        })    
+        })
     }, [])
 
     return <div id="update-profile">
@@ -49,24 +49,26 @@ const UpdateProfile = ({data}) => {
             onFinish={handleSubmit}
         >
             <Row gutter={[24, 16]} style={{ marginBottom: '20px' }}>
-                <Col xs={8}>
+                <Col xs={24} md={24} lg={8}>
                     <Form.Item name="fullname" label={<span className="input-label">{t("name")}</span>}>
                         <Input className="custom-input" />
                     </Form.Item>
                 </Col>
-                <Col xs={8}>
+                <Col xs={24} md={24} lg={8}>
                     <Form.Item name="email" label={<span className="input-label">{t("email")}</span>}>
-                        <Input className="custom-input" />
+                        <Input className="custom-input" suffix={
+                            <span className="verified-email">Verified</span>
+                        } />
                     </Form.Item>
                 </Col>
-                <Col xs={8}>
+                <Col xs={24} md={24} lg={8}>
                     <Form.Item name="birthdayDate" label={<span className="input-label">{t("birthdayDate")}</span>}>
-                        <DatePicker className="custom-input" format="YYYY/MM/DD"/>
+                        <DatePicker className="custom-input" format="YYYY/MM/DD" />
                     </Form.Item>
                 </Col>
             </Row>
             <Row gutter={[24, 16]} style={{ marginBottom: '28px' }}>
-                <Col xs={8}>
+                <Col xs={24} md={24} lg={8}>
                     <Form.Item name="gender" label={<span className="input-label">{t("gender")}</span>}>
                         <Select >
                             <Select.Option key={1} value={1}>Male</Select.Option>
@@ -74,7 +76,7 @@ const UpdateProfile = ({data}) => {
                         </Select>
                     </Form.Item>
                 </Col>
-                <Col xs={8}>
+                <Col xs={24} md={24} lg={8}>
                     <Form.Item name="nationality" label={<span className="input-label">{t("nationality")}</span>}>
                         <Select className="custom-input">
                             {nations.map(nation => <Select.Option key={nation} value={nation}>{nation}</Select.Option>)}
