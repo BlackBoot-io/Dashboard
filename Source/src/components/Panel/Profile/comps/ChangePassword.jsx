@@ -31,21 +31,21 @@ const ChangePassword = () => {
     >
       <Row>
         <Col xs={24}>
-          <Form.Item label={<span className="input-label">{t("oldPassword")}</span>}>
+          <Form.Item name="oldPassword" label={<span className="input-label">{t("oldPassword")}</span>}>
             <Input.Password className="custom-input" />
           </Form.Item>
         </Col>
       </Row>
       <Row>
         <Col xs={24}>
-          <Form.Item label={<span className="input-label">{t("newPassword")}</span>}>
+          <Form.Item name="newPassword" label={<span className="input-label">{t("newPassword")}</span>}>
             <Input.Password className="custom-input" />
           </Form.Item>
         </Col>
       </Row>
       <Row>
         <Col xs={24}>
-          <Form.Item label={<span className="input-label">{t("confirmNewPassword")}</span>}>
+          <Form.Item name="confirmNewPassword" label={<span className="input-label">{t("confirmNewPassword")}</span>}>
             <Input.Password className="custom-input" />
           </Form.Item>
         </Col>
