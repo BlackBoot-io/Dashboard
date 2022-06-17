@@ -58,6 +58,8 @@
   "notifications": "Notifications",
   "crowdsaleSchedule": "Crowsale Schedule",
   "buyToken": "Buy Token",
+  "yourDeposit": "Your deposit",
+  "recieveToken": "Recieve token",
   "beginTransaction": "Begin Transaction",
   "remainingTimetobuy": "Remaining time to buy",
   "transactionId": "Transaction Id",
