@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Col, Row, Card, Form, Segmented, Input, Button } from "antd";
 import { useTranslation } from "react-i18next";
-import EtheriumIcon from "assets/images/networks/etherium.svg";
-import { networkTypes } from "../../../../constant/enums";
-import { useGetByNetworkQuery } from "../../../../api/walletpool";
+import EtheriumIcon from "assets/images/networks/etherium.svg";  
+import { networkTypes } from "../../../../config/enums";
 
 const WithdrawForm = () => {
     const [form] = Form.useForm();
