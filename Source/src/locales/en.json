@@ -67,7 +67,7 @@
   "withdraw": "Withdraw",
   "walleteAddress": "Wallete Address",
   "withdrawalAmount": "Withdrawal Amount",
-  "withdrawalNotices": "Withdrawal Notices", 
+  "withdrawalNotices": "Withdrawal Notices",
   "days": "Days",
   "publicSale": "Public Sale",
   "tokenForSale": "Token For Sale",
@@ -76,5 +76,7 @@
   "goal": "Goal",
   "startAt": "Start at",
   "endIn": "End in",
-  "hello":"Hello"
+  "hello": "Hello",
+  "lightMode": "Light Mode",
+  "darkMode": "Dark Mode"
 }

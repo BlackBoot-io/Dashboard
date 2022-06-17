@@ -7,5 +7,8 @@ const addresses = {
   account_updateWallet: "Account/UpdateWallet",
   transaction_getAll: "Transaction/GetAll",
   transaction_getById: "Transaction/GetById",
+  notification_all: "Notification/GetAll",
+  notification_count: "Notification/Count",
+  crowdsaleSchedule_all:"CrowdsaleSchedule/GetAll"
 };
 export default addresses;
