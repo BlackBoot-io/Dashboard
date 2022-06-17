@@ -1,10 +1,11 @@
 import { Alert, Col, DatePicker, Form, Input, Row, Select, Space } from "antd";
 import { Option } from "antd/lib/mentions";
-import { useUpdateProfileMutation } from "api/account";
+import { useGetCurrentUserInfoQuery, useUpdateProfileMutation } from "api/account";
 import Button from "components/comps/Button";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import moment from 'moment'
 
 const UpdateProfile = ({data}) => {
     const [form] = Form.useForm();
@@ -13,6 +14,8 @@ const UpdateProfile = ({data}) => {
     const [errorMsg, setErrorMsg] = useState("");
 
     const dispatch = useDispatch();
+    const { user } = useSelector((x) => x.auth);
+    console.log(user)
     const [updateProfile, { isLoading, error, isError }] = useUpdateProfileMutation();
 
     const handleSubmit = async (values) => {
@@ -31,6 +34,14 @@ const UpdateProfile = ({data}) => {
                 const countryNames = countries.map(c => c.name);
                 setNations(countryNames);
             });
+            
+        form.setFieldsValue({
+            fullname: user.fullName,
+            email: user.email,
+            birthdayDate: moment(new Date(user.birthdayDate), 'YYYY/MM/DD'),
+            gender: user.gender,
+            nationality: user.nationality
+        })    
     }, [])
 
     return <div id="update-profile">
@@ -41,24 +52,24 @@ const UpdateProfile = ({data}) => {
         >
             <Row gutter={[24, 16]} style={{ marginBottom: '20px' }}>
                 <Col xs={8}>
-                    <Form.Item label={<span className="input-label">{t("name")}</span>}>
+                    <Form.Item name="fullname" label={<span className="input-label">{t("name")}</span>}>
                         <Input className="custom-input" />
                     </Form.Item>
                 </Col>
                 <Col xs={8}>
-                    <Form.Item label={<span className="input-label">{t("email")}</span>}>
+                    <Form.Item name="email" label={<span className="input-label">{t("email")}</span>}>
                         <Input className="custom-input" />
                     </Form.Item>
                 </Col>
                 <Col xs={8}>
-                    <Form.Item label={<span className="input-label">{t("birthdayDate")}</span>}>
-                        <DatePicker className="custom-input"/>
+                    <Form.Item name="birthdayDate" label={<span className="input-label">{t("birthdayDate")}</span>}>
+                        <DatePicker className="custom-input" format="YYYY/MM/DD"/>
                     </Form.Item>
                 </Col>
             </Row>
             <Row gutter={[24, 16]} style={{ marginBottom: '28px' }}>
                 <Col xs={8}>
-                    <Form.Item label={<span className="input-label">{t("gender")}</span>}>
+                    <Form.Item name="gender" label={<span className="input-label">{t("gender")}</span>}>
                         <Select >
                             <Select.Option key={1} value={1}>Male</Select.Option>
                             <Select.Option key={0} value={0}>Female</Select.Option>
@@ -66,7 +77,7 @@ const UpdateProfile = ({data}) => {
                     </Form.Item>
                 </Col>
                 <Col xs={8}>
-                    <Form.Item label={<span className="input-label">{t("nationality")}</span>}>
+                    <Form.Item name="nationality" label={<span className="input-label">{t("nationality")}</span>}>
                         <Select className="custom-input">
                             {nations.map(nation => <Select.Option key={nation} value={nation}>{nation}</Select.Option>)}
                         </Select>
