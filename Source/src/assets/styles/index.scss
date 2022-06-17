@@ -14,6 +14,7 @@
   --mercury: #e8e5e5;
   --cloud: #c4c4c4;
   --sinopia: #d22600;
+  --oslo-grey: #8c9097;
 }
 
 $offset1: 4px;
@@ -92,3 +93,4 @@ body {
 @import "./profile";
 @import "./buy-token";
 @import "./withdraw";
+@import "./crowdsale-schedule";

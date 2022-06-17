@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 import routes from "config/routes";
 import Utils from "config/utils";
 import storageKeys from "config/storageKeys";
-import { useCountQuery } from "api/notification";
+import { useNotificationCountQuery } from "api/notification";
 const { Header } = AntLayout;
 const LayoutHeader = () => {
   const { t } = useTranslation();
   const { user } = useSelector((x) => x.auth);
   const { lightMode } = useSelector((x) => x.theme);
   const dispatch = useDispatch();
-  const { data, isSuccess } = useCountQuery();
+  const { data, isSuccess } = useNotificationCountQuery();
   const handleTheme = (isLight) => {
     if (isLight) {
       dispatch(light());

@@ -4,7 +4,7 @@ const TimeLine = ({ items }) => {
   const { t } = useTranslation();
   return (
     <Col id="time-line">
-      {items.map((x, idx) => {
+      {items?.map((x, idx) => {
         let options = x.isActive ? (
           <svg
             width="9"

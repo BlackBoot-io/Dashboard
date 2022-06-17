@@ -227,7 +227,16 @@ input:-webkit-autofill:active {
     display: flex;
     column-gap: $offset2;
     align-items: center;
-
+    .icon-wrapper {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px!important;
+        color: var(--white);
+    }
     .header-title {
         font-style: normal;
         font-weight: 600;

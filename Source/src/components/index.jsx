@@ -9,6 +9,7 @@ import Signup from "components/Auth/comps/Signup";
 import Transaction from "./Panel/Transaction/Index";
 import BuyToken from "./Panel/BuyToken";
 import WithdrawToken from "./Panel/WithdrawToken";
+import CrowdsaleSchedule from "./Panel/CrowdsaleSchedule";
 import Profile from "./Panel/Profile";
 import Utils from "config/utils";
 import storageKeys from "config/storageKeys";
@@ -35,6 +36,7 @@ function App() {
         <Route path={routes.transactions} element={<Transaction />} />
         <Route path={routes.buyToken} element={<BuyToken />} />
         <Route path={routes.withdrawToken} element={<WithdrawToken />} />
+        <Route path={routes.crowdsaleSchedule} element={<CrowdsaleSchedule />} />
         <Route path={routes.profile} element={<Profile />} />
       </Route>
     </Routes>

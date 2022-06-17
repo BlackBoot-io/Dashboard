@@ -3,13 +3,13 @@ import addresses from "api/addresses";
 
 export const transactionApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    all: builder.query({
+    allNotifications: builder.query({
       query: () => ({
         url: `/${addresses.notification_all}`,
         method: "GET",
       }),
     }),
-    count: builder.query({
+    notificationCount: builder.query({
       query: () => ({
         url: `/${addresses.notification_count}`,
         method: "GET",
@@ -18,4 +18,4 @@ export const transactionApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useAllQuery, useCountQuery } = transactionApiSlice;
+export const { useAllNotificationsQuery, useNotificationCountQuery } = transactionApiSlice;

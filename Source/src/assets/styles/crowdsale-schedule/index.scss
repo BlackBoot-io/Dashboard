@@ -1,0 +1,27 @@
+#crowdsale-schedule {
+    padding: $offset5;
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        .heading {
+            display: flex;
+            align-items: center;
+            .icon-wrapper {
+                background-color: #753ff8;
+            }
+        }
+        .carousel-nav {
+            button {
+                border: solid 1px var(--oslo-grey);
+                border-radius: 50%;
+                padding: 12px;
+            }
+            .prev {
+                margin: 0 $offset4;
+            }
+        }
+    }
+    .loading-wrapper {
+        min-height: 500px;
+    }
+}
