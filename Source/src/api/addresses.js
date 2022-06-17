@@ -7,5 +7,6 @@ const addresses = {
   account_updateWallet: "Account/UpdateWallet",
   transaction_getAll: "Transaction/GetAll",
   transaction_getById: "Transaction/GetById",
+  transaction_add: "Transaction/Add",
 };
 export default addresses;

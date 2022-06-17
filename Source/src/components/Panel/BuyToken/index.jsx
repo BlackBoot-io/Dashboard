@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
-import Icon from "components/comps/Icon";
+import { useAddQuery } from "api/transaction";
 import BuyTokenIcon from "assets/images/buy-token.svg";
 
 import BuyTokenForm from "components/Panel/BuyToken/comps/Form";

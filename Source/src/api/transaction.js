@@ -15,7 +15,14 @@ export const transactionApiSlice = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    add: builder.query({
+      query: (data) => ({
+        url: `/${addresses.transaction_add}`,
+        method: "POST",
+        body: { ...data },
+      }),
+    }),
   }),
 });
 
-export const { useGetByIdQuery, useGetAllQuery } = transactionApiSlice;
+export const { useAddQuery, useGetByIdQuery, useGetAllQuery } = transactionApiSlice;
