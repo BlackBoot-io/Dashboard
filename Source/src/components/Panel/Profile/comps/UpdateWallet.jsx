@@ -1,9 +1,9 @@
 import { Col, Form, Input, Row } from "antd";
 import { useUpdateWalletMutation } from "api/account";
 import Button from "components/comps/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const UpdateWallet = () => {
   const [form] = Form.useForm();
@@ -11,6 +11,7 @@ const UpdateWallet = () => {
   const [errorMsg, setErrorMsg] = useState("");
 
   const dispatch = useDispatch();
+  const { user } = useSelector((x) => x.auth);
   const [updateWallet, { isLoading, error, isError }] = useUpdateWalletMutation();
 
   const handleSubmit = async (values) => {
@@ -22,6 +23,13 @@ const UpdateWallet = () => {
     }
   };
 
+  useEffect(() => {
+    form.setFieldsValue({
+      withdrawalWallet: user.withdrawalWallet,
+    })    
+}, [])
+
+
   const descriptionsWithIcons = [
     {
       icon: <span></span>,
@@ -31,7 +39,7 @@ const UpdateWallet = () => {
     {
       icon: <span></span>,
       textColor: '#666D79',
-      text: "Don't use exchange wallet addresses such as Bitfinex, Bitumb, etc."
+      text: "Don’t use exchange wallet addresses such as Bitfinex, Bithumb, etc."
     },
     {
       icon: <span></span>,
@@ -41,7 +49,7 @@ const UpdateWallet = () => {
     {
       icon: <span></span>,
       textColor: '#BF2200',
-      text: "Don't use the address if you don’t have a private key of your address. You won't receive any tokens and LOOSE YOUR FUNDS if you do so."
+      text: "Don’t use the address if you don’t have a private key of your address. You won’t receive any tokens and LOSE YOUR FUNDS if you do so."
     }
   ]
 
@@ -58,7 +66,7 @@ const UpdateWallet = () => {
     >
       <Row>
         <Col xs={24}>
-          <Form.Item label={<span className="input-label">{t("selectWallet")}</span>}>
+          <Form.Item name="withdrawalWallet" label={<span className="input-label">{t("selectWallet")}</span>}>
             <Input className="custom-input" />
           </Form.Item>
         </Col>
