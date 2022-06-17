@@ -3,6 +3,16 @@
         margin-bottom: 25px;
 
         .description {
+            display: flex;
+            padding: 0 0 16px 0;
+
+            .icon-box {
+                margin-right: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
             .text-box {
                 font-weight: 400;
                 font-size: 14px;
