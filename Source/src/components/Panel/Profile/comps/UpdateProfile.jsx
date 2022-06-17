@@ -1,6 +1,5 @@
-import { Alert, Col, DatePicker, Form, Input, Row, Select, Space } from "antd";
-import { Option } from "antd/lib/mentions";
-import { useGetCurrentUserInfoQuery, useUpdateProfileMutation } from "api/account";
+import { Col, DatePicker, Form, Input, Row, Select } from "antd";
+import { useUpdateProfileMutation } from "api/account";
 import Button from "components/comps/Button";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -15,7 +14,6 @@ const UpdateProfile = ({data}) => {
 
     const dispatch = useDispatch();
     const { user } = useSelector((x) => x.auth);
-    console.log(user)
     const [updateProfile, { isLoading, error, isError }] = useUpdateProfileMutation();
 
     const handleSubmit = async (values) => {
