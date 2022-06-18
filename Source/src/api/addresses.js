@@ -5,7 +5,14 @@ const addresses = {
   account_updateProfile: "Account/UpdateProfile",
   account_changePassword: "Account/ChangePassword",
   account_updateWallet: "Account/UpdateWallet",
+  transaction_add: "Transaction/Add",
+  transaction_update: "Transaction/Update",
   transaction_getAll: "Transaction/GetAll",
   transaction_getById: "Transaction/GetById",
+  transaction_getUserBalance: "Transaction/GetUserBalance",
+  walletPool_getByNetworkAsync: "WalletPool/GetByNetworkAsync",
+  notification_all: "Notification/GetAll",
+  notification_count: "Notification/Count",
+  crowdsaleSchedule_all: "CrowdsaleSchedule/GetAll",
 };
 export default addresses;

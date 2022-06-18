@@ -6,6 +6,9 @@
 #main-layout {
     #menu {
         color: var(--blue-whale);
+        .ant-menu {
+            color: var(--blue-whale);
+        }
         .logo {
             display: flex;
             flex-direction: row;
@@ -28,9 +31,11 @@
                 padding-bottom: $offset2;
                 margin: 0 !important;
                 height: auto;
+                color: var(--black);
             }
             .ant-menu-sub {
                 padding-top: $offset3;
+                background-color: transparent;
                 > .ant-menu-item {
                     @include menu-item;
                     &:active {
