@@ -6,18 +6,30 @@ import Carousel from "components/Panel/CrowdsaleSchedule/comps/Carousel";
 import { useAllCrowdsaleSchedulesQuery } from "api/crowdsaleSchedule";
 import TimeLine from "components/Panel/CrowdsaleSchedule/comps/TimeLine";
 import { useEffect } from "react";
+import { useRef } from "react";
+import { useCallback } from "react";
 
 const CrowdsaleSchedule = () => {
   const { t } = useTranslation();
   const { isLoading, isSuccess, data } = useAllCrowdsaleSchedulesQuery();
-  console.log("data", data);
-  const [state, setState] = useState({
-    currentSlide: 0,
-  });
+  const slickRef = useRef(null);
+  const [currentSlideIndex, setCurrentSlide] = useState(0);
+  const next = () => {
+    slickRef.current.next();
+    //setCurrentSlide((s) => s + 1);
+  };
+  const prev = () => {
+    slickRef.current.prev();
+    //setCurrentSlide((s) => s - 1);
+  };
+  const handleSetCurrentSlideIndex = useCallback((index) => {
+    console.log("index:", index);
+    setCurrentSlide(index);
+  }, []);
   useEffect(() => {
     if (isLoading || !data || !data.isSuccess) return;
     let idx = data.data.findIndex((x) => x.isActive);
-    if (idx > -1) setState((s) => ({ ...s, currentSlide: idx }));
+    if (idx > -1) setCurrentSlide(idx);
   }, [isLoading, isSuccess]);
   return (
     <div id="crowdsale-schedule">
@@ -45,15 +57,15 @@ const CrowdsaleSchedule = () => {
           <h1 className="header-title">{t("crowdsaleSchedule")}</h1>
         </div>
         <div className="carousel-nav">
-          <button className="prev btn-link">
+          <button className="prev btn-link" onClick={prev}>
             <Icon name="FaChevronLeft" />
           </button>
-          <button className="next btn-link">
+          <button className="next btn-link" onClick={next}>
             <Icon name="FaChevronRight" />
           </button>
         </div>
       </div>
-      <Row>
+      <Row className="content-wrapper">
         {isLoading || !data ? (
           <Col xs={24} sm={24} className="center loading-wrapper">
             <Spin />
@@ -61,7 +73,12 @@ const CrowdsaleSchedule = () => {
         ) : (
           <>
             <TimeLine items={data?.data} />
-            <Carousel items={data?.data} current={state.currentSlide} />
+            <Carousel
+              ref={slickRef}
+              items={data?.data}
+              current={currentSlideIndex}
+              setCurrentSlideIndex={handleSetCurrentSlideIndex}
+            />
           </>
         )}
       </Row>

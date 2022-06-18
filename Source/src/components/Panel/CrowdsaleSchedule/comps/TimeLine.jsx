@@ -5,7 +5,8 @@ const TimeLine = ({ items }) => {
   return (
     <Col id="time-line" xs={4} sm={4}>
       {items?.map((x, idx) => {
-        let options = x.isActive ? (
+        let options = {};
+        options.icon = x.isActive ? (
           <svg
             width="9"
             height="9"
@@ -31,7 +32,7 @@ const TimeLine = ({ items }) => {
           </svg>
         );
 
-        return <Timeline.Item key={idx} {...options}></Timeline.Item>;
+        return <Timeline.Item {...options} key={idx}></Timeline.Item>;
       })}
     </Col>
   );

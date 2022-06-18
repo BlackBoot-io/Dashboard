@@ -24,5 +24,8 @@
     .loading-wrapper {
         min-height: 500px;
     }
-    @import "./carousel"
+    .content-wrapper{
+        height: calc(100vh - 170px);
+    }
+    @import "./carousel";
 }

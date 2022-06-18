@@ -8,7 +8,7 @@ const Menu = ({ items }) => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     openKey: "overview",
-    selectedKey: "transactions",
+    selectedKey: "none",
   });
   const onClick = (e) => {
     console.log("click ", e);
