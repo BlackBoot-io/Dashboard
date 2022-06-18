@@ -10,13 +10,13 @@ import { useEffect } from "react";
 const CrowdsaleSchedule = () => {
   const { t } = useTranslation();
   const { isLoading, isSuccess, data } = useAllCrowdsaleSchedulesQuery();
-  console.log("data",data)
+  console.log("data", data);
   const [state, setState] = useState({
     currentSlide: 0,
   });
   useEffect(() => {
     if (isLoading || !data || !data.isSuccess) return;
-    let idx = data.data.reverse().findIndex((x) => x.isActive);
+    let idx = data.data.findIndex((x) => x.isActive);
     if (idx > -1) setState((s) => ({ ...s, currentSlide: idx }));
   }, [isLoading, isSuccess]);
   return (
@@ -60,8 +60,8 @@ const CrowdsaleSchedule = () => {
           </Col>
         ) : (
           <>
-            <Carousel current={state.currentSlide} />
-            <TimeLine />
+            <TimeLine items={data?.data} />
+            <Carousel items={data?.data} current={state.currentSlide} />
           </>
         )}
       </Row>

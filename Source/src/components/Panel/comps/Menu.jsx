@@ -33,10 +33,11 @@ const Menu = ({ items }) => {
         if (child) parent = x;
         break;
       }
-      setState({
-        openKey: parent.key,
-        selectedKey: child.key,
-      });
+      if (parent && child)
+        setState({
+          openKey: parent.key,
+          selectedKey: child.key,
+        });
     }
   }, []);
   const onOpenChange = (path) => {

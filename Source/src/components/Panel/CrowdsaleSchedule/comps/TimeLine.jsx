@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 const TimeLine = ({ items }) => {
   const { t } = useTranslation();
   return (
-    <Col id="time-line">
+    <Col id="time-line" xs={4} sm={4}>
       {items?.map((x, idx) => {
         let options = x.isActive ? (
           <svg
