@@ -19,7 +19,7 @@ const List = (props) => {
           <Icon
             name={"FaAtlassian"}
             style={{
-              "margin-right": 2,
+              marginRight: 2,
             }}
           />
           {value}
@@ -27,8 +27,8 @@ const List = (props) => {
       ),
     },
     {
-      title: () => t("WalletAdress"),
-      dataIndex: "walletAdress",
+      title: () => t("WalletAddress"),
+      dataIndex: "walletAddress",
       render: (value) => (
         <div>
           {value}
@@ -36,7 +36,7 @@ const List = (props) => {
             onClick={() => Utils.copyToClipboard(value)}
             name={"FaRegCopy"}
             style={{
-              "margin-left": 2,
+              marginLeft: 2,
               cursor: "pointer",
             }}
           />
@@ -51,7 +51,7 @@ const List = (props) => {
           <Icon
             name={"FaUpload"}
             style={{
-              "margin-right": 2,
+              marginLeft: 2,
             }}
           />
           {value}
@@ -70,14 +70,14 @@ const List = (props) => {
     },
     {
       title: () => t("Actions"),
-      dataIndex: "actions",
+      dataIndex: "transactionId",
       render: (value) => (
         <span>
           <Icon
-            onClick={props.onOpenDetail}
+            onClick={() => props.onOpenDetail(value)}
             name={"FaFolderPlus"}
             style={{
-              "margin-right": 2,
+              marginLeft: 2,
               cursor: "pointer",
             }}
           />
