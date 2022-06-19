@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGetAllQuery, useGetByIdQuery } from "api/transaction";
+import { useGetAllQuery, useGetByIdMutation } from "api/transaction";
 
 import Detail from "./comps/Detail";
 import Filter from "./comps/Filter";
@@ -14,14 +14,10 @@ const Transaction = () => {
     type: null,
   });
   const [pageSize, setPageSize] = useState(50);
-  const [transactionId, setTransactionId] = useState(null);
   const transactions = useGetAllQuery();
+  const [getTransDetails, transDetailsResult] = useGetByIdMutation();
 
-  const transaction = useGetByIdQuery(transactionId, {
-    skip: true,
-  });
-
-  const getTransactions = async () => {
+  const filterTransactionResult = async () => {
     let filterdData = transactions.data.data.map((value) => {
       return {
         key: value.transactionId,
@@ -44,16 +40,14 @@ const Transaction = () => {
   };
 
   const handleFilterChange = (value, type) => {
-    debugger;
     setFilterState((s) => ({
       ...s,
       [type]: value,
     }));
-    getTransactions();
   };
 
   const openDetailModal = (id) => {
-    setTransactionId(id);
+    getTransDetails(id);
     setModalVisibility(true);
   };
   const closeDetailModal = () => {
@@ -66,9 +60,9 @@ const Transaction = () => {
 
   useEffect(() => {
     if (transactions.data && transactions.isSuccess) {
-      getTransactions();
+      filterTransactionResult();
     }
-  }, [transactions.isSuccess, transactions.isError]);
+  }, [transactions.isSuccess, transactions.isError, filterState]);
   return (
     <div id="transaction">
       <Filter
@@ -83,9 +77,12 @@ const Transaction = () => {
           onOpenDetail={openDetailModal}
         />
       ) : null}
-      {transaction.data ? (
+      {transDetailsResult.isSuccess &&
+      transDetailsResult.data &&
+      transDetailsResult.data.isSuccess &&
+      modalVisibility ? (
         <Detail
-          data={transaction.data.data}
+          data={transDetailsResult.data.data}
           modalVisibility={modalVisibility}
           onClose={closeDetailModal}
         />

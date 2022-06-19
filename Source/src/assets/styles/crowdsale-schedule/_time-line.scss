@@ -1,0 +1,13 @@
+#time-line {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .ant-timeline-item {
+        padding-bottom: 90px;
+    }
+    @media(max-width:$xl){
+        .ant-timeline-item {
+            padding-bottom: 60px;
+        }
+    }
+}

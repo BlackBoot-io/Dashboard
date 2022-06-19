@@ -25,7 +25,8 @@
         min-height: 500px;
     }
     .content-wrapper{
-        height: calc(100vh - 170px);
+        height: calc(100vh - 190px);
     }
     @import "./carousel";
+    @import "./time-line";
 }

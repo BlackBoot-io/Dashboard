@@ -23,7 +23,6 @@ const CrowdsaleSchedule = () => {
     //setCurrentSlide((s) => s - 1);
   };
   const handleSetCurrentSlideIndex = useCallback((index) => {
-    console.log("index:", index);
     setCurrentSlide(index);
   }, []);
   useEffect(() => {
@@ -72,7 +71,7 @@ const CrowdsaleSchedule = () => {
           </Col>
         ) : (
           <>
-            <TimeLine items={data?.data} />
+            <TimeLine items={data?.data} current={currentSlideIndex} />
             <Carousel
               ref={slickRef}
               items={data?.data}

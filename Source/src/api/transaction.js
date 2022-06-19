@@ -9,13 +9,13 @@ export const transactionApiSlice = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
-    getById: builder.query({
+    getById: builder.mutation({
       query: (transactionId) => ({
         url: `/${addresses.transaction_getById}?transactionId=${transactionId}`,
         method: "GET",
       }),
-    }),
+    })
   }),
 });
 
-export const { useGetByIdQuery, useGetAllQuery } = transactionApiSlice;
+export const { useGetByIdMutation, useGetAllQuery } = transactionApiSlice;

@@ -225,7 +225,7 @@ input:-webkit-autofill:active {
 }
 .page-header{
     display: flex;
-    column-gap: $offset2;
+    margin-bottom: $offset4;
     align-items: center;
     .icon-wrapper {
         width: 44px;

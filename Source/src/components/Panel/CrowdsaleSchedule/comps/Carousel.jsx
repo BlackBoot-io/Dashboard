@@ -1,8 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { Col, Carousel as AntdCarousel } from "antd";
 import { forwardRef, useEffect } from "react";
-const Carousel = forwardRef(({ items,current,setCurrentSlideIndex }, ref) => {
+import Utils from "config/utils";
+import { useMemo } from "react";
+const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
   const { t, i18n } = useTranslation();
+  const initialSlide = useMemo(() => items.findIndex((x) => x.isActive));
+  console.log("inital slide:", initialSlide);
   const settings = {
     dots: true,
     infinite: true,
@@ -11,21 +15,24 @@ const Carousel = forwardRef(({ items,current,setCurrentSlideIndex }, ref) => {
     slidesToScroll: 1,
     className: "center",
     centerMode: true,
+    centerPadding:0,
     swipeToSlide: true,
-    afterChange: function(index) {
+    initialSlide: initialSlide,
+    afterChange: function (index) {
+      console.log("new index", index);
       setCurrentSlideIndex(index);
-    }
+    },
   };
 
   return (
     <Col id="carousel" xs={20} sm={20}>
       <div className="carousel-wrapper">
-        <AntdCarousel ref={ref} {...settings} initialSlide={current}>
+        <AntdCarousel ref={ref} {...settings}>
           {items?.map((x, idx) => {
             let from = new Date(x.from);
             let fromYear = from.getFullYear();
             let to = new Date(x.to);
-            let toYear = from.getFullYear();
+            let toYear = to.getFullYear();
             return (
               <div key={idx} className="item">
                 <span className="period">
@@ -41,7 +48,9 @@ const Carousel = forwardRef(({ items,current,setCurrentSlideIndex }, ref) => {
                     month: "long",
                   })} ${toYear}`}
                 </span>
-                <p className="description">{x.description}</p>
+                <p className="description">
+                  {Utils.shortText(x.description, 200)}
+                </p>
               </div>
             );
           })}
