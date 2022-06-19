@@ -1,2 +1,9 @@
 @import "./header";
 @import "./menu";
+main.ant-layout-content {
+    overflow-y: auto;
+    height: calc(100vh - 64px);
+}
+.ant-layout {
+    background-color: var(--white)!important;
+}

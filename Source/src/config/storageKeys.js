@@ -3,5 +3,6 @@ const storageKeys = {
   tokenExpiretime: "tet",
   refreshToken: "rt",
   refreshTokenExpiretime: "rtet",
+  theme:"thm"
 };
 export default storageKeys;

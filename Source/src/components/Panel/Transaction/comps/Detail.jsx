@@ -4,6 +4,8 @@ import Icon from "components/comps/Icon";
 
 const Detail = (props) => {
   const { t } = useTranslation();
+
+  console.log(props.data);
   return (
     <>
       <Modal

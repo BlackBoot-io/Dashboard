@@ -35,3 +35,14 @@ html:lang(ar) {
         }
     }
 }
+.btn-link{
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    display: inline-flex;
+    &:hover{
+
+    }
+}

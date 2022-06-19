@@ -8,34 +8,52 @@ import List from "./comps/List";
 const Transaction = () => {
   const [dataSource, setDataSource] = useState([]);
   const [modalVisibility, setModalVisibility] = useState(false);
+  const [filterState, setFilterState] = useState({
+    network: null,
+    status: null,
+    type: null,
+  });
   const [pageSize, setPageSize] = useState(50);
-  const [data, isSuccess, isError] = useGetAllQuery();
+  const [transactionId, setTransactionId] = useState(null);
+  const transactions = useGetAllQuery();
 
-  const getTransactions = async (network, status, type) => {
-    debugger;
-    let filterdData = [].map((value) => {
+  const transaction = useGetByIdQuery(transactionId, {
+    skip: true,
+  });
+
+  const getTransactions = async () => {
+    let filterdData = transactions.data.data.map((value) => {
       return {
         key: value.transactionId,
         ...value,
       };
     });
-    if (network)
-      filterdData = filterdData.filter((x) => x.network === parseInt(network));
-    if (status)
-      filterdData = filterdData.filter((x) => x.status === parseInt(status));
-    if (type)
-      filterdData = filterdData.filter((x) => x.type === parseInt(type));
+    if (filterState.network)
+      filterdData = filterdData.filter(
+        (x) => x.network === parseInt(filterState.network)
+      );
+    if (filterState.status)
+      filterdData = filterdData.filter(
+        (x) => x.status === parseInt(filterState.status)
+      );
+    if (filterState.type)
+      filterdData = filterdData.filter(
+        (x) => x.type === parseInt(filterState.type)
+      );
     setDataSource(filterdData);
   };
 
-  const handleNetworkChange = (value) =>
-    getTransactions(value, undefined, undefined);
-  const handleTypeChange = (value) =>
-    getTransactions(undefined, undefined, value);
-  const handleStatusChange = (value) =>
-    getTransactions(undefined, value, undefined);
+  const handleFilterChange = (value, type) => {
+    debugger;
+    setFilterState((s) => ({
+      ...s,
+      [type]: value,
+    }));
+    getTransactions();
+  };
 
-  const openDetailModal = () => {
+  const openDetailModal = (id) => {
+    setTransactionId(id);
     setModalVisibility(true);
   };
   const closeDetailModal = () => {
@@ -47,26 +65,31 @@ const Transaction = () => {
   };
 
   useEffect(() => {
-    console.log("transaction", data, isSuccess, isError);
-    if (data && isSuccess) {
+    if (transactions.data && transactions.isSuccess) {
       getTransactions();
     }
-  }, [data]);
+  }, [transactions.isSuccess, transactions.isError]);
   return (
     <div id="transaction">
       <Filter
         onPageSizeChange={handlePageSizeChange}
-        onNetworkChange={handleNetworkChange}
-        onTypeChange={handleTypeChange}
-        onStatusChange={handleStatusChange}
+        onFilterChange={handleFilterChange}
       />
-      <List
-        data={dataSource}
-        Loading={false}
-        pageSize={pageSize}
-        onOpenDetail={openDetailModal}
-      />
-      <Detail modalVisibility={modalVisibility} onClose={closeDetailModal} />
+      {dataSource ? (
+        <List
+          data={dataSource}
+          Loading={false}
+          pageSize={pageSize}
+          onOpenDetail={openDetailModal}
+        />
+      ) : null}
+      {transaction.data ? (
+        <Detail
+          data={transaction.data.data}
+          modalVisibility={modalVisibility}
+          onClose={closeDetailModal}
+        />
+      ) : null}
     </div>
   );
 };

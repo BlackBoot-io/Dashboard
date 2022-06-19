@@ -15,6 +15,7 @@ import buyImage from "assets/images/menus/buy.png";
 import widthrawImage from "assets/images/menus/widthraw.png";
 import NotificationImage from "assets/images/menus/notification.png";
 import Header from "components/Panel/comps/Header";
+import { useEffect } from "react";
 
 const { Sider, Content } = AntLayout;
 const Layout = ({}) => {
@@ -61,27 +62,6 @@ const Layout = ({}) => {
     ],
     []
   );
-  // return (
-  //   <AntLayout id="main-layout">
-  //     <Drawer
-  //       placement={i18n.dir() === "rtl" ? "right" : "left"}
-  //       onClose={() => dispatch(toggle())}
-  //       visible={isOpen}
-  //       className="drawer"
-  //     >
-  //       <Menu items={menus} mobileSize={true} />
-  //     </Drawer>
-  //     <Sider width={257}>
-  //       <Menu items={menus} mobileSize={false} />
-  //     </Sider>
-  //     <AntLayout>
-  //       <Header/>
-  //       <Content>
-  //         <Outlet />
-  //       </Content>
-  //     </AntLayout>
-  //   </AntLayout>
-  // );
   if (user)
     return (
       <AntLayout id="main-layout">
