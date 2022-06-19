@@ -2,22 +2,16 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Col, Row, Card, Form, Segmented, Input, Button } from "antd";
 import { useTranslation } from "react-i18next";
-import EtheriumIcon from "assets/images/networks/etherium.svg";  
+import EtheriumIcon from "assets/images/networks/etherium.svg";
 import { networkTypes } from "../../../../config/enums";
+import { useGetCurrentUserInfoQuery } from "../../../../api/account";
 
 const WithdrawForm = () => {
-    const [form] = Form.useForm();
     const { t } = useTranslation();
     const [errorMsg, setErrorMsg] = useState("");
     const [selectedNetwork, setSelectedNetwork] = useState(networkTypes.Ethereum)
-    //const [getByUserId, { }] = useGetByUserIdQuery(selectedNetwork);
-    debugger
-    //const walletpool = useGetByNetworkQuery(selectedNetwork,
-    //{
-    //        skip,
-    //    });
-    //console.log(walletpool)
-
+    const { data, isSuccess, isError } = useGetCurrentUserInfoQuery();
+    console.log(data)
     return (
         <Card style={{ width: '100%' }} className="withdraw-card">
             <p className="withdraw-network">
@@ -28,7 +22,7 @@ const WithdrawForm = () => {
                 options={[
                     {
                         label: (
-                            <img src={EtheriumIcon} alt="EtheriumIcon" onClick={setSelectedNetwork(networkTypes.Ethereum)} />
+                            <img src={EtheriumIcon} alt="EtheriumIcon" onClick={() => setSelectedNetwork(networkTypes.Ethereum)} />
                         ),
                         value: 'etherium',
                     },

@@ -1,11 +1,9 @@
-import { Col, Row } from "antd";
-import { useTranslation } from "react-i18next"; 
+import { Col, Row } from "antd"; 
 import WithdrawNotices from "./comps/withdrawNotices";
 import WithdrawHeader from "./comps/withdrawHeader";
 import WithdrawForm from "./comps/withdrawForm";
 
-const WithdrawToken = () => {
-    const { t } = useTranslation();
+const WithdrawToken = () => { 
     return (
         <div id="withdraw-token">
             <Row gutter={[24, 16]}>
