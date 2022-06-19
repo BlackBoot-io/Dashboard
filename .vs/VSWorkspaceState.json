@@ -3,13 +3,14 @@
     "",
     "\\Source",
     "\\Source\\src",
-    "\\Source\\src\\assets",
-    "\\Source\\src\\assets\\styles",
     "\\Source\\src\\components",
     "\\Source\\src\\components\\Panel",
-    "\\Source\\src\\components\\Panel\\BuyToken",
-    "\\Source\\src\\components\\Panel\\BuyToken\\comps",
+    "\\Source\\src\\components\\Panel\\Transaction",
+    "\\Source\\src\\components\\Panel\\Transaction\\comps",
+    "\\Source\\src\\components\\Panel\\WithdrawToken",
+    "\\Source\\src\\components\\Panel\\WithdrawToken\\comps",
     "\\Source\\src\\locales"
   ],
+  "SelectedNode": "\\Source\\src\\components\\Panel\\WithdrawToken\\comps\\withdrawForm.jsx",
   "PreviewInSolutionExplorer": true
 }
