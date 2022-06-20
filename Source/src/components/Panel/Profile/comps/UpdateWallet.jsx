@@ -25,7 +25,7 @@ const UpdateWallet = () => {
 
   useEffect(() => {
     form.setFieldsValue({
-      withdrawalWallet: user.withdrawalWallet,
+      walletAddress: user.walletAddress,
     })
   }, [])
 
@@ -62,7 +62,7 @@ const UpdateWallet = () => {
     >
       <Row>
         <Col xs={24}>
-          <Form.Item name="withdrawalWallet" label={<span className="input-label">{t("selectWallet")}</span>}>
+          <Form.Item name="walletAddress" label={<span className="input-label">{t("selectWallet")}</span>}>
             <Input className="custom-input" />
           </Form.Item>
         </Col>
