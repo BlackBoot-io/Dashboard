@@ -17,6 +17,17 @@
   --oslo-grey: #8c9097;
   --storm-grey: #6c7689;
   --gainsboro: #dcdcdc;
+  --card-bg: #fff;
+  --porcelaine: #f2f2f5;
+}
+body.dark {
+  --white: #000;
+  --black: #fff;
+  --alabaster: #242526;
+  --white-smoke2: #5a5c5e;
+  --blue-whale: #fff;
+  --card-bg: #292c31;
+  --porcelaine: #292c31;
 }
 
 $offset1: 4px;
@@ -47,14 +58,6 @@ html {
   h6 {
     color: var(--black);
   }
-}
-
-body.dark {
-  --white: #000;
-  --black: #fff;
-  --alabaster: #242526;
-  --white-smoke2: #5a5c5e;
-  --blue-whale: #fff;
 }
 
 @font-face {

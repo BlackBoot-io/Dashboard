@@ -5,6 +5,12 @@
     .ant-timeline-item {
         padding-bottom: 90px;
     }
+    .ant-timeline-item-head{
+        background-color: transparent;
+    }
+    .ant-timeline-item-content{
+        color: var(--black);
+    }
     @media(max-width:$xl){
         .ant-timeline-item {
             padding-bottom: 60px;

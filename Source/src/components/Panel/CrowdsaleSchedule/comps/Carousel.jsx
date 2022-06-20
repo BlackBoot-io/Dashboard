@@ -8,22 +8,21 @@ const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
   const initialSlide = useMemo(() => items.findIndex((x) => x.isActive));
   console.log("inital slide:", initialSlide);
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    className: "center",
     centerMode: true,
-    centerPadding:0,
+    centerPadding: 0,
     swipeToSlide: true,
-    initialSlide: initialSlide,
     afterChange: function (index) {
-      console.log("new index", index);
       setCurrentSlideIndex(index);
     },
   };
-
+  useEffect(() => {
+    if (ref) ref.current.goTo(initialSlide);
+  }, [ref]);
   return (
     <Col id="carousel" xs={20} sm={20}>
       <div className="carousel-wrapper">
