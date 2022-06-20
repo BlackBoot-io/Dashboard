@@ -54,7 +54,13 @@ const ByEmail = () => {
           <Form.Item
             label={t("email")}
             name="email"
-            rules={[{ required: true, message: t("required") }]}
+            rules={[
+              {
+                required: true,
+                type: "email",
+                message: t("invalidEmail"),
+              },
+            ]}
           >
             <Input className="ltr-elm" suffix="@" />
           </Form.Item>

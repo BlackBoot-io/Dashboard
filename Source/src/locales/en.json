@@ -79,5 +79,6 @@
   "hello": "Hello",
   "lightMode": "Light Mode",
   "darkMode": "Dark Mode",
-  "months": "Months"
+  "months": "Months",
+  "invalidEmail": "The input is not valid E-mail!"
 }
