@@ -33,6 +33,7 @@
         border: 0.5px solid #EFEFF0;
         border-radius: 8px;
         padding: 10px;
+        width: 100%
     }
 
     .ant-input-group-wrapper {
@@ -95,15 +96,19 @@
         }
     }
 
+    .withdraw-amount-holder {
+        position: absolute;
+        right: 0;
+        display: flex;
+    }
 
     .withdraw-amount {
-        font-style: normal;
         font-weight: 600;
         font-size: 12px;
-        line-height: 20px;
         text-transform: capitalize;
         color: #989AA3;
-        float: right;
+        padding: 0;
+        margin: 0;
     }
 
     .withdraw-fee {
@@ -151,13 +156,14 @@
     }
 
 
-    .withdraw-label {
+    .ant-form-item .ant-form-item-label > label {
         float: left;
         font-size: 16px;
         font-weight: 600;
         line-height: 26px;
         letter-spacing: 0em;
         margin-bottom: 8px;
+        color: #000000
     }
 
     .withdraw-card {
@@ -187,18 +193,18 @@
     }
 
     .withdraw-button {
-        background: #023047;
-        color: var(--white);
-        font-size: 16px;
-        line-height: 26px;
-        box-shadow: 0px 4px 14px rgba(47, 83, 109, 0.2);
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 23px 12px;
+        line-height: 48px !important;
+        margin-top: 20px;
     }
+
+    .withdraw-alert {
+        float: left;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0em;
+        color: #023047;
+    }
+ 
 
     .withdraw-notice-list {
         list-style: none;
