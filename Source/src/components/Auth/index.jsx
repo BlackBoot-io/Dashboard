@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router-dom";
 import Icon from "components/comps/Icon";
-import SlideImage from "assets/images/auth-slide.svg";
+import SlideImage from "assets/images/auth-slide.png";
 
 const Auth = () => {
   const { t } = useTranslation();

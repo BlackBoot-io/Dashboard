@@ -7,6 +7,7 @@
         .item {
             text-align: center;
             position: relative;
+            color: var(--black);
             .period {
                 font-weight: 700;
                 font-size: 18px;
@@ -32,7 +33,7 @@
                     border-radius: 50%;
                     left: 50%;
                     transform: translateX(-50%);
-                    background-color: transparent;
+                    background-color: var(--white);
                     border: 1px solid #753ff8;
                 }
             }
@@ -43,6 +44,7 @@
             .description {
                 text-align: justify;
                 padding: $offset3 $offset5 0 $offset3;
+                color: var(--mid-grey);
             }
             .content-wrapper {
                 height: calc(100vh - 170px);

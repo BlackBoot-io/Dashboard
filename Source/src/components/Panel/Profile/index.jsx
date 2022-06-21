@@ -1,6 +1,5 @@
 import { Col, Row, Tabs } from "antd";
 import { useTranslation } from "react-i18next";
-import SlideImage from "assets/images/auth-slide.svg";
 import UpdateProfile from "./comps/UpdateProfile";
 import ChangePassword from "./comps/ChangePassword";
 import UpdateWallet from "./comps/UpdateWallet";
