@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Col, Row, Card, Segmented, Input, Button, Form } from "antd";
+import { Col, Row, Card, Segmented, Input, Button, Form, notification } from "antd";
+
 import BagIcon from "assets/images/bag.svg";
 import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
@@ -9,40 +10,68 @@ import SolanaIcon from "assets/images/networks/solana.svg";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 
 import { useAddMutation } from "api/transaction";
+import ConfirmModal from "./ConfirmModal";
 
-import Confirm from "./Confirm";
+const openNotification = (type, message) => {
+  notification[type]({
+    description: message,
+  });
+};
 
-const BuyTokenForm = () => {
-  const [token, setToken] = useState('eth');
+const BuyTokenForm = (props) => {
+  const [token, setToken] = useState(0);
   const [modalVisibility, setModalVisibility] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
+  const [modalData, setmodalData] = useState('');
   const [data, { isLoading, error, isError }] = useAddMutation();
+
+  const networks = [
+    {
+      label: <img src={EthereumIcon} alt="ethereumIcon" />,
+      value: 0,
+      name: 'eth'
+    },
+    {
+      label: <img src={SolanaIcon} alt="SolanaIcon" />,
+      value: 1,
+      name: 'sol'
+    },
+    {
+      label: <img src={BscscanIcon} alt="BscscanIcon" />,
+      value: 2,
+      name: 'bnb'
+    },
+    {
+      label: <img src={BitcoinIcon} alt="BitcoinIcon" />,
+      value: 3,
+      name: 'btc'
+    },
+  ]
 
   const { t } = useTranslation();
 
   const handleSubmit = async (values) => {
     const finalData = Object.assign(values, { network: token, });
-    setErrorMsg("");
     const response = await data(finalData).unwrap();
     if (!response.isSuccess) {
-      setErrorMsg(response.message);
+      openNotification('error', response.message);
       return;
     } else {
-      openDetailModal();
+      setmodalData(response)
+      openConfirmModal();
     }
   };
 
-  const openDetailModal = () => {
+  const openConfirmModal = () => {
     setModalVisibility(true);
   };
 
-  const closeDetailModal = () => {
+  const closeConfirmModal = () => {
     setModalVisibility(false);
   };
 
   return (
-    <Col xs={24} xxl={16} id="buy-form">
-      <Confirm modalVisibility={modalVisibility} onClose={closeDetailModal} />
+    <Col xs={24} xl={16} xxl={16} id="buy-form">
+      <ConfirmModal modalVisibility={modalVisibility} onClose={closeConfirmModal} content={modalData?.data} />
       <Card style={{ width: "100%" }} className="buy-card">
         <p className="buy-p">
           Plese choose the network you are going to transfer through.
@@ -57,24 +86,7 @@ const BuyTokenForm = () => {
             block
             value={token}
             onChange={(value) => setToken(value)}
-            options={[
-              {
-                label: <img src={EthereumIcon} alt="ethereumIcon" />,
-                value: "eth"
-              },
-              {
-                label: <img src={SolanaIcon} alt="SolanaIcon" />,
-                value: "sol"
-              },
-              {
-                label: <img src={BscscanIcon} alt="BscscanIcon" />,
-                value: "bnb"
-              },
-              {
-                label: <img src={BitcoinIcon} alt="BitcoinIcon" />,
-                value: "btc"
-              },
-            ]}
+            options={networks}
           />
           <p className="buy-p" style={{ marginTop: 30 }}>
             Enter the amount in the first box that you would like to contribute to
@@ -82,30 +94,37 @@ const BuyTokenForm = () => {
           </p>
           <Row gutter={[24, 16]}>
             <Col xs={24} md={24} lg={8}>
+              <label className="custom-label">{`${t("yourDeposit")}`}</label>
               <Form.Item
                 name="usdtAmount"
                 rules={[
-                  { required: true, message: 'This field is required.' },
-                  { min: 3, message: 'The deposit can not be less than $100.' }
+                  { required: true, message: t("required") },
+                  {
+                    validator(_, value) {
+                      if (value > props.content.minimumBuy) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(`The deposit can not be less than $${props.content.minimumBuy}.`);
+                    },
+                  },
                 ]}
               >
-                <label className="custom-label">{`${t("yourDeposit")}`}</label>
                 <Input className="custom-input" addonAfter={<span>usd</span>} />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>
+              <label className="custom-label">{`${t("yourDeposit")} in `}<span style={{ textTransform: 'uppercase' }}>{networks[token].name}</span></label>
               <Form.Item name="cryptoAmount">
-                <label className="custom-label">{`${t("yourDeposit")} in `}<span style={{ textTransform: 'uppercase' }}>{token}</span></label>
-                <Input className="custom-input" addonAfter={<span>{ token }</span>} />
+                <Input className="custom-input" addonAfter={<span>{ networks[token].name }</span>} />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>
+              <label className="custom-label">{`${t("recieveToken")}`}</label>
               <Form.Item name="tokenCount">
-                <label className="custom-label">{`${t("recieveToken")}`}</label>
                 <Input className="custom-input" addonAfter={<span>avn</span>} />
               </Form.Item>
             </Col>
-            <Col xs={24} md={24} lg={24} style={{ marginTop: 20 }}>
+            <Col xs={24} md={24} lg={24}>
               <img
                 src={DangerTriangleIcon}
                 style={{ marginRight: 5 }}

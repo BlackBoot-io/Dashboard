@@ -9,7 +9,13 @@ export const crowdsaleScheduleApiSlice = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    currentCrowdsaleSchedules: builder.query({
+      query: () => ({
+        url: `/${addresses.crowdsaleSchedule_current}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useAllCrowdsaleSchedulesQuery } = crowdsaleScheduleApiSlice;
+export const { useAllCrowdsaleSchedulesQuery, useCurrentCrowdsaleSchedulesQuery } = crowdsaleScheduleApiSlice;

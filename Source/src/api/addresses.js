@@ -14,5 +14,6 @@ const addresses = {
   notification_all: "Notification/GetAll",
   notification_count: "Notification/Count",
   crowdsaleSchedule_all: "CrowdsaleSchedule/GetAll",
+  crowdsaleSchedule_current: "CrowdsaleSchedule/GetCurrentSale",
 };
 export default addresses;
