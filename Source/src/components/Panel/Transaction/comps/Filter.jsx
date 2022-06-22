@@ -3,6 +3,10 @@ import { Col, Row, Button, Select } from "antd";
 import { useTranslation } from "react-i18next";
 import TransactionLogo from "assets/images/transaction.svg";
 import Icon from "components/comps/Icon";
+import BitcoinIcon from "assets/images/networks/bitcoin.svg";
+import BscscanIcon from "assets/images/networks/bscscan.svg";
+import EthereumIcon from "assets/images/networks/etherium.svg";
+import SolanaIcon from "assets/images/networks/solana.svg";
 
 const { Option } = Select;
 
@@ -38,7 +42,7 @@ const Filter = (props) => {
             icon={
               <Icon
                 style={{
-                  "margin-right": 5,
+                  marginRight: 5,
                 }}
                 name={"FaSlidersH"}
               />
@@ -51,32 +55,45 @@ const Filter = (props) => {
         {filterToggle ? (
           <Row className="transaction-header-action-filters">
             <Select
-              onChange={props.onNetworkChange}
+              onChange={(value) => props.onFilterChange(value, "network")}
               style={{ width: 100 }}
               placeholder={t("Network")}
+              dropdownMatchSelectWidth={150}
+              allowClear={true}
             >
-              <Option value="">All</Option>
-              <Option value="1">Bitcoin</Option>
-              <Option value="2">Ethereum</Option>
-              <Option value="3">Solana</Option>
-              <Option value="4">Tether</Option>
-              <Option value="5">Binance</Option>
+              <Option value="1">
+                <img src={BitcoinIcon} alt="Bitcoin Network" />
+              </Option>
+              <Option value="2">
+                <img src={EthereumIcon} alt="Ethereum Network" />
+              </Option>
+              <Option value="3">
+                <img src={SolanaIcon} alt="Solana Network" />
+              </Option>
+              <Option value="4">
+                <img src={BscscanIcon} alt="Solana Network" />
+              </Option>
+              <Option value="5">
+                <img src={BscscanIcon} alt="Binance Network" />
+              </Option>
             </Select>
             <Select
-              onChange={props.onTypeChange}
+              onChange={(value) => props.onFilterChange(value, "type")}
               style={{ width: 100 }}
               placeholder={t("Type")}
+              dropdownMatchSelectWidth={150}
+              allowClear={true}
             >
-              <Option value="">All</Option>
               <Option value="0">Deposit</Option>
               <Option value="1">Withdraw</Option>
             </Select>
             <Select
-              onChange={props.onStatusChange}
+              onChange={(value) => props.onFilterChange(value, "status")}
               style={{ width: 100 }}
               placeholder={t("Status")}
+              dropdownMatchSelectWidth={150}
+              allowClear={true}
             >
-              <Option value="">All</Option>
               <Option value="1">Pending</Option>
               <Option value="2">TimedOut</Option>
               <Option value="3">RejectByUser</Option>

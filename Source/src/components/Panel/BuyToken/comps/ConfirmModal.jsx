@@ -1,12 +1,11 @@
-import { Col, Row, Modal } from "antd";
+import { useRef } from "react";
+import { Col, Row, Modal, Input } from "antd";
 import { useTranslation } from "react-i18next";
-import { Input } from "antd";
 import Icon from "components/comps/Icon";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 import EthereumIcon from "assets/images/networks/etheriumIcon.svg";
 import CopyIcon from "assets/images/copy.svg";
 import qrCode from "assets/images/QR.svg";
-import { useRef } from "react";
 
 const ConfirmModal = (props) => {
   const { t } = useTranslation();

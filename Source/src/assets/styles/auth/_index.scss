@@ -50,6 +50,12 @@
             }
         }
     }
+    .ant-tabs-ink-bar {
+        display: none;
+    }
+    .ant-tabs-top > .ant-tabs-nav:before {
+        display: none;
+    }
     @media (max-width: $sm) {
         background-color: var(--white);
         .slide {

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Col, Row, Card, Progress } from "antd";
+import { Col, Row, Progress, Card } from "antd";
 import ClockIcon from "assets/images/clock.svg";
 import moment from 'moment'
 

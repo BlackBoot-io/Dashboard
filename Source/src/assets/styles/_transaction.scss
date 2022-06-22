@@ -32,7 +32,16 @@
         display: flex;
         column-gap: $offset3;
         margin-top: $offset6;
+
+        // .network-filters {
+        //     img {
+        //         width: 70px;
+        //         height: 70px;
+        //     }
+        // }
     }
+
+
 
     .transaction-table-container {
         margin-top: $offset5;

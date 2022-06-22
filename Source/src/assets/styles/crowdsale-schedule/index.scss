@@ -13,6 +13,7 @@
         .carousel-nav {
             button {
                 border: solid 1px var(--oslo-grey);
+                color: var(--oslo-grey);
                 border-radius: 50%;
                 padding: 12px;
             }
@@ -24,4 +25,9 @@
     .loading-wrapper {
         min-height: 500px;
     }
+    .content-wrapper{
+        height: calc(100vh - 190px);
+    }
+    @import "./carousel";
+    @import "./time-line";
 }

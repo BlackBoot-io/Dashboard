@@ -9,7 +9,7 @@ export const transactionApiSlice = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
-    getById: builder.query({
+    getById: builder.mutation({
       query: (transactionId) => ({
         url: `/${addresses.transaction_getById}?transactionId=${transactionId}`,
         method: "GET",
@@ -25,4 +25,4 @@ export const transactionApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useAddMutation, useGetByIdQuery, useGetAllQuery } = transactionApiSlice;
+export const { useAddMutation, useGetByIdMutation, useGetAllQuery } = transactionApiSlice;
