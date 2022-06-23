@@ -1,11 +1,13 @@
 import { Col, Row, Modal } from "antd";
 import { useTranslation } from "react-i18next";
 import Icon from "components/comps/Icon";
+import Utils from "config/utils";
+import { transactionTypes, transactionStatusTypes } from "config/enums";
 
 const Detail = (props) => {
   const { t } = useTranslation();
 
-  console.log(props.data);
+  const { data } = props;
   return (
     <>
       <Modal
@@ -20,98 +22,84 @@ const Detail = (props) => {
         onCancel={props.onClose}
       >
         <Row>
-          <Col xs={12} sm={8}>
-            <label>{t("TransactionDate")}</label>
-            <p>5 may 2022</p>
+          <Col xs={24} sm={10}>
+            <h3 className="transaction-title">{t("TransactionDate")}</h3>
+            <p className="transaction-text">{data.date}</p>
           </Col>
-          <Col xs={12} sm={8}>
-            <label>{t("TransactionStatus")}</label>
-            <p>Pending</p>
-          </Col>
-          <Col xs={12} sm={8}>
-            <label>{t("TransactionApproveNote")}</label>
-            <p>-</p>
+          <Col xs={24} sm={14}>
+            <h3 className="transaction-title">{t("TransactionStatus")}</h3>
+            <p className="transaction-text">
+              {t(Utils.getKeyByValue(transactionStatusTypes, data.status))}
+            </p>
           </Col>
         </Row>
         <Row>
-          <h3>{t("TransactionInfo")}</h3>
+          <h3 className="token-detail-title">{t("TransactionInfo")}</h3>
           <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("TXID")}</label>
+            <Col xs={24} sm={10}>
+              <h3 className="transaction-title">{t("TXID")}</h3>
             </Col>
-            <Col xs={12} sm={8}>
-              <p>fsdfsdfsdfsd</p>
+            <Col xs={24} sm={14}>
+              <p className="transaction-text">{data.txId}</p>
             </Col>
           </Row>
           <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("TransactionType")}</label>
+            <Col xs={24} sm={10}>
+              <h3 className="transaction-title">{t("TransactionType")}</h3>
             </Col>
-            <Col xs={12} sm={8}>
-              <p>Purchase</p>
+            <Col xs={24} sm={14}>
+              <p className="transaction-text">
+                {t(Utils.getKeyByValue(transactionTypes, data.type))}
+              </p>
             </Col>
           </Row>
         </Row>
         <div className="transaction-modal-divider">
-          <Icon name={"FaAngleUp"} />
+          <div className="divider-icon">
+            <Icon name={"FaChevronDown"} />
+          </div>
         </div>
-
         <Row>
-          <h3>{t("TokenDetail")}</h3>
+          <h3 className="token-detail-title">{t("TokenDetail")}</h3>
+
           <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("StageName")}</label>
+            <Col xs={24} sm={10}>
+              <h3 className="transaction-title">{t("StageName")}</h3>
             </Col>
-            <Col xs={12} sm={8}>
-              <p>Public Sale</p>
+            <Col xs={24} sm={14}>
+              <p className="transaction-text">{data.crowdSaleSchedule.title}</p>
             </Col>
           </Row>
           <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("Contribution")}</label>
+            <Col xs={24} sm={10}>
+              <h3 className="transaction-title">{t("Contribution")}</h3>
             </Col>
-            <Col xs={12} sm={8}>
-              <p>0.00036</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("TokenAddedTo")}</label>
-            </Col>
-            <Col xs={12} sm={8}>
-              <p>xxxxxxxxxxxxxxxxxxxx</p>
+            <Col xs={24} sm={14}>
+              <p className="transaction-text">{data.tokenCount}</p>
             </Col>
           </Row>
           <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("RefferalCode")}</label>
+            <Col xs={24} sm={10}>
+              <h3 className="transaction-title">{t("TokenAddedTo")}</h3>
             </Col>
-            <Col xs={12} sm={8}>
-              <p>12344</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("Token")}</label>
-            </Col>
-            <Col xs={12} sm={8}>
-              <p>12344</p>
+            <Col xs={24} sm={14}>
+              <p className="transaction-text">{data.walletAddress}</p>
             </Col>
           </Row>
           <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("BounesToken")}</label>
+            <Col xs={24} sm={10}>
+              <h3 className="transaction-title">{t("BounesToken")}</h3>
             </Col>
-            <Col xs={12} sm={8}>
-              <p>-</p>
+            <Col xs={24} sm={14}>
+              <p className="transaction-text">{data.bonusCount}</p>
             </Col>
           </Row>
           <Row>
-            <Col xs={12} sm={8}>
-              <label>{t("TotalTokens")}</label>
+            <Col xs={24} sm={10}>
+              <h3 className="transaction-title">{t("TotalTokens")}</h3>
             </Col>
-            <Col xs={12} sm={8}>
-              <p>12344</p>
+            <Col xs={24} sm={14}>
+              <p className="transaction-text">{data.totalToken}</p>
             </Col>
           </Row>
         </Row>

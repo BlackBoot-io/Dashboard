@@ -1,0 +1,16 @@
+#transaction {
+    padding: $offset5;
+    background: var(--white) !important;
+
+    .ant-row {
+        width: inherit !important;
+    }
+
+    .ant-table-body {
+        min-height: 500px;
+    }
+
+    @import "./filter";
+}
+
+@import "./detail";
