@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Col, Row, Progress, Card } from "antd";
+import { Col, Row, Progress } from "antd";
 import ClockIcon from "assets/images/clock.svg";
 import moment from 'moment'
 
@@ -8,7 +8,7 @@ const Info = (props) => {
   
   return (
     <Col xs={24} xl={8} xxl={8} id="buy-info">
-      <Card style={{ width: "100%" }} className="custom-card with-bg">
+      <div style={{ width: "100%" }} className="custom-card with-bg">
         <div className="remain-head">
           <img src={ClockIcon} alt="clock icon" />
           <h4 className="remain-title">{t("remainingTimetobuy")}</h4>
@@ -42,7 +42,7 @@ const Info = (props) => {
             <span className="progress-text">{t("endIn")} {moment(props.content.to, 'YYYY-MM-DD').format("MMMM DD")}</span>
           </Col>
         </Row>
-      </Card>
+      </div>
     </Col>
   );
 };

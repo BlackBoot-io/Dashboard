@@ -11,9 +11,8 @@ const WithdrawForm = () => {
     const [errorMsg, setErrorMsg] = useState("");
     const [selectedNetwork, setSelectedNetwork] = useState(networkTypes.Ethereum)
     const { data, isSuccess, isError } = useGetCurrentUserInfoQuery();
-    console.log(data)
     return (
-        <Card style={{ width: '100%' }} className="withdraw-card">
+        <div style={{ width: '100%' }} className="custom-card withdraw-card">
             <p className="withdraw-network">
                 Withdraw via network
             </p>
@@ -49,7 +48,7 @@ const WithdrawForm = () => {
                     </Button>
                 </Col>
             </Row>
-        </Card>
+        </div>
     );
 };
 export default WithdrawForm;

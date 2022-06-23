@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Col, Row, Card, Segmented, Input, Button, Form, notification } from "antd";
+import { Col, Row, Segmented, Input, Button, Form, notification } from "antd";
 
 import BagIcon from "assets/images/bag.svg";
 import BitcoinIcon from "assets/images/networks/bitcoin.svg";
@@ -72,7 +72,7 @@ const BuyTokenForm = (props) => {
   return (
     <Col xs={24} xl={16} xxl={16} id="buy-form">
       <ConfirmModal modalVisibility={modalVisibility} onClose={closeConfirmModal} content={modalData?.data} />
-      <Card style={{ width: "100%" }} className="buy-card">
+      <div style={{ width: "100%" }} className="custom-card buy-card">
         <p className="buy-p">
           Plese choose the network you are going to transfer through.
         </p>
@@ -158,7 +158,7 @@ const BuyTokenForm = (props) => {
             </Col>
           </Row>
         </Form>
-      </Card>
+      </div>
     </Col>
   );
 };
