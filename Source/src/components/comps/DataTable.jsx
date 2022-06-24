@@ -8,7 +8,7 @@ const DataTable = (props) => {
         dataSource={props.data}
         loading={props.loading}
         pagination={{ position: ["none"], pageSize: props.pageSize }}
-        scroll={{ x: "100vh", y: "90vh" }}
+        scroll={{ x: "100vh", y: "0vh" }}
       />
     </>
   );

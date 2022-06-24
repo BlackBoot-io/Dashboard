@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Col, Row, Button, Select } from "antd";
 import { useTranslation } from "react-i18next";
 import TransactionLogo from "assets/images/transaction.svg";
-import Icon from "components/comps/Icon";
 import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
 import EthereumIcon from "assets/images/networks/etherium.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
+import Dropdown from "../../../comps/Dropdown";
 
 const { Option } = Select;
 
@@ -21,24 +21,21 @@ const Filter = (props) => {
   return (
     <>
       <Row className="transaction-header">
-        <Col xs={24} sm={6} className="transaction-header-logo">
+        <Col xs={24} sm={6} className="logo">
           <img src={TransactionLogo} alt="logo" />
           <h1>{t("Transactions")} </h1>
         </Col>
-        <Col xs={24} sm={18} className="transaction-header-action">
-          <div className="transaction-header-action-pager">
+        <Col xs={24} sm={18} className="action">
+          <div className="pager">
             <h4>{t("ShowRows")}</h4>
-            <Select
-              defaultValue={50}
-              onChange={props.onPageSizeChange}
-              style={{ width: 70 }}
-            >
+            <Dropdown defaultValue={50} onChange={props.onPageSizeChange}>
               <Option value="50">50</Option>
               <Option value="100">100</Option>
               <Option value="200">200</Option>
-            </Select>
+            </Dropdown>
           </div>
           <Button
+            className="filter-toggle"
             icon={
               <svg
                 width="16"
@@ -47,7 +44,7 @@ const Filter = (props) => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_1747_3481)">
+                <g clipPath="url(#clip0_1747_3481)">
                   <path
                     d="M9.53304 6.33338C9.85432 6.33475 10.1669 6.22897 10.4213 6.03276C10.6757 5.83656 10.8574 5.56113 10.9378 5.25005L12.1944 5.25005C12.2902 5.25005 12.3821 5.21201 12.4498 5.14428C12.5175 5.07656 12.5555 4.98471 12.5555 4.88894C12.5555 4.79317 12.5175 4.70132 12.4498 4.6336C12.3821 4.56587 12.2902 4.52783 12.1944 4.52783L10.9378 4.52783C10.8622 4.21217 10.6825 3.93117 10.4276 3.73015C10.1728 3.52913 9.85763 3.4198 9.53304 3.4198C9.20845 3.4198 8.89333 3.52913 8.63848 3.73015C8.38363 3.93117 8.20392 4.21217 8.12832 4.52783L2.80554 4.52783C2.70977 4.52783 2.61792 4.56587 2.5502 4.6336C2.48248 4.70132 2.44443 4.79317 2.44443 4.88894C2.44443 4.98471 2.48248 5.07656 2.5502 5.14428C2.61792 5.21201 2.70977 5.25005 2.80554 5.25005L8.12832 5.25005C8.20864 5.56113 8.39037 5.83656 8.64479 6.03276C8.8992 6.22897 9.21176 6.33475 9.53304 6.33338V6.33338ZM8.81082 4.88894C8.81082 4.7461 8.85318 4.60646 8.93254 4.48769C9.0119 4.36893 9.12469 4.27636 9.25666 4.22169C9.38863 4.16703 9.53384 4.15273 9.67394 4.1806C9.81404 4.20846 9.94273 4.27725 10.0437 4.37825C10.1447 4.47926 10.2135 4.60794 10.2414 4.74804C10.2693 4.88814 10.255 5.03335 10.2003 5.16532C10.1456 5.29729 10.0531 5.41009 9.93429 5.48945C9.81552 5.5688 9.67588 5.61116 9.53304 5.61116C9.43729 5.6126 9.34221 5.59498 9.25333 5.55933C9.16445 5.52368 9.08355 5.47071 9.01534 5.4035C8.94712 5.33629 8.89295 5.25619 8.85598 5.16785C8.81901 5.07951 8.79998 4.9847 8.79999 4.88894L8.81082 4.88894Z"
                     fill="#5B626E"
@@ -79,10 +76,9 @@ const Filter = (props) => {
           </Button>
         </Col>
         {filterToggle ? (
-          <Row className="transaction-header-action-filters">
+          <Row className="filters">
             <Select
               onChange={(value) => props.onFilterChange(value, "network")}
-              style={{ width: 100 }}
               placeholder={t("Network")}
               dropdownMatchSelectWidth={150}
               allowClear={true}
@@ -105,14 +101,18 @@ const Filter = (props) => {
             </Select>
             <Select
               onChange={(value) => props.onFilterChange(value, "type")}
-              style={{ width: 100 }}
               placeholder={t("Type")}
               dropdownMatchSelectWidth={150}
               allowClear={true}
             >
               <Option value="0">
-                <span>
-                  <p> Deposit</p>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    columnGap: 2,
+                  }}
+                >
                   <svg
                     width="20"
                     height="21"
@@ -125,11 +125,24 @@ const Filter = (props) => {
                       fill="#009C7B"
                     />
                   </svg>
-                </span>
+
+                  <p
+                    style={{
+                      marginBottom: 0,
+                    }}
+                  >
+                    Deposit
+                  </p>
+                </div>
               </Option>
               <Option value="1">
-                <span>
-                  <p>Withdraw</p>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    columnGap: 2,
+                  }}
+                >
                   <svg
                     width="20"
                     height="21"
@@ -142,12 +155,18 @@ const Filter = (props) => {
                       fill="#D22600"
                     />
                   </svg>
-                </span>
+                  <p
+                    style={{
+                      marginBottom: 0,
+                    }}
+                  >
+                    Withdraw
+                  </p>
+                </div>
               </Option>
             </Select>
             <Select
               onChange={(value) => props.onFilterChange(value, "status")}
-              style={{ width: 100 }}
               placeholder={t("Status")}
               dropdownMatchSelectWidth={150}
               allowClear={true}
