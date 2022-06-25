@@ -82,5 +82,8 @@
   "lightMode": "Light Mode",
   "darkMode": "Dark Mode",
   "months": "Months",
-  "invalidEmail": "The input is not valid E-mail!"
+  "invalidEmail": "The input is not valid E-mail!",
+  "signinWithGoogle": "Sign in with google",
+  "haveAnAccount":"Already have an account",
+  "createAccount":"Create an account"
 }

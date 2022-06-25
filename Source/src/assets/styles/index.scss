@@ -59,25 +59,16 @@ html {
     color: var(--black);
   }
 }
-
-@font-face {
-  font-family: "iransans";
-  src: url(../fonts/iransans.eot) format("embedded-opentype"), url(../fonts/iransans.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800;900&display=swap');
 
 html {
-  &:lang(fa) {
-    body {
-      font-family: "iransans" !important;
-      text-align: right !important;
-    }
+  body {
+    font-family: "Urbanist" !important;
   }
 
   &:lang(ar) {
     body {
-      font-family: "iransans" !important;
+      font-family: "Urbanist" !important;
       text-align: right !important;
     }
   }

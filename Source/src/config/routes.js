@@ -5,6 +5,7 @@ const routes = {
   recoverPassword: "recoverPassword",
   profile: "profile",
   home: "home",
+  dashboard: "dashboard",
   transactions: "transactions",
   crowdsaleSchedule: "crowdsale-schedule",
   buyToken: "buy-token",

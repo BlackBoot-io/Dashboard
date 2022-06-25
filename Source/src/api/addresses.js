@@ -1,5 +1,6 @@
 const addresses = {
   account_login: "Account/login",
+  account_signup: "Account/signup",
   account_logout: "Account/logout",
   account_getCurrentUser: "Account/GetCurrentUser",
   account_refreshToken: "Account/RefreshToken",
