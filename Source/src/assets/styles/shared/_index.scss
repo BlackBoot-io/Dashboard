@@ -35,6 +35,7 @@ ol {
     direction: ltr;
     text-align: left !important;
 }
+
 .ltr-input input {
     direction: ltr;
     text-align: left !important;
@@ -59,26 +60,32 @@ ol {
 .w-100 {
     width: 100%;
 }
+
 .ant-row {
     width: 100%;
 }
+
 /*-----------------------------------
            utilities 
       ------------------------------------*/
 .d-flex {
     display: flex;
 }
+
 .jc-c {
     justify-content: center;
 }
+
 .ai-c {
     align-items: center;
 }
+
 .center {
     display: flex !important;
     justify-content: center;
     align-items: center;
 }
+
 /*-----------------------------------
            remove browser autofill 
       ------------------------------------*/
@@ -199,6 +206,7 @@ input:-webkit-autofill:active {
     box-shadow: 0 4px 13px -5px rgb(0 0 0 / 6%);
     min-width: 170px;
 }
+
 .ant-form-item {
     .ant-form-item-label {
         margin-bottom: 0 !important;
@@ -210,10 +218,12 @@ input:-webkit-autofill:active {
         }
     }
 }
+
 .ant-form-item-control-input-content {
     .ant-input {
         border-color: var(--soft-peach);
     }
+
     .ant-input-suffix {
         color: var(--star-dust);
         font-size: 13px;
@@ -229,6 +239,7 @@ input:-webkit-autofill:active {
     display: flex;
     margin-bottom: $offset4;
     align-items: center;
+
     .icon-wrapper {
         width: 44px;
         height: 44px;
@@ -239,6 +250,7 @@ input:-webkit-autofill:active {
         font-size: 50px !important;
         color: var(--white);
     }
+
     .header-title {
         font-style: normal;
         font-weight: 600;
@@ -270,3 +282,4 @@ input:-webkit-autofill:active {
 @import "./card";
 @import "./label";
 @import "./input";
+@import "./select";

@@ -10,7 +10,15 @@
         min-height: 500px;
     }
 
-    @import "./filter";
+    thead[class*="ant-table-thead"] tr {
+        color: #5B626E;
+    }
+
+    tbody[class*="ant-table-tbody"] tr {
+        font-weight: bold;
+    }
+
+    @import "./header";
 }
 
 @import "./detail";
