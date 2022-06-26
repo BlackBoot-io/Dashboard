@@ -1,0 +1,24 @@
+#transaction {
+    padding: $offset5;
+    background: var(--white) !important;
+
+    .ant-row {
+        width: inherit !important;
+    }
+
+    .ant-table-body {
+        min-height: 500px;
+    }
+
+    thead[class*="ant-table-thead"] tr {
+        color: #5B626E;
+    }
+
+    tbody[class*="ant-table-tbody"] tr {
+        font-weight: bold;
+    }
+
+    @import "./header";
+}
+
+@import "./detail";

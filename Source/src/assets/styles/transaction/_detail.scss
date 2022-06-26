@@ -1,0 +1,97 @@
+  .transaction-modal {
+      width: 758px !important;
+      box-shadow: 0px 4px 14px rgba(47, 83, 109, 0.1) !important;
+
+      .ant-modal-content {
+          border-radius: 20px !important;
+          overflow: hidden;
+      }
+
+      .ant-modal-header {
+          padding: 30px 35px 10px 35px;
+          border-bottom: none;
+
+          .ant-modal-title {
+              font-weight: 700;
+              font-size: 19px;
+              text-transform: capitalize;
+              color: #4E4E4F;
+          }
+      }
+
+      .ant-modal-body {
+          padding: 30px 35px;
+      }
+
+      .ant-modal-close {
+          position: absolute;
+          top: 13px;
+          right: 13px;
+          color: #000;
+      }
+
+      .transaction-modal-divider {
+          text-align: center;
+          margin: 25px 0;
+
+          .divider-icon {
+              position: relative;
+              display: block;
+
+              svg {
+                  border-radius: 50%;
+                  border: 1px solid #000000;
+                  width: 32px;
+                  height: 32px;
+                  padding: 10px 8px 8px 8px;
+                  font-size: 200px;
+              }
+
+              &::before,
+              &::after {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  transform: translate(0%, -50%);
+                  width: 41%;
+                  height: 1px;
+                  background: #717171;
+              }
+
+              &::before {
+                  left: 5%;
+                  background: linear-gradient(to left, #000000 0%, rgba(113, 113, 113, 0.2) 100%);
+              }
+
+              &::after {
+                  right: 5%;
+                  background: linear-gradient(to right, #000000 0%, rgba(113, 113, 113, 0.2) 100%);
+              }
+          }
+      }
+
+
+      .token-detail-title {
+          font-weight: 700;
+          font-size: 19px;
+          text-transform: capitalize;
+          color: #4E4E4F;
+      }
+
+
+      .transaction-title {
+          font-weight: 500;
+          font-size: 17px;
+          text-transform: capitalize;
+          color: #4E4E4F;
+      }
+
+      .transaction-text {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 26px;
+          text-align: left;
+          text-transform: capitalize;
+          color: #000000;
+      }
+  }

@@ -79,6 +79,20 @@ export default class Utils {
       return text.substring(0, length) + (appender ?? "...");
     return text;
   }
+  static shortTextMiddle(text, length, appender) {
+    if (!text) return;
+    let textLength = text.length;
+    if (length > textLength) return text;
+    appender = appender || "...";
+    let charsToShow = length - appender.length,
+      frontChars = Math.ceil(charsToShow / 2),
+      backChars = Math.floor(charsToShow / 2);
+    return (
+      text.substr(0, frontChars) +
+      appender +
+      text.substr(textLength - backChars)
+    );
+  }
   static formatNumber(num, decimalLength = 1, dot = "/") {
     if (!num) return num;
     let isNegative = num < 0;
@@ -139,5 +153,9 @@ export default class Utils {
   };
   static removeStoredData = (key) => {
     localStorage.removeItem(key);
+  };
+
+  static getKeyByValue = (object, value) => {
+    return Object.keys(object).find((key) => object[key] === value);
   };
 }

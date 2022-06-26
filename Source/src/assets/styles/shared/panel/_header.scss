@@ -26,18 +26,22 @@
                 font-size: 18px;
                 color: var(--black);
             }
-            svg {
-                color: var(--cloud);
-            }
-            .active {
+            .btn-dark{
                 svg {
-                    color: var(--black);
+                    stroke: var(--cloud);
+                }
+                .active {
+                    svg {
+                        stroke: var(--black);
+                    }
                 }
             }
         }
         .a-notif {
-            color: var(--black);
             position: relative;
+            svg{
+                stroke: var(--black);
+            }
             &.active:after {
                 content: "";
                 position: absolute;

@@ -48,7 +48,7 @@ const WithdrawForm = () => {
     };
     const invalid = () => { };
     return (
-        <Card style={{ width: '100%' }} className="withdraw-card">
+        <div style={{ width: '100%' }} className="custom-card withdraw-card">
             <p className="withdraw-network">
                 Withdraw via network
             </p>

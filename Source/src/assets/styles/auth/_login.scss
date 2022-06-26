@@ -1,5 +1,4 @@
 #login {
-    padding: $offset5;
     .ant-tabs {
         max-width: 330px;
         margin-left: auto;
@@ -22,15 +21,12 @@
             }
         }
     }
+    #auth-by-email {
+        padding-bottom: $offset4;
+    }
     .remeber-me-wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    .google-login {
-        margin-bottom: $offset3;
-    }
-    .signup {
-        text-align: center;
     }
 }

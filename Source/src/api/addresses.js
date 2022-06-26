@@ -1,5 +1,6 @@
 const addresses = {
   account_login: "Account/login",
+  account_signup: "Account/signup",
   account_logout: "Account/logout",
   account_getCurrentUser: "Account/GetCurrentUser",
   account_refreshToken: "Account/RefreshToken",
@@ -15,5 +16,6 @@ const addresses = {
   notification_all: "Notification/GetAll",
   notification_count: "Notification/Count",
   crowdsaleSchedule_all: "CrowdsaleSchedule/GetAll",
+  crowdsaleSchedule_current: "CrowdsaleSchedule/GetCurrentSale",
 };
 export default addresses;

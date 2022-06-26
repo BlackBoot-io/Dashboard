@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetAllQuery, useGetByIdMutation } from "api/transaction";
 
 import Detail from "./comps/Detail";
-import Filter from "./comps/Filter";
+import Header from "./comps/Header";
 import List from "./comps/List";
 
 const Transaction = () => {
@@ -65,7 +65,7 @@ const Transaction = () => {
   }, [transactions.isSuccess, transactions.isError, filterState]);
   return (
     <div id="transaction">
-      <Filter
+      <Header
         onPageSizeChange={handlePageSizeChange}
         onFilterChange={handleFilterChange}
       />

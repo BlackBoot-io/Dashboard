@@ -20,12 +20,15 @@
     background-color: var(--blue-whale) !important;
     color: var(--white) !important;
     .ant-spin-dot-item {
-        background-color: var(--white)!important;
+        background-color: var(--white) !important;
     }
 }
 .btn-secondary {
     @include btn;
     background-color: var(--catskill-white) !important;
+    box-shadow: none !important;
+    background: #f9fbfc !important;
+    border: 1px solid #efeff0 !important;
     color: var(--star-dust) !important;
 }
 html:lang(ar) {
@@ -35,14 +38,13 @@ html:lang(ar) {
         }
     }
 }
-.btn-link{
+.btn-link {
     cursor: pointer;
     padding: 0;
     outline: none;
     background-color: transparent;
     border: none;
     display: inline-flex;
-    &:hover{
-
+    &:hover {
     }
 }

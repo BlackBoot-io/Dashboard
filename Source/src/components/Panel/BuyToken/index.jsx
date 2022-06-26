@@ -1,13 +1,14 @@
-import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
-import Icon from "components/comps/Icon";
+import { Col, Row, Spin } from "antd";
 import BuyTokenIcon from "assets/images/buy-token.svg";
-
 import BuyTokenForm from "components/Panel/BuyToken/comps/Form";
 import Info from "components/Panel/BuyToken/comps/Info";
+import { useCurrentCrowdsaleSchedulesQuery } from "api/crowdsaleSchedule";
 
 const BuyToken = () => {
   const { t } = useTranslation();
+  const { isLoading, isSuccess, data } = useCurrentCrowdsaleSchedulesQuery();
+
   return (
     <div id="buy-token">
       <Row gutter={[24, 16]}>
@@ -18,8 +19,16 @@ const BuyToken = () => {
           </span>
           <h1 className="header-title">{t("buyToken")}</h1>
         </Col>
-        <BuyTokenForm />
-        <Info />
+        {!isLoading ?  
+          <>
+            <BuyTokenForm content={data?.data} />
+            <Info content={data?.data} />
+          </>
+        : 
+          <Col xs={24} style={{ display: "flex", justifyContent: "center" }}>
+            <Spin />
+          </Col>
+        }
       </Row>
     </div>
   );

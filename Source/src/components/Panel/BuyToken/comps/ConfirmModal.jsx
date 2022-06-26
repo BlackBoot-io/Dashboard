@@ -1,16 +1,23 @@
-import { Col, Row, Modal } from "antd";
+import { useRef } from "react";
+import { Col, Row, Modal, Input } from "antd";
 import { useTranslation } from "react-i18next";
-import { Input } from "antd";
 import Icon from "components/comps/Icon";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 import EthereumIcon from "assets/images/networks/etheriumIcon.svg";
 import CopyIcon from "assets/images/copy.svg";
 import qrCode from "assets/images/QR.svg";
 
-const Confirm = (props) => {
+const ConfirmModal = (props) => {
   const { t } = useTranslation();
+  const nameRef = useRef();
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(nameRef.current.input.value);
+  };
+
   return (
     <>
+    {props.content ? 
       <Modal
         title="Contribution confirmation"
         visible={props.modalVisibility}
@@ -29,7 +36,7 @@ const Confirm = (props) => {
               <h3 className="buy-title">{t("transactionId")}</h3>
             </Col>
             <Col xs={24} sm={12}>
-              <p className="buy-text">78a65d7c-48c1-46ae-8dfb-2b9f1d08cf9b</p>
+              <p className="buy-text">{props.content.transactionId}</p>
             </Col>
           </Row>
           <Row>
@@ -37,7 +44,7 @@ const Confirm = (props) => {
               <h3 className="buy-title">{t("finalTransfarableValue")}</h3>
             </Col>
             <Col xs={24} sm={12} className="final-transfarable" style={{textAlign: 'right'}}>
-              <span className="dollar-amount">$214</span><span className="almost-eq">≃</span><span className="token-amount">0.012</span><span><img src={EthereumIcon} alt="ethereumIcon" /></span>
+              <span className="dollar-amount">${props.content.usdtAmount}</span><span className="almost-eq">≃</span><span className="token-amount">{props.content.cryptoAmount}</span><span><img src={EthereumIcon} alt="ethereumIcon" /></span>
             </Col>
           </Row>
         </Row>
@@ -61,7 +68,7 @@ const Confirm = (props) => {
               </span>
             </Col>
             <Col xs={12} sm={21} style={{ marginTop: 15 }}>
-              <Input className="custom-input" addonAfter={<img src={CopyIcon} style={{ width:'12px'}} alt="copy" />} />
+              <Input className="custom-input" ref={nameRef} value={props.content.walletAddress} addonAfter={<img src={CopyIcon} style={{ width:'12px', cursor: 'pointer' }} alt="copy" onClick={copyToClipboard} />} />
             </Col>
           </Row>
           <Row style={{ marginTop: 15 }}>
@@ -83,8 +90,9 @@ const Confirm = (props) => {
             </Col>
           </Row>
       </Modal>
+     : null}
     </>
   );
 };
 
-export default Confirm;
+export default ConfirmModal;

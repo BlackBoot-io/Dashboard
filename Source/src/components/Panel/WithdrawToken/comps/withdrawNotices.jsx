@@ -11,7 +11,7 @@ const WithdrawNotices = () => {
 		"There are no maximum withdrawal limits on Coinbase Commerce - you can withdraw all funds at any point."
 	]
 	return (
-		<Card style={{ width: '100%' }} className="withdraw-card">
+		<div style={{ width: '100%' }} className="withdraw-card custom-card">
 			<img src={BlueCircleBg} className="blue-circle-bg" alt="blue circle background" />
 			<div className="withdraw-head">
 				<h4 className="withdraw-notice-title">{t("withdrawalNotices")}</h4>
@@ -24,7 +24,7 @@ const WithdrawNotices = () => {
 				</Col>
 				<button className="withdraw-faq-btn">withdraw FAQ</button>
 			</Row>
-		</Card>
+		</div>
 	);
 };
 export default WithdrawNotices;
