@@ -15,6 +15,7 @@ const Layout = ({}) => {
   let token = localStorage.getItem(storageKeys.token);
   const { isOpen } = useSelector((x) => x.drawer);
   const { user } = useSelector((x) => x.auth);
+  const { lightMode } = useSelector((x) => x.theme);
   const dispatch = useDispatch();
   const location = useLocation();
   const { t, i18n } = useTranslation();
@@ -44,10 +45,10 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M11.7725 5.00075H8.2275C7.16657 4.97133 6.28198 5.80615 6.25 6.867V8.1345C6.28198 9.19536 7.16657 10.0302 8.2275 10.0008H11.7725C12.8334 10.0302 13.718 9.19536 13.75 8.1345V6.867C13.718 5.80615 12.8334 4.97133 11.7725 5.00075Z"
-
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
+              stroke={lightMode?"black":"white"}
             />
             <path
               fillRule="evenodd"
@@ -62,14 +63,62 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M18.2275 23.7508H21.7712C22.8327 23.7809 23.718 22.9459 23.75 21.8845V20.617C23.718 19.5561 22.8334 18.7213 21.7725 18.7508H18.2275C17.1666 18.7213 16.282 19.5561 16.25 20.617V21.8833C16.2813 22.9446 17.1661 23.7802 18.2275 23.7508Z"
-
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
+              stroke={lightMode?"black":"white"}
             />
           </svg>
         ),
         children: [
+          {
+            key: routes.dashboard,
+            label: t("dashbord"),
+            icon: (
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M11.7725 12.5007H8.2275C7.70734 12.4964 7.20676 12.6988 6.83591 13.0636C6.46505 13.4284 6.25429 13.9255 6.25 14.4457V21.8069C6.25962 22.8896 7.1448 23.7597 8.2275 23.7507H11.7725C12.2927 23.755 12.7932 23.5525 13.1641 23.1878C13.5349 22.823 13.7457 22.3258 13.75 21.8057V14.4457C13.7457 13.9255 13.5349 13.4284 13.1641 13.0636C12.7932 12.6988 12.2927 12.4964 11.7725 12.5007Z"
+                  stroke="#1EABCC"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M11.7725 5.00075H8.2275C7.16657 4.97133 6.28198 5.80615 6.25 6.867V8.1345C6.28198 9.19536 7.16657 10.0302 8.2275 10.0008H11.7725C12.8334 10.0302 13.718 9.19536 13.75 8.1345V6.867C13.718 5.80615 12.8334 4.97133 11.7725 5.00075Z"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M18.2275 16.2508H21.7712C22.2916 16.2555 22.7925 16.0531 23.1637 15.6883C23.5348 15.3235 23.7457 14.8262 23.75 14.3058V6.9458C23.7457 6.42564 23.5349 5.92849 23.1641 5.56373C22.7932 5.19896 22.2927 4.99647 21.7725 5.0008H18.2275C17.7073 4.99647 17.2068 5.19896 16.8359 5.56373C16.4651 5.92849 16.2543 6.42564 16.25 6.9458V14.3058C16.2543 14.826 16.4651 15.3231 16.8359 15.6879C17.2068 16.0526 17.7073 16.2551 18.2275 16.2508Z"
+                  stroke="#1EABCC"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M18.2275 23.7508H21.7712C22.8327 23.7809 23.718 22.9459 23.75 21.8845V20.617C23.718 19.5561 22.8334 18.7213 21.7725 18.7508H18.2275C17.1666 18.7213 16.282 19.5561 16.25 20.617V21.8833C16.2813 22.9446 17.1661 23.7802 18.2275 23.7508Z"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            ),
+          },
           {
             key: routes.transactions,
             label: t("transactions"),
@@ -131,6 +180,7 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M18.3651 6.25H11.6351C10.1989 6.25793 8.82475 6.83607 7.81486 7.85721C6.80497 8.87835 6.24211 10.2588 6.25008 11.695V18.305C6.25009 18.5168 6.2622 18.7284 6.28633 18.9388C6.58908 21.6679 8.8892 23.7369 11.6351 23.75H18.3651C19.8012 23.7421 21.1754 23.1639 22.1853 22.1428C23.1952 21.1217 23.7581 19.7412 23.7501 18.305V11.695C23.7581 10.2588 23.1952 8.87835 22.1853 7.85721C21.1754 6.83607 19.8012 6.25793 18.3651 6.25Z"
+              stroke={lightMode?"#023047":"white"}
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -157,6 +207,7 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M18.3651 6.25H11.6351C10.1989 6.25793 8.82475 6.83607 7.81486 7.85721C6.80497 8.87835 6.24211 10.2588 6.25008 11.695V18.305C6.25009 18.5168 6.2622 18.7284 6.28633 18.9388C6.58908 21.6679 8.8892 23.7369 11.6351 23.75H18.3651C19.8012 23.7421 21.1754 23.1639 22.1853 22.1428C23.1952 21.1217 23.7581 19.7412 23.7501 18.305V11.695C23.7581 10.2588 23.1952 8.87835 22.1853 7.85721C21.1754 6.83607 19.8012 6.25793 18.3651 6.25Z"
+              stroke={lightMode?"#023047":"white"}
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -186,10 +237,11 @@ const Layout = ({}) => {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              stroke={lightMode ? "black" : "white"}
             />
             <path
               d="M10.8766 19.5326C10.4624 19.5326 10.1266 19.8684 10.1266 20.2826C10.1266 20.6968 10.4624 21.0326 10.8766 21.0326V19.5326ZM16.1258 21.0326C16.54 21.0326 16.8758 20.6968 16.8758 20.2826C16.8758 19.8684 16.54 19.5326 16.1258 19.5326V21.0326ZM14.6262 5.8125C15.0404 5.8125 15.3762 5.47671 15.3762 5.0625C15.3762 4.64829 15.0404 4.3125 14.6262 4.3125V5.8125ZM12.3762 4.3125C11.962 4.3125 11.6262 4.64829 11.6262 5.0625C11.6262 5.47671 11.962 5.8125 12.3762 5.8125V4.3125ZM10.8766 21.0326H16.1258V19.5326H10.8766V21.0326ZM14.6262 4.3125H12.3762V5.8125H14.6262V4.3125Z"
-              fill="black"
+              fill={lightMode ? "black" : "white"}
             />
             <line
               x1="11.875"
@@ -204,7 +256,7 @@ const Layout = ({}) => {
         ),
       },
     ],
-    []
+    [lightMode]
   );
   if (user)
     return (

@@ -4,12 +4,12 @@
     "\\Source",
     "\\Source\\src",
     "\\Source\\src\\components",
+    "\\Source\\src\\components\\Auth",
+    "\\Source\\src\\components\\Auth\\comps",
+    "\\Source\\src\\components\\Auth\\comps\\Login",
+    "\\Source\\src\\components\\Auth\\comps\\Login\\Comps",
     "\\Source\\src\\components\\Panel",
-    "\\Source\\src\\components\\Panel\\Transaction",
-    "\\Source\\src\\components\\Panel\\Transaction\\comps",
-    "\\Source\\src\\components\\Panel\\WithdrawToken",
-    "\\Source\\src\\components\\Panel\\WithdrawToken\\comps",
-    "\\Source\\src\\locales"
+    "\\Source\\src\\components\\Panel\\comps"
   ],
   "SelectedNode": "\\Source\\src\\components\\Panel\\WithdrawToken\\comps\\withdrawForm.jsx",
   "PreviewInSolutionExplorer": true

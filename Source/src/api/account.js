@@ -12,6 +12,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: { ...credentials },
       }),
     }),
+    signup: builder.mutation({
+      query: (params) => ({
+        url: `/${addresses.account_signup}`,
+        method: "POST",
+        body: params,
+      }),
+    }),
     logout: builder.mutation({
       query: (credentials) => {
         const refreshToken = Utils.getStoredData(storageKeys.refreshToken);
@@ -51,6 +58,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useLoginMutation,
+  useSignupMutation,
   useLogoutMutation,
   useGetCurrentUserInfoQuery,
   useUpdateProfileMutation,

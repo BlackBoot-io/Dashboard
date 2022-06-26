@@ -26,12 +26,14 @@
                 font-size: 18px;
                 color: var(--black);
             }
-            svg {
-                stroke: var(--cloud);
-            }
-            .active {
+            .btn-dark{
                 svg {
-                    stroke: var(--black);
+                    stroke: var(--cloud);
+                }
+                .active {
+                    svg {
+                        stroke: var(--black);
+                    }
                 }
             }
         }
