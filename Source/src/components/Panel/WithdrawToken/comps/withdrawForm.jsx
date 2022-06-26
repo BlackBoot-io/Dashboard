@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useGetCurrentUserInfoQuery } from "api/account";
 import { useAddMutation, useGetUserBalanceQuery } from "api/transaction";
 import utils from 'config/utils'
-import { networkTypes, TransactionTypes } from "config/enums";
+import { networkTypes, transactionTypes } from "config/enums";
 import Button from "../../../comps/Button";
 import EtheriumIcon from "assets/images/networks/etherium.svg";
 
@@ -36,7 +36,7 @@ const WithdrawForm = () => {
         var data = {
             Network: selectedNetwork,
             TokenCount: value.amount,
-            Type: TransactionTypes.Withdraw
+            Type: transactionTypes.Withdraw
         }
         const call = await add(data).unwrap();
         console.log("after call", call.data);
@@ -110,7 +110,7 @@ const WithdrawForm = () => {
                     </Col>
                 </Row>
             </Form>
-        </Card >
+        </div >
     );
 };
 export default WithdrawForm;
