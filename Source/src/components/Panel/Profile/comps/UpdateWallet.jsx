@@ -1,4 +1,4 @@
-import { Col, Form, Input, Row } from "antd";
+import { Col, Form, Input, message, Row } from "antd";
 import { useUpdateWalletMutation } from "api/account";
 import Button from "components/comps/Button";
 import { useEffect, useState } from "react";
@@ -19,8 +19,13 @@ const UpdateWallet = () => {
     const call = await updateWallet(values).unwrap();
     if (!call.isSuccess) {
       setErrorMsg(call.message);
+      message.destroy();
+      message.error(call.message);
       return;
     }
+
+    message.destroy();
+    message.success("Wallet updated successfully.");
   };
 
   useEffect(() => {
