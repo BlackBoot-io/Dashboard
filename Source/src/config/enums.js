@@ -5,3 +5,9 @@ export const networkTypes = {
     Tether: 4,
     Binance: 5
 }
+
+export const TransactionTypes = {
+    Deposit: 0,
+    Withdraw: 1
+}
+

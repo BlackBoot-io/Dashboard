@@ -33,7 +33,13 @@
         border: 0.5px solid #EFEFF0;
         border-radius: 8px;
         padding: 10px;
-        width: 100%
+        width: 100%;
+        font-family: Urbanist;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 10px;
+        letter-spacing: 0em;
+        text-align: left;
     }
 
     .ant-input-group-wrapper {
@@ -100,6 +106,7 @@
         position: absolute;
         right: 0;
         display: flex;
+        z-index: 10
     }
 
     .withdraw-amount {
@@ -204,7 +211,7 @@
         letter-spacing: 0em;
         color: #023047;
     }
- 
+
 
     .withdraw-notice-list {
         list-style: none;
