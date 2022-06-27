@@ -1,0 +1,140 @@
+#withdraw-form {
+
+    .withdraw-card {
+
+        .blue-circle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+
+    .withdraw-p {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 25px;
+        color: #000;
+    }
+
+    .ant-segmented {
+        background-color: var(--white);
+        width: 25%;
+
+        @mixin ant-segment {
+            box-shadow: none;
+            border-radius: 8px;
+            padding: 12px 0;
+        }
+
+        .ant-segmented-item {
+            @include ant-segment;
+        }
+
+        .ant-segmented-item-selected {
+            background: #edf6fa;
+            width: 100%;
+        }
+
+        .ant-segmented-thumb {
+            @include ant-segment;
+            background: #edf6fa;
+        }
+    }
+
+    .custom-label {
+        color: #000;
+        font-weight: 400;
+        font-size: 13px;
+    }
+
+    .ant-input {
+        height: 46px;
+        padding: 21px;
+        color: #000;
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 5px
+    }
+
+    .withdraw-amount-holder {
+        position: absolute;
+        right: 0;
+        display: flex;
+        z-index: 10
+    }
+
+    .withdraw-amount {
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: capitalize;
+        color: #989AA3;
+        padding: 0;
+        margin: 0;
+    }
+
+    .withdraw-fee {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 20px;
+        text-transform: capitalize;
+        color: #989AA3;
+        float: right;
+        margin-top: 7px
+    }
+
+    .withdraw-btn-max {
+        float: right;
+        background: none;
+        border-left: 1px solid #E8E5E5;
+        border-top: none;
+        border-right: none;
+        border-bottom: none;
+        color: #002EFF;
+        font-size: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        padding-right: 0;
+        margin: 0 0 0 10px;
+    }
+
+
+    .withdraw-maxamount {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #4E4E53;
+        margin: auto 3px;
+    }
+
+    .withdraw-network {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 26px;
+        letter-spacing: 0em;
+        margin-bottom: 10px;
+    }
+
+    .btn-profile {
+        padding: 3px 10px;
+        border: 1px solid #8bbade;
+        background: #edf6f9;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #0c3e5d;
+    }
+
+    .ant-form-item {
+        margin-bottom: 10px
+    }
+
+    .ant-form-item .ant-form-item-label > label {
+        color: #000;
+        font-weight: 400;
+        font-size: 13px;
+    }
+}

@@ -1,23 +1,25 @@
-import { Col, Row } from "antd"; 
-import WithdrawNotices from "./comps/withdrawNotices";
-import WithdrawHeader from "./comps/withdrawHeader";
-import WithdrawForm from "./comps/withdrawForm";
+import { Col, Row } from "antd";
+import { useTranslation } from "react-i18next";
+import WithdrawNotices from "./comps/Notices";
+import WithdrawHeader from "./comps/Header";
+import WithdrawForm from "./comps/Form";
+import WithdrawTokenIcon from "assets/images/withdraw-token.svg";
 
-const WithdrawToken = () => { 
+const WithdrawToken = () => {
+    const { t } = useTranslation();
     return (
         <div id="withdraw-token">
             <Row gutter={[24, 16]}>
                 <Col xs={24} md={24} lg={24} className="withdraw-header">
-                    <WithdrawHeader />
+                    <span className="logo-holder">
+                        <img src={WithdrawTokenIcon} alt="logo" />
+                    </span>
+                    <h1 className="header-title">{t("withdrawToken")}</h1>
                 </Col>
-                <Col xs={24} md={24} lg={15}>
-                    <WithdrawForm />
-                </Col>
-                <Col xs={24} md={24} lg={9}>
-                    <WithdrawNotices />
-                </Col>
+                <WithdrawForm />
+                <WithdrawNotices />
             </Row>
-        </div>
+        </div> 
     );
 };
 export default WithdrawToken;
