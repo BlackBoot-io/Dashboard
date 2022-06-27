@@ -1,6 +1,6 @@
 import { Row, Col, message } from "antd";
 import { useCurrentCrowdsaleSchedulesQuery } from "api/crowdsaleSchedule";
-import { useUserBalanceQuery } from "api/transaction";
+import { useGetUserBalanceQuery } from "api/transaction";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Crowdsale from "./Comps/Crowdsale";
@@ -10,7 +10,7 @@ import Balance from "./Comps/Balance";
 const Dashboard = () => {
   const { t } = useTranslation();
   const crowdsale = useCurrentCrowdsaleSchedulesQuery();
-  const userBalance = useUserBalanceQuery();
+  const userBalance = useGetUserBalanceQuery();
   useEffect(() => {
     if (crowdsale.isError) message.error(t("unknownError"));
     else if (crowdsale.data && !crowdsale.data.isSuccess)
