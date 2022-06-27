@@ -1,38 +1,37 @@
-import { Col, DatePicker, Form, Input, Row, Select } from "antd";
-import { useUpdateProfileMutation } from "api/account";
+import { Col, DatePicker, Form, Input, message, Row, Select } from "antd";
+import { useGetCurrentUserInfoQuery, useUpdateProfileMutation } from "api/account";
 import Button from "components/comps/Button";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment'
+import { countryNames } from "config/constants";
 
 const UpdateProfile = ({ data }) => {
     const [form] = Form.useForm();
     const { t } = useTranslation();
-    const [nations, setNations] = useState([]);
     const [errorMsg, setErrorMsg] = useState("");
 
     const dispatch = useDispatch();
     const { user } = useSelector((x) => x.auth);
     const [updateProfile, { isLoading, error, isError }] = useUpdateProfileMutation();
+    const x = useGetCurrentUserInfoQuery();
 
     const handleSubmit = async (values) => {
         setErrorMsg("");
         const call = await updateProfile(values).unwrap();
         if (!call.isSuccess) {
             setErrorMsg(call.message);
+            message.destroy();
+            message.error(call.message);
             return;
         }
+
+        message.destroy();
+        message.success("Profile updated successfully.");
     };
 
     useEffect(() => {
-        fetch("https://restcountries.com/v2/all")
-            .then(res => res.json())
-            .then(countries => {
-                const countryNames = countries.map(c => c.name);
-                setNations(countryNames);
-            });
-
         form.setFieldsValue({
             fullname: user.fullName,
             email: user.email,
@@ -79,7 +78,7 @@ const UpdateProfile = ({ data }) => {
                 <Col xs={24} md={24} lg={8}>
                     <Form.Item name="nationality" label={<span className="input-label">{t("nationality")}</span>}>
                         <Select className="custom-input">
-                            {nations.map(nation => <Select.Option key={nation} value={nation}>{nation}</Select.Option>)}
+                            {countryNames.map(countryName => <Select.Option key={countryName} value={countryName}>{countryName}</Select.Option>)}
                         </Select>
                     </Form.Item>
                 </Col>
