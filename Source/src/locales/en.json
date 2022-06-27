@@ -84,6 +84,11 @@
   "months": "Months",
   "invalidEmail": "The input is not valid E-mail!",
   "signinWithGoogle": "Sign in with google",
-  "haveAnAccount":"Already have an account",
-  "createAccount":"Create an account"
+  "haveAnAccount": "Already have an account",
+  "createAccount": "Create an account",
+  "dashboard": "Dashboard",
+  "fullname": "Fullname",
+  "passwordMustBeMoreThanXChars": "Password must be more than {{length}} characters",
+  "passwordStrengthCondition": "Password must contains atleast 1 character and 1 number",
+  "unknownError": "Server not respond, please try again"
 }

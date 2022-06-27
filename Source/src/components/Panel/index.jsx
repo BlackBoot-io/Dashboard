@@ -45,9 +45,9 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M11.7725 5.00075H8.2275C7.16657 4.97133 6.28198 5.80615 6.25 6.867V8.1345C6.28198 9.19536 7.16657 10.0302 8.2275 10.0008H11.7725C12.8334 10.0302 13.718 9.19536 13.75 8.1345V6.867C13.718 5.80615 12.8334 4.97133 11.7725 5.00075Z"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               stroke={lightMode?"black":"white"}
             />
             <path
@@ -63,9 +63,9 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M18.2275 23.7508H21.7712C22.8327 23.7809 23.718 22.9459 23.75 21.8845V20.617C23.718 19.5561 22.8334 18.7213 21.7725 18.7508H18.2275C17.1666 18.7213 16.282 19.5561 16.25 20.617V21.8833C16.2813 22.9446 17.1661 23.7802 18.2275 23.7508Z"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               stroke={lightMode?"black":"white"}
             />
           </svg>
@@ -73,7 +73,7 @@ const Layout = ({}) => {
         children: [
           {
             key: routes.dashboard,
-            label: t("dashbord"),
+            label: t("dashboard"),
             icon: (
               <svg
                 width="30"
@@ -95,9 +95,9 @@ const Layout = ({}) => {
                   fillRule="evenodd"
                   clipRule="evenodd"
                   d="M11.7725 5.00075H8.2275C7.16657 4.97133 6.28198 5.80615 6.25 6.867V8.1345C6.28198 9.19536 7.16657 10.0302 8.2275 10.0008H11.7725C12.8334 10.0302 13.718 9.19536 13.75 8.1345V6.867C13.718 5.80615 12.8334 4.97133 11.7725 5.00075Z"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   fillRule="evenodd"
@@ -112,9 +112,9 @@ const Layout = ({}) => {
                   fillRule="evenodd"
                   clipRule="evenodd"
                   d="M18.2275 23.7508H21.7712C22.8327 23.7809 23.718 22.9459 23.75 21.8845V20.617C23.718 19.5561 22.8334 18.7213 21.7725 18.7508H18.2275C17.1666 18.7213 16.282 19.5561 16.25 20.617V21.8833C16.2813 22.9446 17.1661 23.7802 18.2275 23.7508Z"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             ),

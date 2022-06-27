@@ -24,7 +24,7 @@ const Signup = () => {
       return;
     }
     dispatch(setCredentials(call.data));
-    nav(`/${routes.transactions}`);
+    nav(`/${routes.dashboard}`);
   };
   const invalid = () => {};
   return (
@@ -71,7 +71,17 @@ const Signup = () => {
             className="mb-0"
             label={t("password")}
             name="password"
-            rules={[{ required: true, message: t("required") }]}
+            rules={[
+              { required: true, message: t("required") },
+              {
+                min: 5,
+                message: t("passwordMustBeMoreThanXChars", { length: 5 }),
+              },
+              {
+                pattern:"(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)",
+                message:t("passwordStrengthCondition")
+              }
+            ]}
             // extra="We must make sure that your are a human."
           >
             <Input.Password className="ltr-input" />
