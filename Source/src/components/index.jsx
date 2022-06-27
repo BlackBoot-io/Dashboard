@@ -11,6 +11,7 @@ import BuyToken from "./Panel/BuyToken";
 import WithdrawToken from "./Panel/WithdrawToken";
 import CrowdsaleSchedule from "./Panel/CrowdsaleSchedule";
 import Profile from "./Panel/Profile";
+import Dashboard from "./Panel/Dashboard";
 import Utils from "config/utils";
 import storageKeys from "config/storageKeys";
 import { dark } from "redux/theme";
@@ -32,7 +33,8 @@ function App() {
         <Route path={routes.recoverPassword} element={<RecoverPasword />} />
       </Route>
       <Route element={<Panel />}>
-        <Route index element={<Transaction />} />
+        <Route index element={<Dashboard />} />
+        <Route path={routes.dashboard} element={<Dashboard />} />
         <Route path={routes.transactions} element={<Transaction />} />
         <Route path={routes.buyToken} element={<BuyToken />} />
         <Route path={routes.withdrawToken} element={<WithdrawToken />} />

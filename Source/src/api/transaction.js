@@ -22,7 +22,13 @@ export const transactionApiSlice = apiSlice.injectEndpoints({
         body: { ...data },
       }),
     }),
+    userBalance: builder.query({
+      query: () => ({
+        url: `/${addresses.transaction_getUserBalance}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useAddMutation, useGetByIdMutation, useGetAllQuery } = transactionApiSlice;
+export const { useAddMutation, useGetByIdMutation, useGetAllQuery,useUserBalanceQuery } = transactionApiSlice;

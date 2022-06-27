@@ -1,9 +1,8 @@
 import { useTranslation } from "react-i18next"
-const Overview = () => {
+const Balance = () => {
 const { t } = useTranslation();
 
-return <div id="overview">
 
-</div>;
+return <div id=""></div>;
 };
-export default Overview;
+export default Balance;
