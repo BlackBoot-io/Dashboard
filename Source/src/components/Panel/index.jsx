@@ -73,7 +73,7 @@ const Layout = ({}) => {
         children: [
           {
             key: routes.dashboard,
-            label: t("dashbord"),
+            label: t("dashboard"),
             icon: (
               <svg
                 width="30"
