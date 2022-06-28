@@ -1,0 +1,6 @@
+#dashboard {
+    padding: $offset5;
+    @import "./balance";
+    @import "./exchange-list";
+    @import "./crowdsale";
+}

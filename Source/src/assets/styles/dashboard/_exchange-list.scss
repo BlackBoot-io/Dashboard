@@ -1,0 +1,60 @@
+#exchange-list {
+    .title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 56px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        svg {
+            margin-right: $offset2;
+        }
+    }
+    .items {
+        display: flex;
+        .item {
+            display: flex;
+            flex-direction: column;
+            flex: 0.5;
+            &:first-child {
+                margin-right: $offset1;
+            }
+            &:last-child {
+                margin-left: $offset2;
+            }
+            img {
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: $offset1;
+            }
+            figcaption {
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 56px;
+                color: var(--black);
+                @media (min-width: 1366px) {
+                    font-size: 14px;
+                }
+            }
+            .live {
+                font-weight: 500;
+                font-size: 12px;
+                text-transform: capitalize;
+                color: #18a84b;
+                display: flex;
+                align-items: center;
+                margin-top: -10px;
+                svg {
+                    margin-right: $offset1;
+                }
+            }
+            .from {
+                font-weight: 500;
+                font-size: 11px;
+                margin-top: -10px;
+                text-transform: capitalize;
+                color: var(--star-dust);
+            }
+        }
+    }
+}

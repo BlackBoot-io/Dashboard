@@ -48,7 +48,7 @@ const Layout = ({}) => {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              stroke={lightMode?"black":"white"}
+              stroke={lightMode ? "black" : "white"}
             />
             <path
               fillRule="evenodd"
@@ -66,7 +66,7 @@ const Layout = ({}) => {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              stroke={lightMode?"black":"white"}
+              stroke={lightMode ? "black" : "white"}
             />
           </svg>
         ),
@@ -180,7 +180,7 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M18.3651 6.25H11.6351C10.1989 6.25793 8.82475 6.83607 7.81486 7.85721C6.80497 8.87835 6.24211 10.2588 6.25008 11.695V18.305C6.25009 18.5168 6.2622 18.7284 6.28633 18.9388C6.58908 21.6679 8.8892 23.7369 11.6351 23.75H18.3651C19.8012 23.7421 21.1754 23.1639 22.1853 22.1428C23.1952 21.1217 23.7581 19.7412 23.7501 18.305V11.695C23.7581 10.2588 23.1952 8.87835 22.1853 7.85721C21.1754 6.83607 19.8012 6.25793 18.3651 6.25Z"
-              stroke={lightMode?"#023047":"white"}
+              stroke={lightMode ? "#023047" : "white"}
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -207,7 +207,7 @@ const Layout = ({}) => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M18.3651 6.25H11.6351C10.1989 6.25793 8.82475 6.83607 7.81486 7.85721C6.80497 8.87835 6.24211 10.2588 6.25008 11.695V18.305C6.25009 18.5168 6.2622 18.7284 6.28633 18.9388C6.58908 21.6679 8.8892 23.7369 11.6351 23.75H18.3651C19.8012 23.7421 21.1754 23.1639 22.1853 22.1428C23.1952 21.1217 23.7581 19.7412 23.7501 18.305V11.695C23.7581 10.2588 23.1952 8.87835 22.1853 7.85721C21.1754 6.83607 19.8012 6.25793 18.3651 6.25Z"
-              stroke={lightMode?"#023047":"white"}
+              stroke={lightMode ? "#023047" : "white"}
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -258,6 +258,7 @@ const Layout = ({}) => {
     ],
     [lightMode]
   );
+  const width = window.outerWidth;
   if (user)
     return (
       <AntLayout id="main-layout">
@@ -269,7 +270,7 @@ const Layout = ({}) => {
         >
           <Menu items={menus} mobileSize={true} />
         </Drawer>
-        <Sider width={257}>
+        <Sider width={width > 1400 ? 257 : 220}>
           <Menu items={menus} mobileSize={false} />
         </Sider>
         <AntLayout>

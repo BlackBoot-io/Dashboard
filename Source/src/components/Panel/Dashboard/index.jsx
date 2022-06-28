@@ -7,6 +7,7 @@ import Crowdsale from "./Comps/Crowdsale";
 import ExchangeList from "./Comps/ExchangeList";
 import Transactions from "components/Panel/comps/Transactions";
 import Balance from "./Comps/Balance";
+import config from "config/settings";
 const Dashboard = () => {
   const { t } = useTranslation();
   const crowdsale = useCurrentCrowdsaleSchedulesQuery();
@@ -21,24 +22,33 @@ const Dashboard = () => {
     else if (userBalance.data && !userBalance.data.isSuccess)
       message.error(userBalance.data.message);
   }, [userBalance.isLoading]);
+  console.log("d", crowdsale.data);
   return (
     <div id="dashboard">
       <Row>
-        <Col xs={24} sm={8}>
-          <Crowdsale />
-        </Col>
-        <Col xs={24} sm={16}>
-          <Row>
-            <Col xs={24} sm={18}>
-              <Balance />
+        <Col xs={24} sm={17}>
+          <Row gutter={[config.offset4, config.offset4]}>
+            <Col xs={24} sm={15}>
+              <Balance
+                loading={userBalance.isLoading || crowdsale.isLoading}
+                totalToken={userBalance.data?.data}
+                currentIncreaseRate={crowdsale.data?.data?.currentIncreaseRate}
+                currentPrice={crowdsale.data?.data?.price}
+              />
             </Col>
-            <Col xs={24} sm={6}>
+            <Col xs={24} sm={9}>
               <ExchangeList />
             </Col>
             <Col xs={24} sm={24}>
               <Transactions />
             </Col>
           </Row>
+        </Col>
+        <Col xs={24} sm={7}>
+          <Crowdsale
+            loading={crowdsale.isLoading}
+            data={crowdsale.data?.data}
+          />
         </Col>
       </Row>
     </div>

@@ -90,5 +90,13 @@
   "fullname": "Fullname",
   "passwordMustBeMoreThanXChars": "Password must be more than {{length}} characters",
   "passwordStrengthCondition": "Password must contains atleast 1 character and 1 number",
-  "unknownError": "Server not respond, please try again"
+  "unknownError": "Server not respond, please try again",
+  "totalToken": "Total Token",
+  "buy": "Buy",
+  "currentPrice": "Current Price",
+  "currentIncreaseRate": "Current Increase Rate",
+  "exchangeList": "Exchange List",
+  "babySwap": "Baby Swap",
+  "pancakeSwap": "Pancake Swap",
+  "pancakeSwaptExchangeDate": "From April 2022"
 }
