@@ -7,6 +7,8 @@ import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
 import EthereumIcon from "assets/images/networks/etherium.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
+import TetherIcon from "assets/images/networks/tetherIcon.svg";
+
 import Dropdown from "../../../comps/Dropdown";
 
 const { Option } = Select;
@@ -96,9 +98,9 @@ const Header = (props) => {
             <Option value="3">
               <img src={SolanaIcon} alt="Solana Network" />
             </Option>
-            {/* <Option value="4">
-                <img src={BscscanIcon} alt="Solana Network" />
-              </Option> */}
+            <Option value="4">
+              <img src={TetherIcon} alt="Tether Network" />
+            </Option>
             <Option value="5">
               <img src={BscscanIcon} alt="Binance Network" />
             </Option>
