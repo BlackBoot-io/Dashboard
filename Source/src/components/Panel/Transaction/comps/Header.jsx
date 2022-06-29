@@ -28,11 +28,15 @@ const Header = (props) => {
       <Col xs={24} sm={18} className="action">
         <div className="pager">
           <h4>{t("ShowRows")}</h4>
-          <Select defaultValue={50} onChange={props.onPageSizeChange}>
+          <Dropdown
+            defaultValue={50}
+            onChange={props.onPageSizeChange}
+            allowClear={false}
+          >
             <Option value="50">50</Option>
             <Option value="100">100</Option>
             <Option value="200">200</Option>
-          </Select>
+          </Dropdown>
         </div>
         <Button
           className="filter-toggle"
@@ -77,7 +81,7 @@ const Header = (props) => {
       </Col>
       {filterToggle ? (
         <Row className="filters">
-          <Select
+          <Dropdown
             onChange={(value) => props.onFilterChange(value, "network")}
             placeholder={t("Network")}
             dropdownMatchSelectWidth={150}
@@ -98,8 +102,8 @@ const Header = (props) => {
             <Option value="5">
               <img src={BscscanIcon} alt="Binance Network" />
             </Option>
-          </Select>
-          <Select
+          </Dropdown>
+          <Dropdown
             onChange={(value) => props.onFilterChange(value, "type")}
             placeholder={t("Type")}
             dropdownMatchSelectWidth={150}
@@ -164,8 +168,8 @@ const Header = (props) => {
                 </p>
               </div>
             </Option>
-          </Select>
-          <Select
+          </Dropdown>
+          <Dropdown
             onChange={(value) => props.onFilterChange(value, "status")}
             placeholder={t("Status")}
             dropdownMatchSelectWidth={150}
@@ -176,7 +180,7 @@ const Header = (props) => {
             <Option value="3">RejectByUser</Option>
             <Option value="4">RejectByNetwork</Option>
             <Option value="5">ConfirmedByNetwork</Option>5
-          </Select>
+          </Dropdown>
         </Row>
       ) : null}
     </Row>

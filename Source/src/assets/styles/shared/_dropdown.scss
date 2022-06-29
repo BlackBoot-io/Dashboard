@@ -1,0 +1,37 @@
+.custom-select {
+  .ant-select-selector {
+    border-radius: 5px !important;
+    background: #eff2f5 !important;
+    color: #000 !important;
+
+    .ant-select-selection-placeholder {
+      color: #000 !important;
+      font-weight: 600 !important;
+    }
+  }
+
+  .ant-select-clear {
+    background: #eff2f5 !important;
+  }
+
+  //   &:hover {
+  //     .ant-select-arrow {
+  //       display: none;
+  //     }
+  //   }
+}
+
+.ant-select-dropdown {
+  img {
+    width: 75px;
+  }
+  //   .ant-select-item-option-content {
+  //     padding: 5px;
+  //   }
+}
+
+.ant-select-selection-item {
+  img {
+    width: 70px;
+  }
+}

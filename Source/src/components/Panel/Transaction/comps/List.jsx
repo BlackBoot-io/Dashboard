@@ -33,23 +33,34 @@ const NetworkType = ({ network }) => {
       src = SolanaIcon;
       alt = "Solana Network";
       break;
-    // case networkTypes.Tether:
-    //   src = BitcoinIcon;
-    //   alt = "Tether Network";
-    //   break;
+    case networkTypes.Tether:
+      src = BitcoinIcon;
+      alt = "Tether Network";
+      break;
     default:
       break;
   }
-  return <img src={src} alt={alt} />;
+  return <img width={85} src={src} alt={alt} />;
 };
 const List = (props) => {
   const { t } = useTranslation();
   const columns = [
     {
       title: () => t("Price"),
-      dataIndex: "usdtAmount",
+      dataIndex: ["usdtAmount", "cryptoAmount"],
       align: "center",
-      render: (value) => <span>{value} USDT</span>,
+      render: (text, row) => (
+        <>
+          <span
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            {row["usdtAmount"]} USDT
+          </span>
+          <p>{row["cryptoAmount"]} Eth</p>
+        </>
+      ),
     },
     {
       title: () => t("Network"),
@@ -70,7 +81,7 @@ const List = (props) => {
           <span
             onClick={Utils.copyToClipboard(value)}
             style={{
-              marginLeft: 2,
+              marginLeft: 4,
               cursor: "pointer",
             }}
           >
@@ -170,7 +181,11 @@ const List = (props) => {
 
       render: (value) => (
         <>
-          <span>
+          <span
+            style={{
+              fontWeight: 600,
+            }}
+          >
             {new Date(value).toLocaleString("en-US", {
               year: "numeric",
               month: "long",
@@ -248,7 +263,7 @@ const List = (props) => {
   ];
 
   return (
-    <Row className="transactoin-list">
+    <>
       <DataTable
         columns={columns}
         data={props.data}
@@ -256,7 +271,7 @@ const List = (props) => {
         pageSize={props.pageSize}
         scroll={{ x: 0, y: 0 }}
       />
-    </Row>
+    </>
   );
 };
 export default List;

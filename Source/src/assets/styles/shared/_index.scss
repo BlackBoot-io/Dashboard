@@ -1,89 +1,89 @@
 .text-right {
-    text-align: right !important;
+  text-align: right !important;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 h1,
 h2,
 h3 {
-    margin: 0;
+  margin: 0;
 }
 
 ul {
-    margin-bottom: 0;
-    padding: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
 
 ul,
 ol {
-    padding: 0;
+  padding: 0;
 }
 
 .ltr-elm {
-    direction: ltr;
-    text-align: left !important;
+  direction: ltr;
+  text-align: left !important;
 }
 
 .ltr-elm input {
-    direction: ltr;
-    text-align: left !important;
+  direction: ltr;
+  text-align: left !important;
 }
 
 .ltr-input input {
-    direction: ltr;
-    text-align: left !important;
+  direction: ltr;
+  text-align: left !important;
 }
 
 .ltr {
-    direction: ltr;
+  direction: ltr;
 }
 
 .ltr input {
-    direction: ltr;
+  direction: ltr;
 }
 
 .text-center input {
-    text-align: center;
+  text-align: center;
 }
 
 .va-middle {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 .ant-row {
-    width: 100%;
+  width: 100%;
 }
 
 /*-----------------------------------
            utilities 
       ------------------------------------*/
 .d-flex {
-    display: flex;
+  display: flex;
 }
 
 .jc-c {
-    justify-content: center;
+  justify-content: center;
 }
 
 .ai-c {
-    align-items: center;
+  align-items: center;
 }
 
 .center {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 /*-----------------------------------
@@ -93,189 +93,195 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    background-color: none;
-    -webkit-transition: background-color 5000s ease-in-out 0s;
-    transition: background-color 5000s ease-in-out 0s;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  background-color: none;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 /*-----------------------------------
                     place holder
       ------------------------------------*/
 .ph-c::-webkit-input-placeholder {
-    text-align: center;
+  text-align: center;
 }
 
 .ph-c:-moz-placeholder {
-    /* Firefox 18- */
-    text-align: center;
+  /* Firefox 18- */
+  text-align: center;
 }
 
 .ph-c::-moz-placeholder {
-    /* Firefox 19+ */
-    text-align: center;
+  /* Firefox 19+ */
+  text-align: center;
 }
 
 .ph-c:-ms-input-placeholder {
-    text-align: center;
+  text-align: center;
 }
 
 .ph-r::-webkit-input-placeholder {
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .ph-r input::-webkit-input-placeholder {
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .ph-r:-moz-placeholder {
-    /* Firefox 18- */
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  /* Firefox 18- */
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .ph-r input:-moz-placeholder {
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .ph-r::-moz-placeholder {
-    /* Firefox 19+ */
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  /* Firefox 19+ */
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .ph-r input::-moz-placeholder {
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .ph-r:-ms-input-placeholder {
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .ph-r input:-ms-input-placeholder {
-    text-align: right;
-    font-family: "iransans";
-    direction: rtl;
-    font-size: 0.9rem;
+  text-align: right;
+  font-family: "iransans";
+  direction: rtl;
+  font-size: 0.9rem;
 }
 
 .d-none {
-    display: none;
+  display: none;
 }
 
 .ant-form-item-explain-error {
-    font-size: 0.9rem;
-    margin-top: 5px;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
 .ant-message {
-    font-size: 12px !important;
+  font-size: 12px !important;
 }
 
 .ant-input-lg {
-    font-size: 13px !important;
+  font-size: 13px !important;
 }
 
 .ant-select-item-option-content {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .drop-down-menu {
-    background: rgb(255 255 255) !important;
-    color: rgba(0, 0, 0, 0.85) !important;
-    box-shadow: 0 4px 13px -5px rgb(0 0 0 / 6%);
-    min-width: 170px;
+  background: rgb(255 255 255) !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+  box-shadow: 0 4px 13px -5px rgb(0 0 0 / 6%);
+  min-width: 170px;
 }
 
 .ant-form-item {
-    .ant-form-item-label {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-        > label {
-            color: var(--star-dust);
-            height: auto !important;
-            font-size: 13px;
-        }
+  .ant-form-item-label {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    > label {
+      color: var(--star-dust);
+      height: auto !important;
+      font-size: 13px;
     }
+  }
 }
 
 .ant-form-item-control-input-content {
-    .ant-input {
-        border-color: var(--soft-peach);
-    }
+  .ant-input {
+    border-color: var(--soft-peach);
+  }
 
-    .ant-input-suffix {
-        color: var(--star-dust);
-        font-size: 13px;
-    }
+  .ant-input-suffix {
+    color: var(--star-dust);
+    font-size: 13px;
+  }
 }
 .divider {
-    background-color: var(--mercury);
-    width: 1px;
-    height: 40px;
-    vertical-align: middle;
+  background-color: var(--mercury);
+  width: 1px;
+  height: 40px;
+  vertical-align: middle;
 }
 .page-header {
+  display: flex;
+  margin-bottom: $offset4;
+  align-items: center;
+
+  .icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
     display: flex;
-    margin-bottom: $offset4;
     align-items: center;
+    justify-content: center;
+    font-size: 50px !important;
+    color: var(--white);
+  }
 
-    .icon-wrapper {
-        width: 44px;
-        height: 44px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 50px !important;
-        color: var(--white);
-    }
-
-    .header-title {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 23px;
-        line-height: 56px;
-        margin-right: $offset2;
-        margin-left: $offset2;
-        margin-bottom: 0;
-    }
+  .header-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 56px;
+    margin-right: $offset2;
+    margin-left: $offset2;
+    margin-bottom: 0;
+  }
 }
 .line-throw {
-    position: relative;
-    z-index: 0;
-    &:after {
-        content: "";
-        background: linear-gradient(90deg, #ffb55f 0, #ffe183 50%, #ffda7b 98%, #fff);
-        position: absolute;
-        z-index: -1;
-        bottom: 5px;
-        left: -4px;
-        right: -4px;
-        transition: 0.2s;
-        height: 38%;
-        border-radius: 8px;
-    }
+  position: relative;
+  z-index: 0;
+  &:after {
+    content: "";
+    background: linear-gradient(
+      90deg,
+      #ffb55f 0,
+      #ffe183 50%,
+      #ffda7b 98%,
+      #fff
+    );
+    position: absolute;
+    z-index: -1;
+    bottom: 5px;
+    left: -4px;
+    right: -4px;
+    transition: 0.2s;
+    height: 38%;
+    border-radius: 8px;
+  }
 }
 @import "./panel";
 @import "./button";
@@ -283,3 +289,5 @@ input:-webkit-autofill:active {
 @import "./label";
 @import "./input";
 @import "./select";
+@import "./table";
+@import "./dropdown";
