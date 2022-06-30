@@ -1,6 +1,9 @@
 #transaction {
   padding: $offset5;
   background: var(--white) !important;
+  .ant-table-body {
+    min-height: calc(100vh - 250px) !important;
+  }
 }
 
 @import "./detail";

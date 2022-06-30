@@ -52,7 +52,7 @@ const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
                   <div className="supply">
                     <span>{t("supplyForSale")}</span>
                     <span className="value">
-                      {Utils.formatNumber(x.tokenForSale)}{t("token")}
+                      {Utils.formatNumber(x.tokenForSale)} {t("token")}
                     </span>
                   </div>
                   <div className="token">

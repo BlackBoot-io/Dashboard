@@ -2,7 +2,7 @@
     padding: $offset5 $offset5 $offset3 $offset5;
     min-height: 100%;
 
-    >.ant-row {
+    > .ant-row {
         min-height: 100%;
     }
 
@@ -19,7 +19,12 @@
             font-size: 13px;
         }
     }
-
+    .ant-table-thead > tr > th {
+        padding: $offset2 $offset1;
+    }
+    .ant-table-tbody > tr > td {
+        padding: $offset2 $offset1 !important;
+    }
     @import "./balance";
     @import "./exchange-list";
     @import "./crowdsale";
@@ -32,7 +37,7 @@
 
     @media (max-width: 1365px) {
         .ant-table-body {
-            min-height: calc(100vh - 420px) !important;
+            min-height: calc(100vh - 480px) !important;
         }
     }
 }
