@@ -1,0 +1,38 @@
+#notifications {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    background: var(--catskill_white) no-repeat center center;
+    padding: $offset5;
+    flex-direction: column;
+
+    .notifications-title-image {
+        width: 44px;
+        height: 44px;
+        background: #F45BA4;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 8px;
+    }
+
+    .notifications-title-text {
+        display: flex;
+        align-items: center;
+    }
+
+    .notifications-title {
+        font-weight: 600;
+        font-size: 23px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 42px
+    }
+
+    @import "./list";
+    @import "./dataRow";
+}

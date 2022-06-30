@@ -12,6 +12,7 @@ import WithdrawToken from "./Panel/WithdrawToken";
 import CrowdsaleSchedule from "./Panel/CrowdsaleSchedule";
 import Profile from "./Panel/Profile";
 import Dashboard from "./Panel/Dashboard";
+import Notifications from "./Panel/Notifications";
 import Utils from "config/utils";
 import storageKeys from "config/storageKeys";
 import { dark } from "redux/theme";
@@ -40,6 +41,7 @@ function App() {
         <Route path={routes.withdrawToken} element={<WithdrawToken />} />
         <Route path={routes.crowdsaleSchedule} element={<CrowdsaleSchedule />} />
         <Route path={routes.profile} element={<Profile />} />
+        <Route path={routes.notifications} element={<Notifications />} />
       </Route>
     </Routes>
   );
