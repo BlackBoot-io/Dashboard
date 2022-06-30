@@ -4,6 +4,7 @@ const DataTable = ({ columns, data, loading, pageSize, scroll, ...props }) => {
     <Table
       size="large"
       columns={columns}
+      className="tbl-general"
       dataSource={data}
       loading={loading}
       pagination={{ position: ["none"], pageSize: pageSize }}
