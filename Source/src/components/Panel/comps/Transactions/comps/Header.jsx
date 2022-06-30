@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Col, Row, Button, Select } from "antd";
 import { useTranslation } from "react-i18next";
 
-import TransactionLogo from "assets/images/transaction.svg";
 import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
 import EthereumIcon from "assets/images/networks/etherium.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
+import TetherIcon from "assets/images/networks/tetherIcon.svg";
+
+import Dropdown from "../../../../comps/Dropdown";
 
 const { Option } = Select;
 
@@ -29,7 +31,21 @@ const Header = ({ onPageSizeChange, onFilterChange, showIcon = true }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <rect width="44" height="44" fill="#E5E5E5" />
+            <rect
+              width="1440"
+              height="650"
+              transform="translate(-282 -103)"
+              fill="white"
+            />
             <rect width="44" height="44" rx="8" fill="#2CBCDF" />
+            <path
+              d="M32.5 22.9H27.007L24.2605 17.5L19.45 26.5L17.3935 22.9H11.5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         ) : null}
         <h1 className="header-title">{t("Transactions")} </h1>
@@ -37,11 +53,15 @@ const Header = ({ onPageSizeChange, onFilterChange, showIcon = true }) => {
       <Col xs={24} sm={18} className="action">
         <div className="pager">
           <h4>{t("ShowRows")}</h4>
-          <Select defaultValue={50} onChange={onPageSizeChange}>
+          <Dropdown
+            defaultValue={50}
+            onChange={onPageSizeChange}
+            allowClear={false}
+          >
             <Option value="50">50</Option>
             <Option value="100">100</Option>
             <Option value="200">200</Option>
-          </Select>
+          </Dropdown>
         </div>
         <Button
           className="filter-toggle"
@@ -86,7 +106,7 @@ const Header = ({ onPageSizeChange, onFilterChange, showIcon = true }) => {
       </Col>
       {filterToggle ? (
         <Row className="filters">
-          <Select
+          <Dropdown
             onChange={(value) => onFilterChange(value, "network")}
             placeholder={t("Network")}
             dropdownMatchSelectWidth={150}
@@ -101,14 +121,14 @@ const Header = ({ onPageSizeChange, onFilterChange, showIcon = true }) => {
             <Option value="3">
               <img src={SolanaIcon} alt="Solana Network" />
             </Option>
-            {/* <Option value="4">
-                <img src={BscscanIcon} alt="Solana Network" />
-              </Option> */}
+            <Option value="4">
+              <img src={TetherIcon} alt="Tether Network" />
+            </Option>
             <Option value="5">
               <img src={BscscanIcon} alt="Binance Network" />
             </Option>
-          </Select>
-          <Select
+          </Dropdown>
+          <Dropdown
             onChange={(value) => onFilterChange(value, "type")}
             placeholder={t("Type")}
             dropdownMatchSelectWidth={150}
@@ -173,8 +193,8 @@ const Header = ({ onPageSizeChange, onFilterChange, showIcon = true }) => {
                 </p>
               </div>
             </Option>
-          </Select>
-          <Select
+          </Dropdown>
+          <Dropdown
             onChange={(value) => onFilterChange(value, "status")}
             placeholder={t("Status")}
             dropdownMatchSelectWidth={150}
@@ -185,7 +205,7 @@ const Header = ({ onPageSizeChange, onFilterChange, showIcon = true }) => {
             <Option value="3">RejectByUser</Option>
             <Option value="4">RejectByNetwork</Option>
             <Option value="5">ConfirmedByNetwork</Option>5
-          </Select>
+          </Dropdown>
         </Row>
       ) : null}
     </Row>

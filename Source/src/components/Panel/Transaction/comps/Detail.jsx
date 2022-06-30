@@ -25,11 +25,25 @@ const Detail = (props) => {
         <Row>
           <Col xs={24} sm={10}>
             <h3 className="transaction-title">{t("TransactionDate")}</h3>
-            <p className="transaction-text">{data.date}</p>
+            <p className="transaction-text">
+              {new Date(data.date).toLocaleString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
           </Col>
           <Col xs={24} sm={14}>
             <h3 className="transaction-title">{t("TransactionStatus")}</h3>
-            <p className="transaction-text">
+            <p
+              className="transaction-text"
+              style={{
+                color:
+                  data.status === transactionStatusTypes.ConfirmedByNetwork
+                    ? "#009C7B"
+                    : "#FA7609",
+              }}
+            >
               {t(Utils.getKeyByValue(transactionStatusTypes, data.status))}
             </p>
           </Col>
@@ -49,7 +63,15 @@ const Detail = (props) => {
               <h3 className="transaction-title">{t("TransactionType")}</h3>
             </Col>
             <Col xs={24} sm={14}>
-              <p className="transaction-text">
+              <p
+                className="transaction-text"
+                style={{
+                  color:
+                    data.type === transactionTypes.Deposit
+                      ? "#009C7B"
+                      : "#FA7609",
+                }}
+              >
                 {t(Utils.getKeyByValue(transactionTypes, data.type))}
               </p>
             </Col>
@@ -60,12 +82,12 @@ const Detail = (props) => {
             <Icon name={"FaChevronDown"} />
           </div>
         </div>
-        <Row>
+        <Row className="token-detail">
           <h3 className="token-detail-title">{t("TokenDetail")}</h3>
 
           <Row>
             <Col xs={24} sm={10}>
-              <h3 className="transaction-title">{t("StageName")}</h3>
+              <h3 className="transaction-title bold">{t("StageName")}</h3>
             </Col>
             <Col xs={24} sm={14}>
               <p className="transaction-text">{data.crowdSaleSchedule.title}</p>
@@ -73,7 +95,7 @@ const Detail = (props) => {
           </Row>
           <Row>
             <Col xs={24} sm={10}>
-              <h3 className="transaction-title">{t("Contribution")}</h3>
+              <h3 className="transaction-title bold">{t("Contribution")}</h3>
             </Col>
             <Col xs={24} sm={14}>
               <p className="transaction-text">{data.tokenCount}</p>
@@ -81,7 +103,7 @@ const Detail = (props) => {
           </Row>
           <Row>
             <Col xs={24} sm={10}>
-              <h3 className="transaction-title">{t("TokenAddedTo")}</h3>
+              <h3 className="transaction-title bold">{t("TokenAddedTo")}</h3>
             </Col>
             <Col xs={24} sm={14}>
               <p className="transaction-text">{data.walletAddress}</p>
@@ -89,7 +111,7 @@ const Detail = (props) => {
           </Row>
           <Row>
             <Col xs={24} sm={10}>
-              <h3 className="transaction-title">{t("BounesToken")}</h3>
+              <h3 className="transaction-title bold">{t("BounesToken")}</h3>
             </Col>
             <Col xs={24} sm={14}>
               <p className="transaction-text">{data.bonusCount}</p>
@@ -97,7 +119,7 @@ const Detail = (props) => {
           </Row>
           <Row>
             <Col xs={24} sm={10}>
-              <h3 className="transaction-title">{t("TotalTokens")}</h3>
+              <h3 className="transaction-title bold">{t("TotalTokens")}</h3>
             </Col>
             <Col xs={24} sm={14}>
               <p className="transaction-text">{data.totalToken}</p>
