@@ -1,6 +1,6 @@
 .tbl-general {
   .ant-table-body {
-    min-height: 500px;
+    min-height: calc(100vh - 440px) !important;
     overflow: hidden !important;
   }
 

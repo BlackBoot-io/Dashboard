@@ -243,14 +243,14 @@ const List = ({ data, pageSize, loading, actions }) => {
   ];
   if (actions) columns.push(actions);
   return (
-    <Row className="transactoin-list">
+    <>
       <DataTable
         columns={columns}
         data={data}
         loading={loading}
         pageSize={pageSize}
       />
-    </Row>
+    </>
   );
 };
 export default List;

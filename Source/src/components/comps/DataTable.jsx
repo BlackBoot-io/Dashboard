@@ -8,8 +8,7 @@ const DataTable = ({ columns, data, loading, pageSize, scroll, ...props }) => {
       dataSource={data}
       loading={loading}
       pagination={{ position: ["none"], pageSize: pageSize }}
-      scroll={{ x: "100vh", y: "0vh" }}
-      // {...props}
+      {...props}
     />
   );
 };
