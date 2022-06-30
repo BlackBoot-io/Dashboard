@@ -1,8 +1,9 @@
-import { Col, Row, Modal } from "antd";
+import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import Icon from "components/comps/Icon";
 import Utils from "config/utils";
 import { transactionTypes, transactionStatusTypes } from "config/enums";
+import Modal from "../../../comps/Modal";
 
 const Detail = (props) => {
   const { t } = useTranslation();
