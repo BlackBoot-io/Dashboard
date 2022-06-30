@@ -1,6 +1,23 @@
 #dashboard {
     padding: $offset5;
+    .sec-title {
+        font-weight: 600;
+        font-size: 18px;
+        color: var(--black);
+        height: 56px;
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        @media (max-width: 1400px) {
+            font-size: 13px;
+        }
+    }
     @import "./balance";
     @import "./exchange-list";
     @import "./crowdsale";
+    @media (min-width: $xl) {
+        .ant-table-body {
+            min-height: calc(100vh - 490px) !important;
+        }
+    }
 }

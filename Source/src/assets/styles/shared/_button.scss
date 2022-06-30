@@ -17,7 +17,7 @@
 }
 .btn-primary {
     @include btn;
-    background-color: var(--blue-whale) !important;
+    background-color: var(--btn-primary-bg) !important;
     color: var(--white) !important;
     .ant-spin-dot-item {
         background-color: var(--white) !important;

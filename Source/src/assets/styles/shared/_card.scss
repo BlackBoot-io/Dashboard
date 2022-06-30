@@ -5,8 +5,12 @@
     border: 1px solid var(--porcelaine);
     height: 100%;
     padding: $offset4;
+    @media (max-width: 1366px) {
+        padding: $offset3;
+    }
     &.with-bg {
         background-color: var(--white);
         background: url("../../images/blue-circle-bg.svg") no-repeat left top;
+        background-size: 60%;
     }
 }
