@@ -11,6 +11,7 @@ import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
 import EthereumIcon from "assets/images/networks/etherium.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
+import TetherIcon from "assets/images/networks/tetherIcon.svg";
 
 const NetworkType = ({ network }) => {
   let src = "";
@@ -32,36 +33,80 @@ const NetworkType = ({ network }) => {
       src = SolanaIcon;
       alt = "Solana Network";
       break;
-    // case networkTypes.Tether:
-    //   src = BitcoinIcon;
-    //   alt = "Tether Network";
-    //   break;
+    case networkTypes.Tether:
+      src = TetherIcon;
+      alt = "Tether Network";
+      break;
     default:
       break;
   }
-  return <img src={src} alt={alt} />;
+  return <img width={85} src={src} alt={alt} />;
+};
+
+const Price = ({ usdtAmount, cryptoAmount, network }) => {
+  let networkSymbol = "";
+  switch (network) {
+    case networkTypes.Binance:
+      networkSymbol = "BNB";
+      break;
+    case networkTypes.Bitcoin:
+      networkSymbol = "BTC";
+      break;
+    case networkTypes.Ethereum:
+      networkSymbol = "ETH";
+      break;
+    case networkTypes.Solana:
+      networkSymbol = "SOL";
+      break;
+    case networkTypes.Tether:
+      networkSymbol = "USDT";
+      break;
+    default:
+      break;
+  }
+  return (
+    <>
+      <span
+        style={{
+          fontWeight: 600,
+        }}
+      >
+        {usdtAmount} USDT
+      </span>
+      <p>
+        {cryptoAmount} {networkSymbol}
+      </p>
+    </>
+  );
 };
 const List = ({ data, pageSize, loading, actions }) => {
   const { t } = useTranslation();
   const columns = [
     {
       title: () => t("Price"),
-      dataIndex: "usdtAmount",
+      dataIndex: ["usdtAmount", "cryptoAmount", "network"],
       align: "center",
-      render: (value) => <span>{value} USDT</span>,
+      width: 100,
+      render: (text, row) => (
+        <Price
+          usdtAmount={row["usdtAmount"]}
+          cryptoAmount={row["cryptoAmount"]}
+          network={row["network"]}
+        ></Price>
+      ),
     },
     {
       title: () => t("Network"),
       dataIndex: "network",
       align: "center",
-
+      width: 100,
       render: (value) => <NetworkType network={value}></NetworkType>,
     },
     {
       title: () => t("WalletAddress"),
       dataIndex: "walletAddress",
       align: "center",
-
+      width: 200,
       render: (value) => (
         <div>
           {Utils.shortTextMiddle(value, 20)}
@@ -69,7 +114,7 @@ const List = ({ data, pageSize, loading, actions }) => {
           <span
             onClick={Utils.copyToClipboard(value)}
             style={{
-              marginLeft: 2,
+              marginLeft: 4,
               cursor: "pointer",
             }}
           >
@@ -97,6 +142,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       title: () => t("Type"),
       dataIndex: "type",
       align: "center",
+      width: 100,
       render: (value) => (
         <div
           style={{
@@ -148,7 +194,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       title: () => t("Status"),
       dataIndex: "status",
       align: "center",
-
+      width: 120,
       render: (value) => (
         <p
           style={{
@@ -166,10 +212,14 @@ const List = ({ data, pageSize, loading, actions }) => {
       title: () => t("Date"),
       dataIndex: "date",
       align: "center",
-
+      width: 100,
       render: (value) => (
         <>
-          <span>
+          <span
+            style={{
+              fontWeight: 600,
+            }}
+          >
             {new Date(value).toLocaleString("en-US", {
               year: "numeric",
               month: "long",
@@ -193,14 +243,14 @@ const List = ({ data, pageSize, loading, actions }) => {
   ];
   if (actions) columns.push(actions);
   return (
-    <Row className="transactoin-list">
+    <>
       <DataTable
         columns={columns}
         data={data}
         loading={loading}
         pageSize={pageSize}
       />
-    </Row>
+    </>
   );
 };
 export default List;

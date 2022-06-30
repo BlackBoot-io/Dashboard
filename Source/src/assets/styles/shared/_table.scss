@@ -1,6 +1,6 @@
 .tbl-general {
   .ant-table-body {
-    min-height: 500px;
+    min-height: calc(100vh - 440px) !important;
     overflow: hidden !important;
   }
 
@@ -10,6 +10,7 @@
     td {
       padding: 12px;
     }
+
     th {
       background-color: #fff;
 
@@ -30,8 +31,7 @@
     }
   }
 
-  .ant-table-ping-right:not(.ant-table-has-fix-right)
-    .ant-table-container::after {
+  .ant-table-ping-right:not(.ant-table-has-fix-right) .ant-table-container::after {
     box-shadow: none;
   }
 }

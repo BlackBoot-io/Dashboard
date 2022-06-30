@@ -1,9 +1,11 @@
 #dashboard {
     padding: $offset5 $offset5 $offset3 $offset5;
     min-height: 100%;
-    > .ant-row{
+
+    >.ant-row {
         min-height: 100%;
     }
+
     .sec-title {
         font-weight: 600;
         font-size: 18px;
@@ -12,18 +14,22 @@
         display: flex;
         align-items: center;
         text-transform: capitalize;
+
         @media (max-width: 1400px) {
             font-size: 13px;
         }
     }
+
     @import "./balance";
     @import "./exchange-list";
     @import "./crowdsale";
+
     @media (min-width: 1366px) {
         .ant-table-body {
             min-height: calc(100vh - 440px) !important;
         }
     }
+
     @media (max-width: 1365px) {
         .ant-table-body {
             min-height: calc(100vh - 420px) !important;

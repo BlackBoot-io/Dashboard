@@ -1,7 +1,7 @@
   .transaction-modal {
       .transaction-modal-divider {
           text-align: center;
-          margin: 25px 0;
+          margin: 0px 0;
 
           .divider-icon {
               position: relative;
@@ -40,6 +40,14 @@
       }
 
 
+      .token-detail {
+
+          p,
+          h3:not(.token-detail-title) {
+              margin-bottom: 10px;
+          }
+      }
+
       .token-detail-title {
           font-weight: 700;
           font-size: 19px;
@@ -48,11 +56,16 @@
       }
 
 
+
       .transaction-title {
           font-weight: 500;
           font-size: 17px;
           text-transform: capitalize;
           color: #4E4E4F;
+
+          &.bold {
+              font-weight: bold;
+          }
       }
 
       .transaction-text {

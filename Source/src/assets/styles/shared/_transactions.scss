@@ -1,5 +1,6 @@
 .transactions {
     .head-section {
+        margin-bottom: $offset5;
         display: flex;
         justify-content: space-between;
 
@@ -14,7 +15,8 @@
                 line-height: 56px;
                 margin-bottom: 0;
             }
-            svg + .header-title {
+
+            svg+.header-title {
                 padding: 0 $offset2;
             }
         }
@@ -36,22 +38,16 @@
                 }
             }
 
-            .ant-select .ant-select-selector {
-                border-radius: 5px;
-                background: #eff2f5;
-                color: #000;
-            }
-
             .filter-toggle {
                 border-radius: 5px;
                 background: #eff2f5;
                 display: flex;
                 align-items: center;
-                padding-left: 10px;
-                padding-right: 10px;
+                padding: 4px 8px;
 
                 span {
                     color: #000000;
+                    font-size: 12px;
                 }
             }
         }
@@ -60,39 +56,7 @@
             display: flex;
             column-gap: $offset3;
             margin-top: $offset6;
-
-            .ant-select .ant-select-selector {
-                border-radius: 5px;
-                background: #eff2f5;
-                color: #000;
-
-                .ant-select-selection-placeholder {
-                    color: #000;
-                    font-weight: 600;
-                }
-            }
         }
     }
-    .ant-row {
-        width: inherit !important;
-    }
-    .ant-table{
-        background-color: transparent;
-        color: var(--black);
-    }
-    .ant-table-body {
-        min-height: 500px;
-    }
-    .ant-table-thead > tr > th {
-        padding: $offset2 $offset1;
-        background-color: transparent;
-        color: var(--black);
-    }
-    thead[class*="ant-table-thead"] tr {
-        color: #5b626e;
-    }
 
-    tbody[class*="ant-table-tbody"] tr {
-        font-weight: bold;
-    }
 }
