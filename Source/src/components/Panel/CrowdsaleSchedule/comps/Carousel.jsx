@@ -24,7 +24,7 @@ const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
     if (ref) ref.current.goTo(initialSlide);
   }, [ref]);
   return (
-    <Col id="carousel" xs={20} sm={20}>
+    <div id="carousel">
       <div className="carousel-wrapper">
         <AntdCarousel ref={ref} {...settings}>
           {items?.map((x, idx) => {
@@ -55,7 +55,7 @@ const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
           })}
         </AntdCarousel>
       </div>
-    </Col>
+    </div>
   );
 });
 export default Carousel;

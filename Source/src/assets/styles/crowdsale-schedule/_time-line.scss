@@ -2,16 +2,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 75px;
     .ant-timeline-item {
         padding-bottom: 90px;
+        &:last-child {
+            .ant-timeline-item-tail {
+                display: none;
+            }
+        }
     }
-    .ant-timeline-item-head{
+    .ant-timeline-item-head {
         background-color: transparent;
     }
-    .ant-timeline-item-content{
+    .ant-timeline-item-content {
         color: var(--black);
     }
-    @media(max-width:$xl){
+    @media (max-width: $xl) {
         .ant-timeline-item {
             padding-bottom: 60px;
         }

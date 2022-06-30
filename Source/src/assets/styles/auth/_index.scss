@@ -16,6 +16,7 @@
         .content {
             background-color: var(--white);
             border-radius: 0px 20px 20px 0px;
+            padding: $offset5 $offset3;
         }
         .slide {
             display: flex;
@@ -58,7 +59,7 @@
         display: none;
     }
     .form-wrapper {
-        max-width: 300px;
+        max-width: 330px;
         display: flex;
         justify-content: center;
         align-items: center;

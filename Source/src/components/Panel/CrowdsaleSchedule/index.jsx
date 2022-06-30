@@ -64,11 +64,9 @@ const CrowdsaleSchedule = () => {
           </button>
         </div>
       </div>
-      <Row className="content-wrapper">
+      <div className={`content-wrapper ${isLoading || !data ? "center" : ""}`}>
         {isLoading || !data ? (
-          <Col xs={24} sm={24} className="center loading-wrapper">
-            <Spin />
-          </Col>
+          <Spin />
         ) : (
           <>
             <TimeLine items={data?.data} current={currentSlideIndex} />
@@ -80,7 +78,7 @@ const CrowdsaleSchedule = () => {
             />
           </>
         )}
-      </Row>
+      </div>
     </div>
   );
 };

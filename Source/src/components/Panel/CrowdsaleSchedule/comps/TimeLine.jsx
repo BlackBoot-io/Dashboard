@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 const TimeLine = ({ items, current }) => {
   const { t } = useTranslation();
   return (
-    <Col id="time-line" xs={4} sm={4}>
+    <div id="time-line">
       {items?.map((x, idx) => {
         let to = new Date(x.to);
         let toYear = to.getFullYear();
@@ -36,12 +36,12 @@ const TimeLine = ({ items, current }) => {
           );
 
         return (
-          <Timeline.Item {...options} key={idx}>
+          <Timeline.Item {...options} key={idx} >
             {idx === items.length - 1 || idx === 0 ? toYear : null}
           </Timeline.Item>
         );
       })}
-    </Col>
+    </div>
   );
 };
 export default TimeLine;

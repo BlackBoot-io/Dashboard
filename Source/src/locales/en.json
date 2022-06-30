@@ -89,7 +89,7 @@
   "dashboard": "Dashboard",
   "fullname": "Fullname",
   "passwordMustBeMoreThanXChars": "Password must be more than {{length}} characters",
-  "passwordStrengthCondition": "Password must contains atleast 1 character and 1 number",
+  "passwordStrengthCondition": "Password must contains atleast 1 uppercase, 1 lowercase and 1 digit(max 16 char)",
   "unknownError": "Server not respond, please try again",
   "totalToken": "Total Token",
   "buy": "Buy",
@@ -101,5 +101,6 @@
   "pancakeSwaptExchangeDate": "From April 2022",
   "privateSale": "Private Sale",
   "minimumBuy":"Minimum Buy",
-  "buyNow":"Buy Now"
+  "buyNow":"Buy Now",
+  "signin":"Sign in"
 }

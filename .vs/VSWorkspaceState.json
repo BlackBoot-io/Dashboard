@@ -5,12 +5,9 @@
     "\\Source\\src",
     "\\Source\\src\\components",
     "\\Source\\src\\components\\Panel",
-    "\\Source\\src\\components\\Panel\\BuyToken\\comps",
     "\\Source\\src\\components\\Panel\\comps",
     "\\Source\\src\\components\\Panel\\CrowdsaleSchedule",
-    "\\Source\\src\\components\\Panel\\CrowdsaleSchedule\\comps",
-    "\\Source\\src\\components\\Panel\\WithdrawToken\\comps"
+    "\\Source\\src\\components\\Panel\\CrowdsaleSchedule\\comps"
   ],
-  "SelectedNode": "\\Source\\src\\components\\Panel\\index.jsx",
   "PreviewInSolutionExplorer": true
 }

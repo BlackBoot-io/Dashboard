@@ -27,6 +27,7 @@
     }
     .content-wrapper{
         height: calc(100vh - 190px);
+        display: flex
     }
     @import "./carousel";
     @import "./time-line";

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Form, Input, Space } from "antd";
+import { Form, Input, message, Space } from "antd";
 import Button from "components/comps/Button";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,18 +13,20 @@ const Signup = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [signup, { isLoading, error, isError }] = useSignupMutation();
-  const [errorMsg, setErrorMsg] = useState("");
   const nav = useNavigate();
   const handleSubmit = async (values) => {
-    setErrorMsg("");
-    const call = await signup(values).unwrap();
-    console.log("after call", call.data);
-    if (!call.isSuccess) {
-      setErrorMsg(t("wrongUsernameOrPassword"));
-      return;
+    try {
+      const call = await signup(values).unwrap();
+      if (!call.isSuccess) {
+        message.error(t("wrongUsernameOrPassword"));
+        return;
+      }
+      dispatch(setCredentials(call.data));
+      nav(`/${routes.dashboard}`);
+    } catch (e) {
+      console.log(e);
+      message.error(e.data?.message || t("unknownError"));
     }
-    dispatch(setCredentials(call.data));
-    nav(`/${routes.dashboard}`);
   };
   const invalid = () => {};
   return (
@@ -39,9 +41,6 @@ const Signup = () => {
         size="large"
       >
         <Space direction="vertical" size={5} className="w-100">
-          {errorMsg || isError ? (
-            <Alert message={errorMsg ?? t("unknownError")} type="error" />
-          ) : null}
           <Form.Item
             label={t("fullname")}
             name="fullname"
@@ -74,13 +73,13 @@ const Signup = () => {
             rules={[
               { required: true, message: t("required") },
               {
-                min: 5,
-                message: t("passwordMustBeMoreThanXChars", { length: 5 }),
+                min: 8,
+                message: t("passwordMustBeMoreThanXChars", { length: 8 }),
               },
               {
-                pattern:"(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)",
-                message:t("passwordStrengthCondition")
-              }
+                pattern: "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}",
+                message: t("passwordStrengthCondition"),
+              },
             ]}
             // extra="We must make sure that your are a human."
           >

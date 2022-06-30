@@ -98,6 +98,7 @@ const Layout = ({}) => {
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  stroke={lightMode ? "black" : "white"}
                 />
                 <path
                   fillRule="evenodd"
@@ -115,6 +116,7 @@ const Layout = ({}) => {
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  stroke={lightMode ? "black" : "white"}
                 />
               </svg>
             ),

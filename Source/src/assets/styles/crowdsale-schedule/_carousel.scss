@@ -1,6 +1,7 @@
 #carousel {
     display: flex;
     align-items: center;
+    width: calc(100% - 75px);
     .carousel-wrapper {
         min-height: 0;
         min-width: 0;
@@ -50,13 +51,17 @@
                 height: calc(100vh - 170px);
             }
         }
-        .slick-current {
-            .time-line {
-                span {
-                    width: 15px;
-                    height: 15px;
-                    background-color: #753ff8;
-                    border: none;
+        .slick-slide {
+            opacity: 0.6;
+            &.slick-current {
+                opacity: 1;
+                .time-line {
+                    span {
+                        width: 15px;
+                        height: 15px;
+                        background-color: #753ff8;
+                        border: none;
+                    }
                 }
             }
         }
