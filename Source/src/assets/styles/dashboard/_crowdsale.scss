@@ -1,5 +1,7 @@
 #crowdsale {
     color: var(--black);
+    position: relative;
+    padding-bottom: 110px;
     .remain-head {
         position: relative;
         display: flex;
@@ -91,7 +93,7 @@
                         right:4px;
                         transform: translateY(-50%);
                         height: 2px;
-                        background-color: var(--regent-grey);
+                        background-color: var(--regent-grey)!important;
                     }
                 }
             }
@@ -116,6 +118,10 @@
         }
     }
     .action {
+        position: absolute;
+        bottom: $offset3;
+        left: $offset3;
+        right: $offset3;
         .min-buy {
             display: flex;
             justify-content: space-between;

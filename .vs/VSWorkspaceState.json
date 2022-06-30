@@ -7,7 +7,10 @@
     "\\Source\\src\\components\\Panel",
     "\\Source\\src\\components\\Panel\\comps",
     "\\Source\\src\\components\\Panel\\CrowdsaleSchedule",
-    "\\Source\\src\\components\\Panel\\CrowdsaleSchedule\\comps"
+    "\\Source\\src\\components\\Panel\\CrowdsaleSchedule\\comps",
+    "\\Source\\src\\components\\Panel\\WithdrawToken",
+    "\\Source\\src\\components\\Panel\\WithdrawToken\\comps"
   ],
+  "SelectedNode": "\\Source\\src\\components\\Panel\\WithdrawToken\\comps\\Form.jsx",
   "PreviewInSolutionExplorer": true
 }

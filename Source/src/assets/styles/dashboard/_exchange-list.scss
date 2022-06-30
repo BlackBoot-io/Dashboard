@@ -29,6 +29,7 @@
                 font-size: 12px;
                 line-height: 56px;
                 color: var(--black);
+                text-align: center;
                 @media (min-width: 1366px) {
                     font-size: 14px;
                 }
@@ -40,6 +41,7 @@
                 color: #18a84b;
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 margin-top: -10px;
                 svg {
                     margin-right: $offset1;
@@ -49,6 +51,7 @@
                 font-weight: 500;
                 font-size: 11px;
                 margin-top: -10px;
+                text-align: center;
                 text-transform: capitalize;
                 color: var(--star-dust);
             }
