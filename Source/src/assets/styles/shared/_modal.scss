@@ -1,0 +1,32 @@
+   .custom-modal {
+       width: 758px !important;
+       box-shadow: 0px 4px 14px rgba(47, 83, 109, 0.1) !important;
+
+       .ant-modal-content {
+           border-radius: 20px !important;
+           overflow: hidden;
+       }
+
+       .ant-modal-header {
+           padding: 30px 35px 10px 35px;
+           border-bottom: none;
+
+           .ant-modal-title {
+               font-weight: 700;
+               font-size: 19px;
+               text-transform: capitalize;
+               color: #4E4E4F;
+           }
+       }
+
+       .ant-modal-body {
+           padding: 30px 35px;
+       }
+
+       .ant-modal-close {
+           position: absolute;
+           top: 13px;
+           right: 13px;
+           color: #000;
+       }
+   }

@@ -1,16 +1,11 @@
 import { Select } from "antd";
-const Dropdown = ({ onChange, placeHolder, defaultValue, children }) => {
+const Dropdown = (props) => {
   return (
-    <div className="custom-select">
-      <Select
-        onChange={(value) => onChange(value, "network")}
-        placeholder={placeHolder}
-        // allowClear={true}
-        defaultValue={defaultValue}
-      >
-        {children}
+    <>
+      <Select className="custom-select" {...props}>
+        {props.children}
       </Select>
-    </div>
+    </>
   );
 };
 

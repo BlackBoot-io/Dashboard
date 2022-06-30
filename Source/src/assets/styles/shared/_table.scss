@@ -1,0 +1,37 @@
+.tbl-general {
+  .ant-table-body {
+    min-height: 500px;
+    overflow: hidden !important;
+  }
+
+  thead[class*="ant-table-thead"] tr {
+    color: #5b626e;
+
+    td {
+      padding: 12px;
+    }
+    th {
+      background-color: #fff;
+
+      &::before {
+        content: none !important;
+      }
+    }
+  }
+
+  tbody[class*="ant-table-tbody"] tr {
+    td {
+      padding: 12px;
+      border: none;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .ant-table-ping-right:not(.ant-table-has-fix-right)
+    .ant-table-container::after {
+    box-shadow: none;
+  }
+}

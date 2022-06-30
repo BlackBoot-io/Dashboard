@@ -158,4 +158,20 @@ export default class Utils {
   static getKeyByValue = (object, value) => {
     return Object.keys(object).find((key) => object[key] === value);
   };
+
+  static hasLowerCase = (str) => {
+    return str.toUpperCase() != str;
+  }
+
+  static hasUpperCase = (str) => {
+    return str.toLowerCase() != str;
+  }
+
+  static hasNumber = (str) => {
+    return /\d/.test(str);
+  }
+
+  static hasSpecialSymbol = (str) => {
+    return /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(str);
+  }
 }
