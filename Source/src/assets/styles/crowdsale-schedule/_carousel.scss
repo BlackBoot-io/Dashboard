@@ -42,10 +42,61 @@
                 font-weight: 600;
                 font-size: 15px;
             }
-            .description {
-                text-align: justify;
+            .info {
                 padding: $offset3 $offset5 0 $offset3;
-                color: var(--mid-grey);
+                .supply {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: $offset2 0;
+                    .value {
+                        font-weight: 300;
+                        font-size: 14px;
+                        text-transform: capitalize;
+                        color: #000;
+                        margin-right: 5px;
+                    }
+                }
+                .token {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: $offset2 0;
+                    .token-value {
+                        display: flex;
+                        align-items: center;
+                        .eth {
+                            font-weight: 300;
+                            font-size: 14px;
+                            text-transform: capitalize;
+                            color: #000;
+                            margin-right: 5px;
+                        }
+                        svg {
+                            padding: 0 $offset1;
+                        }
+                        .eq {
+                            font-weight: 500;
+                            font-size: 20px;
+                            text-transform: capitalize;
+                            color: #8c8c8c;
+                            margin: 0 5px;
+                        }
+                        .price {
+                            margin-left: $offset1;
+                            background: #eaf4fb;
+                            border-radius: 5px;
+                            font-weight: 500;
+                            font-size: 14px;
+                            line-height: 5px;
+                            text-transform: capitalize;
+                            color: #3498db;
+                            padding: 10px 8px;
+                        }
+                    }
+                }
+                .description {
+                    text-align: justify;
+                    color: var(--mid-grey);
+                }
             }
             .content-wrapper {
                 height: calc(100vh - 170px);

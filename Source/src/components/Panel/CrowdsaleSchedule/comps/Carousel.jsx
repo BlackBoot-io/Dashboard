@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Col, Carousel as AntdCarousel } from "antd";
 import { forwardRef, useEffect } from "react";
 import Utils from "config/utils";
+import etheriumImage from "assets/images/networks/etheriumIcon.svg";
 import { useMemo } from "react";
 const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
   const { t, i18n } = useTranslation();
@@ -47,9 +48,26 @@ const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
                     month: "long",
                   })} ${toYear}`}
                 </span>
-                <p className="description">
-                  {Utils.shortText(x.description, 200)}
-                </p>
+                <div className="info">
+                  <div className="supply">
+                    <span>{t("supplyForSale")}</span>
+                    <span className="value">
+                      {Utils.formatNumber(x.tokenForSale)}{t("token")}
+                    </span>
+                  </div>
+                  <div className="token">
+                    <span>{t("tokenPrice")}</span>
+                    <div className="token-value">
+                      <span className="eth">0.12</span>
+                      <img src={etheriumImage} slt="image" />
+                      <span className="eq">≃</span>
+                      <span className="price">${x.price}</span>
+                    </div>
+                  </div>
+                  <p className="description">
+                    {Utils.shortText(x.description, 200)}
+                  </p>
+                </div>
               </div>
             );
           })}

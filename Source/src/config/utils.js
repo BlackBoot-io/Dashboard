@@ -63,7 +63,7 @@ export default class Utils {
     document.execCommand("copy");
     document.body.removeChild(mark);
   }
-  static commaThousondSeperator(input, commo = ",", dot = "/") {
+  static commaThousondSeperator(input, commo = ",", dot = ".") {
     if (!input) return input;
     let str = isNaN(input) ? input : input.toString();
     let arr = str.split(".");

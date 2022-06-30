@@ -100,7 +100,10 @@
   "pancakeSwap": "Pancake Swap",
   "pancakeSwaptExchangeDate": "From April 2022",
   "privateSale": "Private Sale",
-  "minimumBuy":"Minimum Buy",
-  "buyNow":"Buy Now",
-  "signin":"Sign in"
+  "minimumBuy": "Minimum Buy",
+  "buyNow": "Buy Now",
+  "signin": "Sign in",
+  "supplyForSale": "Supply For Sale",
+  "tokenPrice": "Token Price",
+  "token": "Token"
 }

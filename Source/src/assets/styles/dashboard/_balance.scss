@@ -21,6 +21,7 @@
         padding-top: $offset2;
         button {
             position: relative;
+            cursor: pointer;
             background-color: transparent;
             color: var(--blue-whale);
             border: 1px solid var(--mid-grey);

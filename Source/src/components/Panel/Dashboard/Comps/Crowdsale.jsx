@@ -80,7 +80,7 @@ const Crowdsale = ({ current, allSales, loading }) => {
                   >
                     <circle cx="9" cy="9" r="5" fill="#FE8359" />
                   </svg>
-                  <span className="lin-throw">{prevSale.title}</span>
+                  <span className="line-throw">{prevSale.title}</span>
                 </h5>
                 <div className="goal">
                   <label className="from">
