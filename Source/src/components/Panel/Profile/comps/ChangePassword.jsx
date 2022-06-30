@@ -10,6 +10,7 @@ const ChangePassword = () => {
   const [form] = Form.useForm();
   const { t } = useTranslation();
   const [errorMsg, setErrorMsg] = useState("");
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const dispatch = useDispatch();
   const [changePassword, { isLoading, error, isError }] = useChangePasswordMutation();
@@ -69,7 +70,25 @@ const ChangePassword = () => {
       </Row>
       <Row>
         <Col xs={24}>
-          <Form.Item name="newPassword" onChange={(e) => {
+          
+          <Tooltip
+            title={<>
+              <div>{uppercaseAndLowercaseValid ? correctIcon : errorIcon} {uppercaseAndLowercaseText}</div>
+              <div>{oneNumberValid ? correctIcon : errorIcon} {oneNumberText}</div>
+              <div>{oneSymbolValid ? correctIcon : errorIcon} {oneSymbolText}</div>
+              <div>{eightCharactersValid ? correctIcon : errorIcon} {eightCharactersText}</div>
+            </>}
+            placement="right"
+            color="white"
+            visible={showTooltip}
+            overlayInnerStyle={{
+              backgroundColor: '#FFFFFF',
+              boxShadow: '0px 4px 10px rgba(47, 83, 109, 0.1)',
+              borderRadius: '8px',
+              color: '#000000',
+              fontSize: '11px',
+            }}>
+              <Form.Item name="newPassword" onChange={(e) => {
             newPasswordValidation(e.target.value)
           }} label={<span className="input-label">{t("newPassword")}</span>} rules={[
             {},
@@ -82,26 +101,13 @@ const ChangePassword = () => {
               },
             }),
           ]}>
-            <Tooltip
-              title={<>
-                <div>{uppercaseAndLowercaseValid ? correctIcon : errorIcon} {uppercaseAndLowercaseText}</div>
-                <div>{oneNumberValid ? correctIcon : errorIcon} {oneNumberText}</div>
-                <div>{oneSymbolValid ? correctIcon : errorIcon} {oneSymbolText}</div>
-                <div>{eightCharactersValid ? correctIcon : errorIcon} {eightCharactersText}</div>
-              </>}
-              placement="right"
-              color="white"
-              overlayInnerStyle={{
-                backgroundColor: '#FFFFFF',
-                boxShadow: '0px 4px 10px rgba(47, 83, 109, 0.1)',
-                borderRadius: '8px',
-                color: '#000000',
-                fontSize: '11px',
-                width: 'max-content'
-              }}>
-              <Input.Password className="custom-input" />
-            </Tooltip>
+            <Input.Password
+              className="custom-input"
+              onFocus={() => setShowTooltip(true)}
+              onBlur={() => setShowTooltip(false)}
+            />
           </Form.Item>
+            </Tooltip>
         </Col>
       </Row>
       <Row>
