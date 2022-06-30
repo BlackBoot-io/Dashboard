@@ -7,7 +7,6 @@ const Balance = ({
   currentIncreaseRate,
   loading,
 }) => {
-  console.log("data", currentPrice);
   const { t } = useTranslation();
 
   return (
@@ -18,7 +17,7 @@ const Balance = ({
         <>
           <div className="custom-row">
             <div className="total">
-              <label>{t("totalToken")}</label>
+              <label className="sec-title">{t("totalToken")}</label>
               <span>{Utils.commaThousondSeperator(totalToken)}</span>
             </div>
             <div className="actions">
@@ -58,11 +57,11 @@ const Balance = ({
           </div>
           <div className="custom-row">
             <div className="price">
-              <label>{t("currentPrice")}</label>
+              <label className="sec-title">{t("currentPrice")}</label>
               <span>$ {Utils.commaThousondSeperator(currentPrice)}</span>
             </div>
             <div className="increase">
-              <label>{t("currentIncreaseRate")}</label>
+              <label className="sec-title">{t("currentIncreaseRate")}</label>
               <span>
                 <svg
                   width="24"

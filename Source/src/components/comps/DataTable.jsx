@@ -1,16 +1,15 @@
 import { Table } from "antd";
-const DataTable = (props) => {
+const DataTable = ({ columns, data, loading, pageSize, scroll, ...props }) => {
   return (
-    <>
-      <Table
-        size="large"
-        columns={props.columns}
-        dataSource={props.data}
-        loading={props.loading}
-        pagination={{ position: ["none"], pageSize: props.pageSize }}
-        scroll={{ x: "100vh", y: "0vh" }}
-      />
-    </>
+    <Table
+      size="large"
+      columns={columns}
+      dataSource={data}
+      loading={loading}
+      pagination={{ position: ["none"], pageSize: pageSize }}
+      scroll={scroll ?? { x: 0, y: 0 }}
+      {...props}
+    />
   );
 };
 

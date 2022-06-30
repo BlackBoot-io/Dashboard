@@ -21,14 +21,16 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReauth = async (args, api, extraOptions) => {
   extraOptions = (extraOptions ?? {}).timoute = 3000;
   let result = await baseQuery(args, api, extraOptions);
-  console.log("req", result);
   const refreshToken = Utils.getStoredData(storageKeys.refreshToken);
   let status = result?.error?.originalStatus || result?.error?.status;
   if (status === 401 && refreshToken) {
     console.log("sending refresh token");
     // send refresh token to get new access token
     const refreshResult = await baseQuery(
-      `${addresses.account_refreshToken}?refreshToken=${refreshToken}`,
+      {
+        method: "POST",
+        url: `${addresses.account_refreshToken}?refreshToken=${refreshToken}`,
+      },
       api,
       extraOptions
     );

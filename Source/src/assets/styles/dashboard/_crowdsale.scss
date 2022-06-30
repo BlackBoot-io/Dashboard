@@ -1,19 +1,14 @@
 #crowdsale {
+    color: var(--black);
     .remain-head {
         position: relative;
         display: flex;
         align-items: center;
         z-index: 9;
 
-        .remain-title {
+        .sec-title {
             margin-bottom: 0;
             margin-left: 7px;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 19px;
-            line-height: 35px;
-            text-transform: capitalize;
-            color: #000000;
         }
 
         .remain-time {
@@ -21,44 +16,135 @@
             border-radius: 5px;
             font-style: normal;
             font-size: 13px;
-            padding: 3px 7px;
+            padding: $offset1 $offset2;
             text-transform: capitalize;
             color: var(--white);
             margin-left: auto;
+            white-space: nowrap;
+            @media (max-width: 1366px) {
+                font-size: 10px;
+                padding: $offset1;
+            }
         }
     }
-
-    .remain-subhead {
-        position: relative;
-        font-size: 17px;
-        text-transform: capitalize;
-        color: #646972;
-        padding-left: 30px;
-        margin-top: 20px;
-        z-index: 9;
-
-        &:before,
-        &:after {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
+    .dashes {
+        padding: 0 $offset1;
+        display: flex;
+        align-items: center;
+        .dash {
+            height: 1px;
+            width: 7.13px;
+            display: inline-flex;
+            margin: 0 2px;
         }
-
-        &::before {
-            content: "";
-            width: 18px;
-            height: 18px;
-            background: #18a84b;
-            border: 2px solid #16d359;
+        .dash-1 {
+            background-image: linear-gradient(#020202, #2b2b2b);
         }
-
-        &::after {
-            content: "";
-            width: 10px;
-            height: 10px;
-            background-color: #007542;
+        .dash-2 {
+            background-image: linear-gradient(#494949, #717171);
+        }
+        .dash-3 {
+            background-image: linear-gradient(#8c8c8c, #b4b4b4);
+        }
+        .dash-4 {
+            background-image: linear-gradient(#cdcdcd, #f6f6f6);
+        }
+    }
+    .sales {
+        list-style: none;
+        .sale {
+            color: var(--balck);
+            margin: $offset6 0;
+            &:first-child {
+                margin-top: 0;
+            }
+            &.prev {
+                color: var(--regent-grey);
+                .dashes {
+                    opacity: 0.6;
+                }
+                .goal {
+                    .from,
+                    .to {
+                        color: var(--regent-grey);
+                    }
+                }
+            }
+            .hx {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+                span {
+                    font-weight: 600;
+                    font-size: 17px;
+                    line-height: 56px;
+                    padding: 0 $offset2;
+                    position: relative;
+                    &.lin-throw::after {
+                        content: "";
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+            .goal {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: $offset3 0 $offset3 26px;
+                .from,
+                .to {
+                    display: flex;
+                    flex-direction: column;
+                    font-weight: 700;
+                    font-size: 23px;
+                    color: var(--black);
+                    span {
+                        font-weight: 500;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    .action {
+        .min-buy {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: $offset3 0;
+            label {
+                display: flex;
+                align-items: center;
+                span {
+                    color: var(--cloud);
+                    padding: 0 $offset1;
+                }
+            }
+            .min {
+                color: black;
+                background-color: var(--dawn-pink);
+                padding: 0 $offset2;
+                border-radius: 5px;
+                font-weight: 500;
+                font-size: 13px;
+                min-width: 45px;
+            }
+        }
+        button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 48px !important;
+            span {
+                padding: 0 $offset2;
+                font-weight: 600;
+                font-size: 17px;
+            }
         }
     }
 }

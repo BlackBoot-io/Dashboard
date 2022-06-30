@@ -98,5 +98,8 @@
   "exchangeList": "Exchange List",
   "babySwap": "Baby Swap",
   "pancakeSwap": "Pancake Swap",
-  "pancakeSwaptExchangeDate": "From April 2022"
+  "pancakeSwaptExchangeDate": "From April 2022",
+  "privateSale": "Private Sale",
+  "minimumBuy":"Minimum Buy",
+  "buyNow":"Buy Now"
 }

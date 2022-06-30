@@ -5,7 +5,7 @@ const ExchangeList = () => {
   const { t } = useTranslation();
   return (
     <div id="exchange-list" className="custom-card">
-      <h4 className="title">
+      <h4 className="sec-title">
         <svg
           width="14"
           height="16"
