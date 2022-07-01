@@ -1,24 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, List } from "antd";
+import { useAllNotificationsQuery } from "api/notification";
+import { use } from "i18next";
 
 const ListNotifications = () => {
-    const [selectedNotificationIds, setSelectedNotificationIds] = useState(new Set([1]));
-    const [notifications, setNotifications] = useState([
-        {
-            id: 1,
-            user: 'Sofia at CareerFoun.',
-            description: 'Watch this recorded comment to get the best benefit.',
-            date: '10 May 2022',
-            isImportant: false
-        },
-        {
-            id: 2,
-            user: 'Quora notes ',
-            description: 'See the details of the transaction in advance.',
-            date: '8 May 2022',
-            isImportant: true
-        }
-    ]);
+    const { isLoading, isSuccess, data } = useAllNotificationsQuery();
+
+    const [notifications, setNotifications] = useState();
+    const [selectedNotificationIds, setSelectedNotificationIds] = useState(new Set());
+
 
     //== icons ==
     const goldenStarIcon = <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -44,10 +34,19 @@ const ListNotifications = () => {
 
     const bookmarkNotification = (notificationId) => {
         const allNotifications = [...notifications];
-        const notification = allNotifications.find(notification => notification.id === notificationId);
-        notification.isImportant = !notification.isImportant;
-        setNotifications(allNotifications);
+        const notification = allNotifications.find(notification => notification.notificationId === notificationId);
+        const isImportant = notification.isImportant;
+        const allOtherNotifications = allNotifications.filter(notification => notification.notificationId != notificationId)
+        const newNotifications = [...allOtherNotifications, {...notification, isImportant: !isImportant}]
+        setNotifications(newNotifications);
     }
+
+    useEffect(() => {
+        if (data != undefined) {
+            const notifs = data.data;
+            setNotifications(notifs);
+        }
+    }, [data])
 
     return (
         <div id="notifications-list">
@@ -56,19 +55,19 @@ const ListNotifications = () => {
                 dataSource={notifications}
                 renderItem={(item) => (
                     <List.Item style={{
-                        backgroundColor: item.isImportant ? '#F9FBFC' : '#FFFFFF',
+                        backgroundColor: selectedNotificationIds.has(item.notificationId) ? '#F9FBFC' : '#FFFFFF',
                         padding: '15px'
                     }}>
                         <div className="item-box">
                             <Col xs={3}>
                                 <div className="checkbox-and-star">
-                                    <div 
+                                    <div
                                         className="checkbox"
-                                        onClick={() => toggleSelectNotification(item.id)}
+                                        onClick={() => toggleSelectNotification(item.notificationId)}
                                     >
-                                        {selectedNotificationIds.has(item.id) ? tickIcon : null}
+                                        {selectedNotificationIds.has(item.notificationId) ? tickIcon : null}
                                     </div>
-                                    <div className="star" onClick={() => bookmarkNotification(item.id)}>{item.isImportant ? goldenStarIcon : greyStarIcon}</div>
+                                    <div className="star" onClick={() => bookmarkNotification(item.notificationId)}>{item.isImportant ? goldenStarIcon : greyStarIcon}</div>
                                 </div>
                             </Col>
                             <Col xs={6}>
@@ -78,12 +77,16 @@ const ListNotifications = () => {
                             </Col>
                             <Col xs={10}>
                                 <div className="data-column">
-                                    <div className="description">{item.description}</div>
+                                    <div className="description">{item.message}</div>
                                 </div>
                             </Col>
                             <Col xs={5}>
                                 <div className="data-column">
-                                    <div className="date">{item.date}</div>
+                                    <div className="date">{(new Date(item.date)).toLocaleString('en-US', {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                    })}</div>
                                 </div>
                             </Col>
                         </div>
