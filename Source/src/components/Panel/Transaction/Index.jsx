@@ -63,7 +63,7 @@ const Transaction = () => {
             marginLeft: 20,
           }}
         >
-          <a href={row["txId"]}>
+          <a href={row["txId"]} target={"_blank"}>
             <svg
               width="20"
               height="20"
