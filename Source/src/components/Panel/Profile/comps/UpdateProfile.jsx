@@ -15,20 +15,17 @@ const UpdateProfile = ({ data }) => {
     const dispatch = useDispatch();
     const { user } = useSelector((x) => x.auth);
     const [updateProfile, { isLoading, error, isError }] = useUpdateProfileMutation();
-    const x = useGetCurrentUserInfoQuery();
 
     const handleSubmit = async (values) => {
         setErrorMsg("");
-        const call = await updateProfile(values).unwrap();
-        if (!call.isSuccess) {
-            setErrorMsg(call.message);
-            message.destroy();
-            message.error(call.message);
+        const call = await updateProfile(values);
+        if (call.error) {
+            setErrorMsg(call.error.data.message);
+            message.error(t("updateFailed"));
             return;
         }
 
-        message.destroy();
-        message.success("Profile updated successfully.");
+        message.success(t("updateProfileSuccess"));
     };
 
     useEffect(() => {
