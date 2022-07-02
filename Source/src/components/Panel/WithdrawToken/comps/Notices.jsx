@@ -24,7 +24,7 @@ const WithdrawNotices = () => {
                             </p>
                         </li>
                     )}</ul>
-                    <button className="faq-btn">withdraw FAQ</button>
+                   {/* <button className="faq-btn">withdraw FAQ</button>*/}
                 </div>
             </div>
         </Col>
