@@ -46,19 +46,33 @@ const UpdateProfile = ({ data }) => {
         >
             <Row gutter={[24, 16]} style={{ marginBottom: '20px' }}>
                 <Col xs={24} md={24} lg={8}>
-                    <Form.Item name="fullname" label={<span className="input-label">{t("name")}</span>}>
+                    <Form.Item
+                        name="fullname"
+                        label={<span className="input-label">{t("name")}</span>}
+                        rules={[
+                            { min: 2, message: 'Fullname must be at least 2 characters.' }
+                        ]}>
                         <Input className="custom-input" />
                     </Form.Item>
                 </Col>
                 <Col xs={24} md={24} lg={8}>
-                    <Form.Item name="email" label={<span className="input-label">{t("email")}</span>}>
-                        <Input className="custom-input" suffix={
+                    <Form.Item
+                        name="email"
+                        label={<span className="input-label">{t("email")}</span>}
+                        rules={[
+                            { type: 'email' }
+                        ]}
+                    >
+                        <Input disabled={true} className="custom-input" suffix={
                             <span className="verified-email">Verified</span>
                         } />
                     </Form.Item>
                 </Col>
                 <Col xs={24} md={24} lg={8}>
-                    <Form.Item name="birthdayDate" label={<span className="input-label">{t("birthdayDate")}</span>}>
+                    <Form.Item
+                        name="birthdayDate"
+                        label={<span className="input-label">{t("birthdayDate")}</span>}
+                    >
                         <DatePicker className="custom-input" format="YYYY/MM/DD" />
                     </Form.Item>
                 </Col>
@@ -73,7 +87,10 @@ const UpdateProfile = ({ data }) => {
                     </Form.Item>
                 </Col>
                 <Col xs={24} md={24} lg={8}>
-                    <Form.Item name="nationality" label={<span className="input-label">{t("nationality")}</span>}>
+                    <Form.Item
+                        name="nationality"
+                        label={<span className="input-label">{t("nationality")}</span>}
+                    >
                         <Select className="custom-input">
                             {countryNames.map(countryName => <Select.Option key={countryName} value={countryName}>{countryName}</Select.Option>)}
                         </Select>
