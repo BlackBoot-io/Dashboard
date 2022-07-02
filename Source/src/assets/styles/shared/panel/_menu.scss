@@ -86,18 +86,25 @@
                 color: var(--blue-whale);
                 font-weight: 600;
             }
-            .ant-menu-submenu-selected {
-                color: var(--blue-whale);
+            > .ant-menu-submenu{
                 .ant-menu-submenu-title {
-                    @include active-menu();
+                    padding-top: $offset2;
+                    padding-bottom: $offset2;
+                    height: 56px;
                 }
-                .ant-menu-sub {
-                    .ant-menu-title-content {
-                        font-size: 14px;
+                &.ant-menu-submenu-selected {
+                    color: var(--blue-whale);
+                    .ant-menu-submenu-title {
+                        @include active-menu();
                     }
-                    .ant-menu-item-selected {
-                        font-weight: 600;
-                        background-color: transparent;
+                    .ant-menu-sub {
+                        .ant-menu-title-content {
+                            font-size: 14px;
+                        }
+                        .ant-menu-item-selected {
+                            font-weight: 600;
+                            background-color: transparent;
+                        }
                     }
                 }
             }
@@ -107,6 +114,7 @@
                     display: none;
                 }
             }
+        
             // .ant-menu-item-selected {
 
             //     &:after {
@@ -148,13 +156,23 @@
                     flex-direction: column;
                     color: var(--balck);
                     margin: 0 $offset3;
+                    max-width: 115px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                     .name {
                         font-weight: 700;
                         font-size: 13px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                     .email {
                         font-weight: 400;
                         font-size: 13px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    @media(max-width:1400px){
+                        max-width: 100px;
                     }
                 }
             }

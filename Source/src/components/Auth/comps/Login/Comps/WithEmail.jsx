@@ -26,7 +26,7 @@ const ByEmail = () => {
       nav(`/${routes.dashboard}`);
     } catch (e) {
       console.log(e);
-      message.error(e.data?.message||t("wrongUsernameOrPassword"));
+      message.error(e.data?.message?t(e.data?.message):t("wrongUsernameOrPassword"));
     }
   };
   const invalid = () => {};
@@ -78,7 +78,7 @@ const ByEmail = () => {
             <div className="remeber-me-wrapper">
               <Checkbox>{t("rememberMe")}</Checkbox>
               <Link to={`/${routes.recoverPassword}`}>
-                {t("recoverPassword")}
+                {/* {t("recoverPassword")} */}
               </Link>
             </div>
           </Form.Item>

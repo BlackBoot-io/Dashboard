@@ -51,7 +51,7 @@
                 margin-right: $offset1;
             }
             &:hover {
-                background-color: var(--catskill-white);
+                box-shadow: 0 4px 10px 0 rgba(47,83,109,.15);
             }
         }
     }

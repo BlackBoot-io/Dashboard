@@ -109,5 +109,6 @@
   "signin": "Sign in",
   "supplyForSale": "Supply For Sale",
   "tokenPrice": "Token Price",
-  "token": "Token"
+  "token": "Token",
+  "remainingTime":"Remaining Time"
 }
