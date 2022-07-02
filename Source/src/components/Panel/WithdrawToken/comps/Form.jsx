@@ -9,6 +9,7 @@ import { networkTypes, transactionTypes } from "config/enums";
 import Button from "../../../comps/Button";
 import EtheriumIcon from "assets/images/networks/etherium.svg";
 import routes from "../../../../config/routes";
+import { useSelector } from "react-redux";
 
 const WithdrawForm = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const WithdrawForm = () => {
     const [form] = Form.useForm();
     const [errorMsg, setErrorMsg] = useState("");
     const [selectedNetwork, setSelectedNetwork] = useState(networkTypes.Ethereum)
-    const currentUser = useGetCurrentUserInfoQuery();
+    const { user } = useSelector(x => x.auth);
     const [add, { isLoading, isSuccess, error, isError }] = useAddMutation();
     const userBalance = useGetUserBalanceQuery();
 
@@ -54,7 +55,8 @@ const WithdrawForm = () => {
                     validateMessages={validateMessages}
                     form={form}
                     name="withdrawTokenForm"
-                    initialValues={{ address: currentUser.data.data.walletAddress }}
+                    onFinish={handleSubmit}
+                    initialValues={{ address: user.walletAddress }}
                     layout="vertical" >
                     <Segmented
                         options={[
@@ -68,7 +70,7 @@ const WithdrawForm = () => {
                     />
 
                     {
-                        (currentUser.data.data.walletAddress == null) ?
+                        (user.walletAddress == null) ?
                             <Col xs={24} md={24} lg={24} style={{ marginTop: "33px", padding: 0 }}>
                                 <Alert action={
                                     <Button size="small" type="text" className="btn-profile" onClick={() => navigate(`/${routes.profile}`)} >
@@ -97,8 +99,24 @@ const WithdrawForm = () => {
                                 {
                                     required: true,
                                     message: 'Please input amount!'
-                                }]} >
-                            <Input className="custom-input" />
+                                },
+                                ({ getFieldValue }) => ({
+                                    validator(_, value) {
+                                        if (value != "" && value > userBalance.data?.data) {
+                                            return Promise.reject(new Error(t('moreThanAvailableWithdrawalAmount')));
+                                        }
+                                        return Promise.resolve();
+                                    },
+                                }),
+                                ({ getFieldValue }) => ({
+                                    validator(_, value) {
+                                        if (value != "" && isNaN(value)) {
+                                            return Promise.reject(new Error(t("withdrawValueTypeError")));
+                                        }
+                                        return Promise.resolve();
+                                    },
+                                })]} >
+                            <Input className="custom-input" maxLength={userBalance.data?.data.length} />
                         </Form.Item>
                         <div className="withdraw-amount-holder">
                             <p className="withdraw-amount"> Withdrrawal fees : <span >{utils.commaThousondSeperator(userBalance.data?.data)}</span> USDT </p>
