@@ -18,15 +18,14 @@ const ChangePassword = () => {
 
   const handleSubmit = async (values) => {
     setErrorMsg("");
-    const call = await changePassword(values).unwrap();
-    if (!call.isSuccess) {
-      setErrorMsg(call.message);
-      message.error(call.message);
+    const call = await changePassword(values);
+    if (call.error) {
+      setErrorMsg(call.error.data.message);
+      message.error(t("updateFailed"));
       return;
     }
 
-    message.destroy();
-    message.success("Password changed successfully.");
+    message.success(t("changePasswordSuccess"));
   };
 
   // === newPasswordValidation ===

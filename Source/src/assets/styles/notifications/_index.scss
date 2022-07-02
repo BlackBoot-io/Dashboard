@@ -1,13 +1,8 @@
 #notifications {
     height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100%;
     background: var(--catskill_white) no-repeat center center;
-    padding: $offset5;
-    flex-direction: column;
+    padding: 24px;
 
     .notifications-title-image {
         width: 44px;
@@ -34,5 +29,4 @@
     }
 
     @import "./list";
-    @import "./dataRow";
 }

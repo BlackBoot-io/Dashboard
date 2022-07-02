@@ -16,16 +16,14 @@ const UpdateWallet = () => {
 
   const handleSubmit = async (values) => {
     setErrorMsg("");
-    const call = await updateWallet(values).unwrap();
-    if (!call.isSuccess) {
-      setErrorMsg(call.message);
-      message.destroy();
-      message.error(call.message);
+    const call = await updateWallet(values);
+    if (call.error) {
+      setErrorMsg(call.error.data.message);
+      message.error(t("updateFailed"));
       return;
     }
 
-    message.destroy();
-    message.success("Wallet updated successfully.");
+    message.success(t("updateWalletSuccess"));
   };
 
   useEffect(() => {

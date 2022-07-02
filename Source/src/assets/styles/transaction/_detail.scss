@@ -59,18 +59,18 @@
 
       .transaction-title {
           font-weight: 500;
-          font-size: 17px;
+          font-size: 14px;
           text-transform: capitalize;
           color: #4E4E4F;
 
           &.bold {
-              font-weight: bold;
+              font-weight: 600;
           }
       }
 
       .transaction-text {
           font-weight: 400;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 26px;
           text-align: left;
           text-transform: capitalize;
