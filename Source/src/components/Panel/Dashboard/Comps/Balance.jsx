@@ -75,7 +75,7 @@ const Balance = ({
                     fill="#009C7B"
                   />
                 </svg>
-                {Utils.commaThousondSeperator(currentIncreaseRate)}
+                {Utils.commaThousondSeperator(currentIncreaseRate)} %
               </span>
             </div>
           </div>

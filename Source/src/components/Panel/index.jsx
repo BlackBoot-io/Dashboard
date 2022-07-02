@@ -272,7 +272,7 @@ const Layout = ({}) => {
         >
           <Menu items={menus} mobileSize={true} />
         </Drawer>
-        <Sider width={width > 1400 ? 257 : 220}>
+        <Sider width={257}>
           <Menu items={menus} mobileSize={false} />
         </Sider>
         <AntLayout>
