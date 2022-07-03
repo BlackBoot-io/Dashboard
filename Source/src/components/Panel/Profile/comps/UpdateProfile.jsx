@@ -17,14 +17,15 @@ const UpdateProfile = ({ data }) => {
     const [updateProfile, { isLoading, error, isError }] = useUpdateProfileMutation();
 
     const handleSubmit = async (values) => {
-        setErrorMsg("");
-        const call = await updateProfile(values);
-        if (call.error) {
-            setErrorMsg(call.error.data.message);
+        try {
+            const call = await updateProfile(values).unwrap();
+            if (!call.isSuccess) {
+                message.error(t("updateFailed"));
+                return;
+            }
+        } catch (e) {
             message.error(t("updateFailed"));
-            return;
         }
-
         message.success(t("updateProfileSuccess"));
     };
 
