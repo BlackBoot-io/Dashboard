@@ -62,7 +62,7 @@ const Crowdsale = ({ current, allSales, loading }) => {
                 strokeLinejoin="round"
               />
             </svg>
-            <h4 className="sec-title">{t("remainingTimetobuy")}</h4>
+            <h4 className="sec-title">{t("remainingTime")}</h4>
             <span className="remain-time">
               {Math.abs(current?.periodDay)} {t("days")}
             </span>
@@ -80,7 +80,7 @@ const Crowdsale = ({ current, allSales, loading }) => {
                   >
                     <circle cx="9" cy="9" r="5" fill="#FE8359" />
                   </svg>
-                  <span className="line-throw">{prevSale.title}</span>
+                  <span className="border-throw">{prevSale.title}</span>
                 </h5>
                 <div className="goal">
                   <label className="from">

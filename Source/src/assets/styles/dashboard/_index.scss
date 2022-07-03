@@ -15,9 +15,9 @@
         align-items: center;
         text-transform: capitalize;
 
-        @media (max-width: 1400px) {
-            font-size: 13px;
-        }
+        // @media (max-width: 1400px) {
+        //     font-size: 13px;
+        // }
     }
     .ant-table-thead > tr > th {
         padding: $offset2 $offset1;
@@ -25,19 +25,24 @@
     .ant-table-tbody > tr > td {
         padding: $offset2 $offset1 !important;
     }
+    .transactions{
+        .head-section{
+            margin-bottom: $offset2;
+        }
+    }
     @import "./balance";
     @import "./exchange-list";
     @import "./crowdsale";
 
-    @media (min-width: 1366px) {
+    @media (min-width: $xl) {
         .ant-table-body {
             min-height: calc(100vh - 500px) !important;
         }
     }
 
-    @media (max-width: 1365px) {
+    @media (max-width: $xl) {
         .ant-table-body {
-            min-height: calc(100vh - 480px) !important;
+            min-height: calc(100vh - 465px) !important;
         }
     }
 }

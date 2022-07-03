@@ -25,7 +25,7 @@ const Signup = () => {
       nav(`/${routes.dashboard}`);
     } catch (e) {
       console.log(e);
-      message.error(e.data?.message || t("unknownError"));
+      message.error(e.data?.message ? t(e.data?.message) : t("unknownError"));
     }
   };
   const invalid = () => {};

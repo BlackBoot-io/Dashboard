@@ -39,9 +39,6 @@
         }
         .a-notif {
             position: relative;
-            svg{
-                stroke: var(--black);
-            }
             &.active:after {
                 content: "";
                 position: absolute;

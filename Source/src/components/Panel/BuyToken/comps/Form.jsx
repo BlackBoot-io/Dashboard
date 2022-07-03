@@ -10,11 +10,12 @@ import SolanaIcon from "assets/images/networks/solana.svg";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 
 import { useAddMutation } from "api/transaction";
+import { useGetBySymbolMutation } from "api/coinPrice";
 import ConfirmModal from "./ConfirmModal";
 
 const openNotification = (type, message) => {
   notification[type]({
-    description: message,
+    message: message,
   });
 };
 
@@ -23,31 +24,47 @@ const BuyTokenForm = (props) => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [modalData, setmodalData] = useState('');
   const [data, { isLoading, error, isError }] = useAddMutation();
+  const [coinPrice] = useGetBySymbolMutation();
 
   const networks = [
     {
       label: <img src={EthereumIcon} alt="ethereumIcon" />,
       value: 0,
-      name: 'eth'
+      name: 'eth',
+      fullName: 'etherium',
     },
     {
       label: <img src={SolanaIcon} alt="SolanaIcon" />,
       value: 1,
-      name: 'sol'
+      name: 'sol',
+      fullName: 'solana',
     },
     {
       label: <img src={BscscanIcon} alt="BscscanIcon" />,
       value: 2,
-      name: 'bnb'
+      name: 'bnb',
+      fullName: 'bscscan',
     },
     {
       label: <img src={BitcoinIcon} alt="BitcoinIcon" />,
       value: 3,
-      name: 'btc'
+      name: 'btc',
+      fullName: 'bitcoin',
     },
   ]
 
   const { t } = useTranslation();
+
+  const getPrice = async (value) => {
+    setToken(value);
+    const response = await coinPrice(networks[value].fullName).unwrap();
+    if (!response.isSuccess) {
+      console.log("NOT")
+      return;
+    } else {
+      console.log("OK")
+    }
+  };
 
   const handleSubmit = async (values) => {
     const finalData = Object.assign(values, { network: token, });
@@ -85,7 +102,7 @@ const BuyTokenForm = (props) => {
           <Segmented
             block
             value={token}
-            onChange={(value) => setToken(value)}
+            onChange={getPrice}
             options={networks}
           />
           <p className="buy-p" style={{ marginTop: 30 }}>
@@ -130,7 +147,7 @@ const BuyTokenForm = (props) => {
                 style={{ marginRight: 5 }}
                 alt="danger icon"
               />
-              <p className="buy-p inline" style={{ marginBottom: 0 }}>
+              <p className="buy-p inline small" style={{ marginBottom: 0 }}>
                 The price shown here is not final. When the payment is submitted
                 on the gateway,the network and gas fees will be added.
               </p>
@@ -141,7 +158,7 @@ const BuyTokenForm = (props) => {
                 style={{ marginRight: 5 }}
                 alt="danger icon"
               />
-              <p className="buy-p inline">
+              <p className="buy-p inline small">
                 The contribution will be calculated based on the exchange rate at
                 the moment that your transaction is confirmed.
               </p>

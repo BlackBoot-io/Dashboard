@@ -86,6 +86,10 @@
         color: var(--star-dust);
         font-size: $fs1;
     }
+    input[type="password"] {
+        font-size: 16px !important;
+        font-family: arial!important;
+    }
     @media (max-width: $sm) {
         background-color: var(--white);
         .slide {

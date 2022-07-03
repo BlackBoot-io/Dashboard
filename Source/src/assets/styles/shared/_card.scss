@@ -4,7 +4,7 @@
     border-radius: 20px !important;
     border: 1px solid var(--porcelaine);
     height: 100%;
-    padding: $offset4;
+    padding: $offset5;
     @media (max-width: 1366px) {
         padding: $offset3;
     }
@@ -12,5 +12,10 @@
         background-color: var(--white);
         background: url("../../images/blue-circle-bg.svg") no-repeat left top;
         background-size: 60%;
+    }
+    &.flex-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }

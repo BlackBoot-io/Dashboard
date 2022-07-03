@@ -90,8 +90,8 @@ const Menu = ({ items }) => {
               {user.fullName ? user.fullName[0].toUpperCase() : null}
             </Avatar>
             <div className="info">
-              <span className="name">{user.fullName}</span>
-              <span className="email">{user.email}</span>
+              <span className="name" title={user.fullName}>{user.fullName}</span>
+              <span className="email" title={user.email}>{user.email}</span>
             </div>
           </div>
           <button

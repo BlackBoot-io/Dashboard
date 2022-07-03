@@ -24,7 +24,7 @@
             margin-left: auto;
             white-space: nowrap;
             @media (max-width: 1366px) {
-                font-size: 10px;
+                font-size: 12px;
                 padding: $offset1;
             }
         }
@@ -56,12 +56,9 @@
         list-style: none;
         .sale {
             color: var(--balck);
-            margin: $offset6 0;
-            &:first-child {
-                margin-top: 0;
-            }
             &.prev {
                 color: var(--regent-grey);
+                margin: $offset3 0 $offset6 0;
                 .dashes {
                     opacity: 0.6;
                 }
@@ -85,15 +82,16 @@
                     line-height: 56px;
                     padding: 0 $offset2;
                     position: relative;
-                    &.line-throw::after {
+                    &.border-throw::after {
                         content: "";
                         position: absolute;
                         top: 50%;
                         left: 4px;
-                        right:4px;
+                        right: 4px;
                         transform: translateY(-50%);
                         height: 2px;
-                        background-color: var(--regent-grey)!important;
+                        background-color: var(--regent-grey) !important;
+                        box-shadow: none;
                     }
                 }
             }
