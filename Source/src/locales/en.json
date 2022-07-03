@@ -112,5 +112,6 @@
   "token": "Token",
   "remainingTime":"Remaining Time",
   "moreThanAvailableWithdrawalAmount": "Entered amount is more than available withdrawal amount",
-  "withdrawValueTypeError": "Type of value must be number"
+  "withdrawValueTypeError": "Type of value must be number",
+  "delete": "Delete"
 }

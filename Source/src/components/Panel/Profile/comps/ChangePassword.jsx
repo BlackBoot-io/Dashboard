@@ -17,14 +17,15 @@ const ChangePassword = () => {
 
 
   const handleSubmit = async (values) => {
-    setErrorMsg("");
-    const call = await changePassword(values);
-    if (call.error) {
-      setErrorMsg(call.error.data.message);
+    try {
+      const call = await changePassword(values).unwrap();
+      if (!call.isSuccess) {
+        message.error(t("updateFailed"));
+        return;
+      }
+    } catch (e) {
       message.error(t("updateFailed"));
-      return;
     }
-
     message.success(t("changePasswordSuccess"));
   };
 
@@ -69,7 +70,7 @@ const ChangePassword = () => {
       </Row>
       <Row>
         <Col xs={24}>
-          
+
           <Tooltip
             title={<>
               <div>{uppercaseAndLowercaseValid ? correctIcon : errorIcon} {uppercaseAndLowercaseText}</div>
@@ -87,26 +88,26 @@ const ChangePassword = () => {
               color: '#000000',
               fontSize: '11px',
             }}>
-              <Form.Item name="newPassword" onChange={(e) => {
-            newPasswordValidation(e.target.value)
-          }} label={<span className="input-label">{t("newPassword")}</span>} rules={[
-            {},
-            ({ getFieldValue }) => ({
-              validator(_, value) {
-                if (uppercaseAndLowercaseValid && oneNumberValid && oneSymbolValid && eightCharactersValid) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(new Error('New password not satisfying the conditions.'));
-              },
-            }),
-          ]}>
-            <Input.Password
-              className="custom-input"
-              onFocus={() => setShowTooltip(true)}
-              onBlur={() => setShowTooltip(false)}
-            />
-          </Form.Item>
-            </Tooltip>
+            <Form.Item name="newPassword" onChange={(e) => {
+              newPasswordValidation(e.target.value)
+            }} label={<span className="input-label">{t("newPassword")}</span>} rules={[
+              {},
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (uppercaseAndLowercaseValid && oneNumberValid && oneSymbolValid && eightCharactersValid) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error('New password not satisfying the conditions.'));
+                },
+              }),
+            ]}>
+              <Input.Password
+                className="custom-input"
+                onFocus={() => setShowTooltip(true)}
+                onBlur={() => setShowTooltip(false)}
+              />
+            </Form.Item>
+          </Tooltip>
         </Col>
       </Row>
       <Row>

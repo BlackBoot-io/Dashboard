@@ -2,7 +2,11 @@
     height: 100%;
     width: 100%;
     background: var(--catskill_white) no-repeat center center;
-    padding: 24px;
+    padding: $offset5;
+
+    .notifications-title-row {
+        margin-bottom: 42px;
+    }
 
     .notifications-title-image {
         width: 44px;
@@ -25,7 +29,46 @@
         font-size: 23px;
         display: flex;
         flex-direction: row;
-        margin-bottom: 42px
+    }
+
+    .action {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        column-gap: $offset3;
+
+        .pager {
+            display: flex;
+            column-gap: $offset2;
+            align-items: center;
+
+            h4 {
+                margin-bottom: 0;
+                color: #5b626e;
+            }
+        }
+
+        .delete {
+            background: #EFF2F5;
+            border: 1px solid #D2D2D2;
+            border-radius: 5px;
+            display: flex;
+            height: 32px;
+            align-items: center;
+            padding: 4px 8px;
+
+            .button-text {
+                font-weight: 500;
+                font-size: 11px;
+                margin-left: 3.38px;
+                color: #000000;
+            }
+
+            span {
+                color: #000000;
+                font-size: 12px;
+            }
+        }
     }
 
     @import "./list";

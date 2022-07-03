@@ -8,13 +8,15 @@ const Info = (props) => {
   
   return (
     <Col xs={24} xl={8} xxl={8} id="buy-info">
-      <div style={{ width: "100%" }} className="custom-card with-bg">
-        <div className="remain-head">
-          <img src={ClockIcon} alt="clock icon" />
-          <h4 className="remain-title">{t("remainingTimetobuy")}</h4>
-          <span className="remain-time">{Math.abs(props.content.periodDay)} {t("days")}</span>
+      <div style={{ width: "100%" }} className="custom-card flex-col with-bg">
+        <div>
+          <div className="remain-head">
+            <img src={ClockIcon} alt="clock icon" />
+            <h4 className="remain-title">{t("remainingTimetobuy")}</h4>
+            <span className="remain-time">{Math.abs(props.content.periodDay)} {t("days")}</span>
+          </div>
+          <p className="remain-subhead">{props.content.title}</p>
         </div>
-        <p className="remain-subhead">{props.content.title}</p>
         <ul className="remain-list">
           <li>
             {t("tokenForSale")}

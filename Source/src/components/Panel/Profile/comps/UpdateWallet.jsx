@@ -15,14 +15,15 @@ const UpdateWallet = () => {
   const [updateWallet, { isLoading, error, isError }] = useUpdateWalletMutation();
 
   const handleSubmit = async (values) => {
-    setErrorMsg("");
-    const call = await updateWallet(values);
-    if (call.error) {
-      setErrorMsg(call.error.data.message);
+    try {
+      const call = await updateWallet(values).unwrap();
+      if (!call.isSuccess) {
+        message.error(t("updateFailed"));
+        return;
+      }
+    } catch (e) {
       message.error(t("updateFailed"));
-      return;
     }
-
     message.success(t("updateWalletSuccess"));
   };
 
