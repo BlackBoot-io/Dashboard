@@ -51,6 +51,7 @@ const UpdateProfile = ({ data }) => {
                         name="fullname"
                         label={<span className="input-label">{t("name")}</span>}
                         rules={[
+                            { required: true },
                             { min: 2, message: 'Fullname must be at least 2 characters.' }
                         ]}>
                         <Input className="custom-input" />
