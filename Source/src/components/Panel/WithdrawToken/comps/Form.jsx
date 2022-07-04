@@ -29,10 +29,11 @@ const WithdrawForm = () => {
             amount: value,
         });
     };
-    const handleSubmit = async (value) => {
+    const handleSubmit = async (value) => { 
+        const values = await form.validateFields();
         var data = {
             Network: selectedNetwork,
-            TokenCount: value.amount,
+            TokenCount: values.amount,
             Type: transactionTypes.Withdraw
         }
         const call = await add(data).unwrap();
@@ -54,8 +55,7 @@ const WithdrawForm = () => {
                 <Form
                     validateMessages={validateMessages}
                     form={form}
-                    name="withdrawTokenForm"
-                    onFinish={handleSubmit}
+                    name="withdrawTokenForm" 
                     initialValues={{ address: user.walletAddress }}
                     layout="vertical" >
                     <Segmented
@@ -71,8 +71,8 @@ const WithdrawForm = () => {
 
                     {
                         (user.walletAddress == null) ?
-                            <Col xs={24} md={24} lg={24} style={{ marginTop: "33px", padding: 0 }}>
-                                <Alert action={
+                        <Col xs={24} md={24} lg={24} style={{ marginTop: "33px", padding: 0 }}>
+                            <Alert className="alert-wallet" action={
                                     <Button size="small" type="text" className="btn-profile" onClick={() => navigate(`/${routes.profile}`)} >
                                         Update Profile
                                     </Button>
@@ -125,7 +125,7 @@ const WithdrawForm = () => {
 
                     <Col xs={24} md={24} lg={24} style={{ padding: 0 }}>
                         <Form.Item className="mb-1">
-                            <Button className="btn-primary w-100 buy-button" style={{ marginTop: "60px", padding: 0 }} type="submit" loading={isLoading}>
+                            <Button className="btn-primary w-100 buy-button" style={{ marginTop: "60px", padding: 0 }} type="submit" loading={isLoading} onClick={handleSubmit}>
                                 {t("Withdraw")}
                             </Button>
                         </Form.Item>

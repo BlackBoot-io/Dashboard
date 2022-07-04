@@ -10,19 +10,7 @@
 		display: flex;
 		column-gap: $offset2;
 		align-items: center;
-
-		.logo-holder {
-			width: 44px;
-			height: 44px;
-			background: #00CCA0;
-			border-radius: 8px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 50px !important;
-			color: var(--white);
-		}
-
+ 
 		.header-title {
 			margin-bottom: 0;
 			font-style: normal;
