@@ -31,7 +31,18 @@
     }
   }
 
-  .ant-table-ping-right:not(.ant-table-has-fix-right) .ant-table-container::after {
+  .ant-table-ping-right:not(.ant-table-has-fix-right)
+    .ant-table-container::after {
     box-shadow: none;
+  }
+
+  .ant-table-cell-scrollbar:not([rowspan]) {
+    box-shadow: none !important;
+  }
+
+  .ant-table-placeholder .ant-table-expanded-row-fixed {
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 15%;
   }
 }
