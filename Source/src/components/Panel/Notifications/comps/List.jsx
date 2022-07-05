@@ -59,23 +59,28 @@ const ListNotifications = () => {
                         padding: '15px'
                     }}>
                         <div className="item-box">
-                            <Col xs={3}>
+                            <Col xs={2}>
                                 <div className="checkbox-and-star">
-                                    <div
+                                    {/* <div
                                         className="checkbox"
                                         onClick={() => toggleSelectNotification(item.notificationId)}
                                     >
                                         {selectedNotificationIds.has(item.notificationId) ? tickIcon : null}
-                                    </div>
+                                    </div> */}
                                     <div className="star" onClick={() => bookmarkNotification(item.notificationId)}>{item.isImportant ? goldenStarIcon : greyStarIcon}</div>
                                 </div>
                             </Col>
                             <Col xs={6}>
                                 <div className="data-column">
-                                    <div className="user">{item.user}</div>
+                                    <div className="sender">{item.sender}</div>
                                 </div>
                             </Col>
-                            <Col xs={10}>
+                            <Col xs={5}>
+                                <div className="data-column">
+                                    <div className="subject">{item.subject}</div>
+                                </div>
+                            </Col>
+                            <Col xs={6}>
                                 <div className="data-column">
                                     <div className="description">{item.message}</div>
                                 </div>
