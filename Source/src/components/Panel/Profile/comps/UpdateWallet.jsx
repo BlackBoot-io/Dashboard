@@ -66,7 +66,17 @@ const UpdateWallet = () => {
     >
       <Row>
         <Col xs={24}>
-          <Form.Item name="walletAddress" label={<span className="input-label">{t("selectWallet")}</span>}>
+          <Form.Item
+            name="walletAddress"
+            label={<span className="input-label">
+              {t("selectWallet")}</span>}
+            rules={[
+              {
+                pattern: /^0x[a-fA-F0-9]{40}$/,
+                message: t("walletValidation"),
+              }
+            ]}
+          >
             <Input className="custom-input" />
           </Form.Item>
         </Col>
