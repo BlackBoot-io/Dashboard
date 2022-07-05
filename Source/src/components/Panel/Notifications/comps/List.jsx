@@ -59,7 +59,7 @@ const ListNotifications = () => {
                         padding: '15px'
                     }}>
                         <div className="item-box">
-                            <Col xs={3}>
+                            <Col xs={2}>
                                 <div className="checkbox-and-star">
                                     <div
                                         className="checkbox"
@@ -72,10 +72,15 @@ const ListNotifications = () => {
                             </Col>
                             <Col xs={6}>
                                 <div className="data-column">
-                                    <div className="user">{item.user}</div>
+                                    <div className="sender">{item.sender}</div>
                                 </div>
                             </Col>
-                            <Col xs={10}>
+                            <Col xs={5}>
+                                <div className="data-column">
+                                    <div className="subject">{item.subject}</div>
+                                </div>
+                            </Col>
+                            <Col xs={6}>
                                 <div className="data-column">
                                     <div className="description">{item.message}</div>
                                 </div>

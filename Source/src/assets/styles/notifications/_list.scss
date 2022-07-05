@@ -42,10 +42,15 @@
         flex-direction: row;
     }
 
-    .user {
+    .sender {
         font-weight: 600;
         font-size: 14px;
         color: #000000;
+    }
+
+    .subject {
+        font-weight: 600;
+        font-size: 14px;
     }
 
     .description {
