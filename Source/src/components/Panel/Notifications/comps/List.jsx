@@ -7,7 +7,7 @@ const ListNotifications = () => {
     const { isLoading, isSuccess, data } = useAllNotificationsQuery();
 
     const [notifications, setNotifications] = useState();
-    const [selectedNotificationIds, setSelectedNotificationIds] = useState(new Set());
+    //const [selectedNotificationIds, setSelectedNotificationIds] = useState(new Set());
 
 
     //== icons ==
@@ -22,15 +22,15 @@ const ListNotifications = () => {
     </svg>;
     //== icons ==
 
-    const toggleSelectNotification = (notificationId) => {
-        const selectedNotifications = new Set(selectedNotificationIds);
-        if (selectedNotifications.has(notificationId)) {
-            selectedNotifications.delete(notificationId)
-        } else {
-            selectedNotifications.add(notificationId);
-        }
-        setSelectedNotificationIds(selectedNotifications);
-    }
+    // const toggleSelectNotification = (notificationId) => {
+    //     const selectedNotifications = new Set(selectedNotificationIds);
+    //     if (selectedNotifications.has(notificationId)) {
+    //         selectedNotifications.delete(notificationId)
+    //     } else {
+    //         selectedNotifications.add(notificationId);
+    //     }
+    //     setSelectedNotificationIds(selectedNotifications);
+    // }
 
     const bookmarkNotification = (notificationId) => {
         const allNotifications = [...notifications];
@@ -54,8 +54,8 @@ const ListNotifications = () => {
                 itemLayout="horizontal"
                 dataSource={notifications}
                 renderItem={(item) => (
-                    <List.Item style={{
-                        backgroundColor: selectedNotificationIds.has(item.notificationId) ? '#F9FBFC' : '#FFFFFF',
+                    <List.Item key={item.notificationId} style={{
+                        //backgroundColor: selectedNotificationIds.has(item.notificationId) ? '#F9FBFC' : '#FFFFFF',
                         padding: '15px'
                     }}>
                         <div className="item-box">
