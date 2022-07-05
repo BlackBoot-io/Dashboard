@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Col, Row, Segmented, Input, Button, Form, notification } from "antd";
 
@@ -20,7 +20,11 @@ const openNotification = (type, message) => {
 };
 
 const BuyTokenForm = (props) => {
-  const [token, setToken] = useState(0);
+  const { t } = useTranslation();
+  const [form] = Form.useForm();
+  const [network, setNetwork] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [deposit, setDeposit] = useState(1);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [modalData, setmodalData] = useState('');
   const [data, { isLoading, error, isError }] = useAddMutation();
@@ -31,7 +35,7 @@ const BuyTokenForm = (props) => {
       label: <img src={EthereumIcon} alt="ethereumIcon" />,
       value: 0,
       name: 'eth',
-      fullName: 'etherium',
+      fullName: 'ethereum',
     },
     {
       label: <img src={SolanaIcon} alt="SolanaIcon" />,
@@ -53,21 +57,37 @@ const BuyTokenForm = (props) => {
     },
   ]
 
-  const { t } = useTranslation();
-
   const getPrice = async (value) => {
-    setToken(value);
+    setNetwork(value);
     const response = await coinPrice(networks[value].fullName).unwrap();
-    if (!response.isSuccess) {
-      console.log("NOT")
-      return;
-    } else {
-      console.log("OK")
-    }
+    if (response.data.current_price) {
+      setPrice(response.data.current_price);
+    } 
+  };
+
+  useEffect(() => {
+    getPrice(0)
+  }, [data]);
+
+  useEffect(() => {
+    setdepoValue();
+  }, [price]);
+
+  const setdepoValue = () => {
+    form.setFieldsValue({
+      cryptoAmount: price/deposit
+    });
+  };
+
+  const setFormValue = (value) => {
+    setDeposit(value)
+    form.setFieldsValue({
+      cryptoAmount: value ? price/value : price
+    });
   };
 
   const handleSubmit = async (values) => {
-    const finalData = Object.assign(values, { network: token, });
+    const finalData = Object.assign(values, { network: network, });
     const response = await data(finalData).unwrap();
     if (!response.isSuccess) {
       openNotification('error', response.message);
@@ -95,13 +115,14 @@ const BuyTokenForm = (props) => {
         </p>
         <Form
           name="buyTokenForm"
+          form={form}
           initialValues={{ remember: true }}
           onFinish={handleSubmit}
           autoComplete="off"
         >
           <Segmented
             block
-            value={token}
+            value={network}
             onChange={getPrice}
             options={networks}
           />
@@ -114,6 +135,9 @@ const BuyTokenForm = (props) => {
               <label className="custom-label">{`${t("yourDeposit")}`}</label>
               <Form.Item
                 name="usdtAmount"
+                onChange={(e) => {
+                  setFormValue(e.target.value)
+                }}
                 rules={[
                   { required: true, message: t("required") },
                   {
@@ -130,9 +154,9 @@ const BuyTokenForm = (props) => {
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>
-              <label className="custom-label">{`${t("yourDeposit")} in `}<span style={{ textTransform: 'uppercase' }}>{networks[token].name}</span></label>
+              <label className="custom-label">{`${t("yourDeposit")} in `}<span style={{ textTransform: 'uppercase' }}>{networks[network].name}</span></label>
               <Form.Item name="cryptoAmount">
-                <Input className="custom-input" addonAfter={<span>{ networks[token].name }</span>} />
+                <Input className="custom-input" addonAfter={<span>{ networks[network].name }</span>} />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>
