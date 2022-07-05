@@ -59,7 +59,12 @@ const Transactions = ({
         onPageSizeChange={handlePageSizeChange}
         onFilterChange={handleFilterChange}
       />
-      <List data={[]} Loading={loading} pageSize={pageSize} actions={actions} />
+      <List
+        data={data}
+        Loading={loading}
+        pageSize={pageSize}
+        actions={actions}
+      />
     </div>
   );
 };
