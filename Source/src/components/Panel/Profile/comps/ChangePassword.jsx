@@ -23,10 +23,10 @@ const ChangePassword = () => {
         message.error(t("updateFailed"));
         return;
       }
+      message.success(t("changePasswordSuccess"));
     } catch (e) {
       message.error(t("updateFailed"));
     }
-    message.success(t("changePasswordSuccess"));
   };
 
   // === newPasswordValidation ===

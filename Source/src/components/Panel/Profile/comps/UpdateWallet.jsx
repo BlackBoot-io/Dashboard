@@ -21,10 +21,10 @@ const UpdateWallet = () => {
         message.error(t("updateFailed"));
         return;
       }
+      message.success(t("updateWalletSuccess"));
     } catch (e) {
       message.error(t("updateFailed"));
     }
-    message.success(t("updateWalletSuccess"));
   };
 
   useEffect(() => {

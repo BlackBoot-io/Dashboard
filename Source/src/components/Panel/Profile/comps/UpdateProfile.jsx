@@ -23,10 +23,10 @@ const UpdateProfile = ({ data }) => {
                 message.error(t("updateFailed"));
                 return;
             }
+            message.success(t("updateProfileSuccess"));
         } catch (e) {
             message.error(t("updateFailed"));
         }
-        message.success(t("updateProfileSuccess"));
     };
 
     useEffect(() => {
