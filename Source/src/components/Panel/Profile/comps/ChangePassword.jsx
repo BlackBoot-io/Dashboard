@@ -61,14 +61,14 @@ const ChangePassword = () => {
       layout="vertical"
       onFinish={handleSubmit}
     >
-      <Row>
+      <Row className="row">
         <Col xs={24}>
           <Form.Item name="oldPassword" label={<span className="input-label">{t("oldPassword")}</span>}>
             <Input.Password className="custom-input" />
           </Form.Item>
         </Col>
       </Row>
-      <Row>
+      <Row className="row">
         <Col xs={24}>
 
           <Tooltip
@@ -110,7 +110,7 @@ const ChangePassword = () => {
           </Tooltip>
         </Col>
       </Row>
-      <Row>
+      <Row className="row">
         <Col xs={24}>
           <Form.Item name="confirmNewPassword" label={<span className="input-label">{t("confirmNewPassword")}</span>} rules={[
             ({ getFieldValue }) => ({
@@ -126,7 +126,7 @@ const ChangePassword = () => {
           </Form.Item>
         </Col>
       </Row>
-      <Row>
+      <Row className="button">
         <Form.Item>
           <Button
             className="btn-primary w-100 change-password-button"
