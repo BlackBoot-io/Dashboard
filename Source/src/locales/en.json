@@ -33,6 +33,7 @@
   "updateProfileSuccess": "Profile updated successfully.",
   "changePasswordSuccess": "Password changed successfully.",
   "updateWalletSuccess": "Wallet updated successfully.",
+  "walletValidation": "Provide a valid wallet",
   "updateFailed": "Update failed.",
   "selectWallet": "Select Wallet",
   "loading": "Loading",
