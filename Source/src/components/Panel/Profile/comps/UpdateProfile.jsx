@@ -1,4 +1,4 @@
-import { Col, DatePicker, Form, Input, message, Row, Select } from "antd";
+import { Col, DatePicker, Form, Input, message, notification, Row, Select } from "antd";
 import { useGetCurrentUserInfoQuery, useUpdateProfileMutation } from "api/account";
 import Button from "components/comps/Button";
 import { useEffect, useState } from "react";
@@ -20,12 +20,18 @@ const UpdateProfile = ({ data }) => {
         try {
             const call = await updateProfile(values).unwrap();
             if (!call.isSuccess) {
-                message.error(t("updateFailed"));
+                notification['error']({
+                    message: t("updateFailed"),
+                });
                 return;
             }
-            message.success(t("updateProfileSuccess"));
+            notification['success']({
+                message: t("updateProfileSuccess"),
+            });
         } catch (e) {
-            message.error(t("updateFailed"));
+            notification['error']({
+                message: t("updateFailed"),
+            });
         }
     };
 

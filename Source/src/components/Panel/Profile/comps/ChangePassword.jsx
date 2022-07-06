@@ -1,4 +1,4 @@
-import { Col, Form, Input, message, Row, Tooltip } from "antd";
+import { Col, Form, Input, message, notification, Row, Tooltip } from "antd";
 import { useChangePasswordMutation } from "api/account";
 import Button from "components/comps/Button";
 import Utils from "config/utils";
@@ -20,12 +20,18 @@ const ChangePassword = () => {
     try {
       const call = await changePassword(values).unwrap();
       if (!call.isSuccess) {
-        message.error(t("updateFailed"));
+        notification['error']({
+          message: t("updateFailed"),
+        });
         return;
       }
-      message.success(t("changePasswordSuccess"));
+      notification['success']({
+        message: t("changePasswordSuccess"),
+      });
     } catch (e) {
-      message.error(t("updateFailed"));
+      notification['error']({
+        message: t("updateFailed"),
+      });
     }
   };
 
