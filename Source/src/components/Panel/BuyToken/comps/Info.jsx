@@ -8,7 +8,7 @@ const Info = (props) => {
   
   return (
     <Col xs={24} xl={8} xxl={8} id="buy-info">
-      <div style={{ width: "100%" }} className="custom-card flex-col with-bg">
+      <div style={{ width: "100%" }} className="custom-card flex-col with-bg-single">
         <div>
           <div className="remain-head">
             <img src={ClockIcon} alt="clock icon" />

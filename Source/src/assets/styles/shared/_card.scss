@@ -13,6 +13,11 @@
         background: url("../../images/blue-circle-bg.svg") no-repeat left top;
         background-size: 60%;
     }
+    &.with-bg-single {
+        background-color: var(--white);
+        background: url("../../images/blue-circle-bg-single.svg") no-repeat left top;
+        background-size: 35%;
+    }
     &.flex-col {
         display: flex;
         flex-direction: column;
