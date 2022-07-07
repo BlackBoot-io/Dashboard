@@ -48,7 +48,7 @@ const ByEmail = () => {
             : {}
         }
       >
-        <Space direction="vertical" size={5} className="w-100">
+        <Space direction="vertical" size={1} className="w-100">
           {/* {errorMsg || isError ? (
             <Alert message={errorMsg ?? t("unknownError")} type="error" />
           ) : null} */}

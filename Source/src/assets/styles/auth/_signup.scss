@@ -1,9 +1,16 @@
 #signup {
     padding-top: $offset5 !important;
     padding-bottom: $offset5 !important;
+    width: 330px;
     .title {
         text-align: center;
         font-weight: 600;
         font-size: 20px;
+    }
+    @media (max-width: $xl) {
+        padding-top: 0 !important;
+        .ant-form-item {
+            margin-bottom: $offset3;
+        }
     }
 }
