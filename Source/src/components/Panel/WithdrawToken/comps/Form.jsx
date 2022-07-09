@@ -36,7 +36,6 @@ const WithdrawForm = () => {
             Type: transactionTypes.Withdraw
         }
         const call = await add(data).unwrap();
-        console.log("after call", call.data);
         if (!call.isSuccess) {
             message.destroy();
             message.warning(call.message);

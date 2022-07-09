@@ -17,7 +17,6 @@ const ByEmail = () => {
   const handleSubmit = async (values) => {
     try {
       const call = await login(values).unwrap();
-      console.log("after call", call.data);
       if (!call.isSuccess) {
         message.error(t("wrongUsernameOrPassword"));
         return;
