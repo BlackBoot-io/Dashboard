@@ -83,6 +83,7 @@ const List = ({ data, pageSize, loading, actions }) => {
   const { t } = useTranslation();
   const columns = [
     {
+      key:"price",
       title: () => t("Price"),
       dataIndex: ["usdtAmount", "cryptoAmount", "network"],
       align: "center",
@@ -96,6 +97,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
+      key:"netwrok",
       title: () => t("Network"),
       dataIndex: "network",
       align: "center",
@@ -103,6 +105,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       render: (value) => <NetworkType network={value}></NetworkType>,
     },
     {
+      key:"walletAddress",
       title: () => t("WalletAddress"),
       dataIndex: "walletAddress",
       align: "center",
@@ -139,6 +142,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
+      key:"type",
       title: () => t("Type"),
       dataIndex: "type",
       align: "center",
@@ -191,6 +195,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
+      key:"status",
       title: () => t("Status"),
       dataIndex: "status",
       align: "center",
@@ -209,6 +214,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
+      key:"date",
       title: () => t("Date"),
       dataIndex: "date",
       align: "center",

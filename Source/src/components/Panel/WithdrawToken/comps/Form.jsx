@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Col, Row, Card, Form, Segmented, Input, Alert, message } from "antd";
 import { useTranslation } from "react-i18next";
-import { useGetCurrentUserInfoQuery } from "api/account";
 import { useAddMutation, useGetUserBalanceQuery } from "api/transaction";
 import utils from 'config/utils'
 import { networkTypes, transactionTypes } from "config/enums";

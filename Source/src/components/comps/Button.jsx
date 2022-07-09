@@ -1,18 +1,17 @@
-import { Spin } from "antd";
-import { useTranslation } from "react-i18next";
+import { Button as AntBtn } from "antd";
 import PropTypes from "prop-types";
 const Button = ({ className, loading, children, onClick, ...props }) => {
-  const { t } = useTranslation();
   return (
-    <button
+    <AntBtn
       className={className ?? ""}
       disabled={loading}
       onClick={onClick}
+      loading={loading}
+      htmlType="submit"
       {...props}
     >
       {children}
-      {loading ? <Spin size="small" /> : null}
-    </button>
+    </AntBtn>
   );
 };
 Button.propTypes = {

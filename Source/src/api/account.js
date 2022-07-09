@@ -29,8 +29,14 @@ export const authApiSlice = apiSlice.injectEndpoints({
         };
       },
     }),
-    getCurrentUserInfo: builder.query({
-      query: () => `/${addresses.account_getCurrentUser}`,
+    // getCurrentUserInfo: builder.query({
+    //   query: () => `/${addresses.account_getCurrentUser}`,
+    // }),
+    getCurrentUserInfo: builder.mutation({
+      query: () => ({
+        url: `/${addresses.account_getCurrentUser}`,
+        method: "GET"
+      }),
     }),
     updateProfile: builder.mutation({
       query: (credentials) => ({
@@ -60,7 +66,8 @@ export const {
   useLoginMutation,
   useSignupMutation,
   useLogoutMutation,
-  useGetCurrentUserInfoQuery,
+  //useGetCurrentUserInfoQuery,
+  useGetCurrentUserInfoMutation,
   useUpdateProfileMutation,
   useChangePasswordMutation,
   useUpdateWalletMutation,

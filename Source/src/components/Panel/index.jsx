@@ -251,7 +251,9 @@ const Layout = ({}) => {
         </AntLayout>
       </AntLayout>
     );
-  else if (token) return <Splash />;
+  else if (token){
+     return <Splash />;
+  }
   else
     return (
       <Navigate

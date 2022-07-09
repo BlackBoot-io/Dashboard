@@ -212,7 +212,7 @@ input:-webkit-autofill:active {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
 
-    >label {
+    > label {
       color: var(--star-dust);
       height: auto !important;
       font-size: 13px;
@@ -271,11 +271,7 @@ input:-webkit-autofill:active {
 
   &:after {
     content: "";
-    background: linear-gradient(90deg,
-        #ffb55f 0,
-        #ffe183 50%,
-        #ffda7b 98%,
-        #fff);
+    background: linear-gradient(90deg, #ffb55f 0, #ffe183 50%, #ffda7b 98%, #fff);
     position: absolute;
     z-index: -1;
     bottom: 5px;
@@ -286,7 +282,12 @@ input:-webkit-autofill:active {
     border-radius: 8px;
   }
 }
-
+.ant-message-notice {
+  text-align: right !important;
+}
+.ant-message {
+  top: 64px !important;
+}
 @import "./panel";
 @import "./button";
 @import "./card";

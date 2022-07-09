@@ -88,7 +88,6 @@ const Signup = () => {
           <Form.Item className="mb-1">
             <Button
               className="w-100 btn-primary"
-              type="submit"
               loading={isLoading}
             >
               {t("createAccount")}

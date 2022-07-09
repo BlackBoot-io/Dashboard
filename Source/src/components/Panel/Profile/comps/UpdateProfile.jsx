@@ -1,5 +1,5 @@
-import { Col, DatePicker, Form, Input, message, notification, Row, Select } from "antd";
-import { useGetCurrentUserInfoQuery, useUpdateProfileMutation } from "api/account";
+import { Col, DatePicker, Form, Input, notification, Row, Select } from "antd";
+import { useUpdateProfileMutation } from "api/account";
 import Button from "components/comps/Button";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";

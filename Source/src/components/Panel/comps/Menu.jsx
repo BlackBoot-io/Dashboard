@@ -7,6 +7,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "redux/auth";
 import { useLogoutMutation } from "api/account";
+import { navigateTo } from "config/routes";
 const Menu = ({ items }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -21,9 +22,11 @@ const Menu = ({ items }) => {
     openKey: "overview",
     selectedKey: "none",
   });
-  const onClick = (e) => {
-    console.log("click ", e);
+  const navigateToRoute = (e) => {
     navigate(`/${e.key}`);
+  };
+  const navigateToProfile = () => {
+    navigate(navigateTo.profile);
   };
   const location = useLocation();
   const setCurrentMenu = useCallback(() => {
@@ -49,6 +52,12 @@ const Menu = ({ items }) => {
           openKey: parent.key,
           selectedKey: child.key,
         });
+        else{
+          setState({
+            openKey: "none",
+            selectedKey: "none",
+          });
+        }
     }
   }, []);
   const onOpenChange = (path) => {
@@ -74,7 +83,7 @@ const Menu = ({ items }) => {
         </h4>
       </Link>
       <AntMenu
-        onClick={onClick}
+        onClick={navigateToRoute}
         onOpenChange={onOpenChange}
         style={{ width: 256 }}
         selectedKeys={[state.selectedKey]}
@@ -85,13 +94,17 @@ const Menu = ({ items }) => {
       <div className="profile">
         <h6 className="title">{t("profile")}</h6>
         <div className="content">
-          <div className="user">
+          <div className="user" role="button" onClick={navigateToProfile}>
             <Avatar size={45}>
               {user.fullName ? user.fullName[0].toUpperCase() : null}
             </Avatar>
             <div className="info">
-              <span className="name" title={user.fullName}>{user.fullName}</span>
-              <span className="email" title={user.email}>{user.email}</span>
+              <span className="name" title={user.fullName}>
+                {user.fullName}
+              </span>
+              <span className="email" title={user.email}>
+                {user.email}
+              </span>
             </div>
           </div>
           <button

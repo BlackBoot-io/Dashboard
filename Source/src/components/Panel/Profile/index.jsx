@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next";
 import UpdateProfile from "./comps/UpdateProfile";
 import ChangePassword from "./comps/ChangePassword";
 import UpdateWallet from "./comps/UpdateWallet";
-import { useGetCurrentUserInfoQuery } from "api/account";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
   const { t } = useTranslation();
-  const { data } = useGetCurrentUserInfoQuery();
+  const { user } = useSelector((x) => x.auth);
 
   return (
     <div id="profile">
@@ -54,7 +54,7 @@ const Profile = () => {
           defaultActiveKey="1"
         >
           <Tabs.TabPane tab={t("personalData")} key="1">
-            <UpdateProfile data={data} />
+            <UpdateProfile data={user} />
           </Tabs.TabPane>
           <Tabs.TabPane tab={t("managePassword")} key="2">
             <ChangePassword />

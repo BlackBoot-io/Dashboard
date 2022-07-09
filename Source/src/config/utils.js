@@ -1,5 +1,6 @@
 import CryptoJS from "crypto-js";
 import config from "config/settings";
+import { message } from "antd";
 
 export default class Utils {
   static decrypt = (txt) => {
@@ -161,17 +162,17 @@ export default class Utils {
 
   static hasLowerCase = (str) => {
     return str.toUpperCase() != str;
-  }
+  };
 
   static hasUpperCase = (str) => {
     return str.toLowerCase() != str;
-  }
+  };
 
   static hasNumber = (str) => {
     return /\d/.test(str);
-  }
+  };
 
   static hasSpecialSymbol = (str) => {
     return /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(str);
-  }
+  };
 }

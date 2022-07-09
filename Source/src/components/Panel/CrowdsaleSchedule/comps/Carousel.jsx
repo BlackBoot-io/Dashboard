@@ -4,6 +4,7 @@ import { forwardRef, useEffect } from "react";
 import Utils from "config/utils";
 import etheriumImage from "assets/images/networks/etheriumIcon.svg";
 import { useMemo } from "react";
+import config from "config/settings";
 const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
   const { t, i18n } = useTranslation();
   const initialSlide = useMemo(() => items.findIndex((x) => x.isActive));
@@ -58,8 +59,8 @@ const Carousel = forwardRef(({ items, setCurrentSlideIndex }, ref) => {
                   <div className="token">
                     <span>{t("tokenPrice")}</span>
                     <div className="token-value">
-                      <span className="eth">0.12</span>
-                      <img src={etheriumImage} slt="image" />
+                      <span className="eth">1 {config.tokenName}</span>
+                      {/* <img src={etheriumImage} slt="image" /> */}
                       <span className="eq">≃</span>
                       <span className="price">${x.price}</span>
                     </div>

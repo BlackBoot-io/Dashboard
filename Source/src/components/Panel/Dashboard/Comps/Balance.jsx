@@ -1,14 +1,16 @@
 import { Spin } from "antd";
 import Utils from "config/utils";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { navigateTo } from "config/routes";
 const Balance = ({
   totalToken,
   currentPrice,
   currentIncreaseRate,
   loading,
 }) => {
+  const nav = useNavigate();
   const { t } = useTranslation();
-
   return (
     <div className={`balance custom-card ${loading ? "center" : ""}`}>
       {loading ? (
@@ -21,7 +23,10 @@ const Balance = ({
               <span>{Utils.commaThousondSeperator(totalToken)}</span>
             </div>
             <div className="actions">
-              <button className="btn btn-buy">
+              <button
+                className="btn btn-buy"
+                onClick={() => nav(navigateTo.buyToken)}
+              >
                 <svg
                   width="14"
                   height="14"
@@ -37,7 +42,10 @@ const Balance = ({
 
                 {t("buy")}
               </button>
-              <button className="btn btn-withdraw">
+              <button
+                className="btn btn-withdraw"
+                onClick={() => nav(navigateTo.withdrawToken)}
+              >
                 <svg
                   width="14"
                   height="14"
