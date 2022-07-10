@@ -10,7 +10,7 @@ const WithdrawNotices = () => {
         "For security reasons, you will not be able to immediately withdraw fiat deposited using a linked bank account or send crypto purchased with such funds off of Coinbase Pro(we call this ``withdrawal availability``)",
         "There are no maximum withdrawal limits on Coinbase Commerce - you can withdraw all funds at any point."
     ]
-    return ( 
+    return (
         <Col xs={24} xl={8} xxl={8} id="withdraw-notice">
             <div style={{ width: "100%" }} className="custom-card with-bg">
                 <div className="notice-head">
@@ -19,12 +19,17 @@ const WithdrawNotices = () => {
                 <div className="notice-list">
                     <ul className="notice-list"> {withdrawNotifice.map((item, index) =>
                         <li className="notice-item" key={index}>
-                            <p className="">
-                                * {item}
-                            </p>
+                            <div className="notice-item-textbox">
+                                <div>
+                                    <div className="notice-star">*</div>
+                                </div>
+                                <p className="">
+                                    {item}
+                                </p>
+                            </div>
                         </li>
                     )}</ul>
-                   {/* <button className="faq-btn">withdraw FAQ</button>*/}
+                    {/* <button className="faq-btn">withdraw FAQ</button>*/}
                 </div>
             </div>
         </Col>

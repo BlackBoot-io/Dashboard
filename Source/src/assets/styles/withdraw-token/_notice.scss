@@ -30,6 +30,17 @@
         color: #666D79
     }
 
+    .notice-item-textbox {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .notice-star {
+        color: red;
+        margin-right: 4px;
+        margin-top: 2px;
+    }
+
     .notice-title {
         font-family: Urbanist;
         font-size: 20px;
