@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Col, Row, Card, Form, Segmented, Input, Alert, message } from "antd";
+import { Col, Row, Card, Form, Segmented, Input, Alert, notification  } from "antd";
 import { useTranslation } from "react-i18next";
 import { useAddMutation, useGetUserBalanceQuery } from "api/transaction";
 import utils from 'config/utils'
 import { networkTypes, transactionTypes } from "config/enums";
-import Button from "../../../comps/Button";
+import Button from "../../../comps/Button"; 
 import EtheriumIcon from "assets/images/networks/etherium.svg";
 import routes from "../../../../config/routes";
 import { useSelector } from "react-redux";
@@ -19,6 +19,12 @@ const WithdrawForm = () => {
     const { user } = useSelector(x => x.auth);
     const [add, { isLoading, isSuccess, error, isError }] = useAddMutation();
     const userBalance = useGetUserBalanceQuery();
+
+    const openNotification = (type, message) => {
+        notification[type]({
+            message: message,
+        });
+    };
 
     const validateMessages = {
         required: 'input is required!',
@@ -35,14 +41,11 @@ const WithdrawForm = () => {
             TokenCount: values.amount,
             Type: transactionTypes.Withdraw
         }
-        const call = await add(data).unwrap();
-        if (!call.isSuccess) {
-            message.destroy();
-            message.warning(call.message);
-            return;
+        const response = await add(data).unwrap();
+        if (!response.isSuccess) {
+            openNotification('error', response.message);
         }
-        message.destroy();
-        message.success("opration successfully.");
+        openNotification('success', t("oprationSuccessfully"));
     };
     return (
         <Col xs={24} xl={16} xxl={16} id="withdraw-form">
