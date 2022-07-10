@@ -38,7 +38,7 @@ const ListNotifications = () => {
         const isImportant = allNotifications[foundNotificationIndex].isImportant;
         const newNotifications = [
             ...allNotifications.slice(0, foundNotificationIndex),
-            {...allNotifications[foundNotificationIndex], isImportant: !isImportant },
+            { ...allNotifications[foundNotificationIndex], isImportant: !isImportant },
             ...allNotifications.slice(foundNotificationIndex + 1, allNotifications.length)
         ];
         setNotifications(newNotifications);
@@ -62,7 +62,7 @@ const ListNotifications = () => {
                         padding: '15px'
                     }}>
                         <div className="item-box">
-                            <Col xs={2}>
+                            <Col xs={5}>
                                 <div className="checkbox-and-star">
                                     {/* <div
                                         className="checkbox"
@@ -71,12 +71,11 @@ const ListNotifications = () => {
                                         {selectedNotificationIds.has(item.notificationId) ? tickIcon : null}
                                     </div> */}
                                     <div className="star" onClick={() => bookmarkNotification(item.notificationId)}>{item.isImportant ? goldenStarIcon : greyStarIcon}</div>
+                                    <div className="data-column">
+                                        <div className="sender">{item.sender}</div>
+                                    </div>
                                 </div>
-                            </Col>
-                            <Col xs={6}>
-                                <div className="data-column">
-                                    <div className="sender">{item.sender}</div>
-                                </div>
+
                             </Col>
                             <Col xs={5}>
                                 <div className="data-column">
@@ -88,12 +87,14 @@ const ListNotifications = () => {
                                     <div className="description">{item.message}</div>
                                 </div>
                             </Col>
-                            <Col xs={5}>
+                            <Col xs={8}>
                                 <div className="data-column">
                                     <div className="date">{(new Date(item.date)).toLocaleString('en-US', {
                                         year: "numeric",
                                         month: "long",
                                         day: "numeric",
+                                        hour: "2-digit",
+                                        minute: "2-digit"
                                     })}</div>
                                 </div>
                             </Col>
