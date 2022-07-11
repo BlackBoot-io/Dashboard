@@ -19,7 +19,7 @@ const UpdateWallet = () => {
       const call = await updateWallet(values).unwrap();
       if (!call.isSuccess) {
         notification['error']({
-          message: t("updateFailed"),
+          message: call.message,
         });
         return;
       }
@@ -28,7 +28,7 @@ const UpdateWallet = () => {
       });
     } catch (e) {
       notification['error']({
-        message: t("updateFailed"),
+        message: e.data.message,
       });
     }
   };

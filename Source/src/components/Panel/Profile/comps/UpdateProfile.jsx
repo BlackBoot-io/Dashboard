@@ -21,7 +21,7 @@ const UpdateProfile = ({ data }) => {
             const call = await updateProfile(values).unwrap();
             if (!call.isSuccess) {
                 notification['error']({
-                    message: t("updateFailed"),
+                    message: call.message,
                 });
                 return;
             }
@@ -30,7 +30,7 @@ const UpdateProfile = ({ data }) => {
             });
         } catch (e) {
             notification['error']({
-                message: t("updateFailed"),
+                message: e.data.message,
             });
         }
     };
