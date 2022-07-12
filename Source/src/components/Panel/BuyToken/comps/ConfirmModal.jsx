@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Col, Row, Modal, Input } from "antd";
 import { useTranslation } from "react-i18next";
 import Icon from "components/comps/Icon";
-import moment from 'moment'
+import moment from 'moment';
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 import CopyIcon from "assets/images/copy.svg";
 import qrCode from "assets/images/QR.svg";
@@ -20,10 +20,6 @@ const ConfirmModal = (props) => {
     setTimer(moment(timer, 'hh : mm : ss').subtract(1, 'seconds').format('hh : mm : ss'));
     clearInterval(interval);
   }, 1000);
-
-  useEffect(() => {
-    setTimer("08 : 00 : 00");
-  }, [props.modalVisibility]);
 
   return (
     <>
