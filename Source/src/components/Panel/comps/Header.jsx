@@ -33,9 +33,20 @@ const LayoutHeader = () => {
       </div>
       <div className="actions">
         <Link to={`/${routes.profile}`}>
-          <Avatar>
-            {user.fullName ? user.fullName[0].toUpperCase() : null}
-          </Avatar>
+          {user.avatar ? (
+            <Avatar
+              size={32}
+              src={
+                user.avatar.startsWith("http")
+                  ? user.avatar
+                  : `data:image/png;base64,${user.avatar}`
+              }
+            />
+          ) : (
+            <Avatar size={32} src={user.avatar.startsWith}>
+              {user.fullName ? user.fullName[0].toUpperCase() : null}
+            </Avatar>
+          )}
         </Link>
         <Link className={`center a-notif`} to={`/${routes.notifications}`}>
           {data && isSuccess && data.data > 0 ? (
