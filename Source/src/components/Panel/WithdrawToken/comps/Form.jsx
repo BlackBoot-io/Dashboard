@@ -6,7 +6,7 @@ import { useAddMutation, useGetUserBalanceQuery } from "api/transaction";
 import utils from 'config/utils'
 import { networkTypes, transactionTypes } from "config/enums";
 import Button from "../../../comps/Button"; 
-import EtheriumIcon from "assets/images/networks/etherium.svg";
+import EtheriumIcon from "assets/images/networks/ethereum.svg";
 import routes from "../../../../config/routes";
 import { useSelector } from "react-redux";
 
@@ -45,6 +45,7 @@ const WithdrawForm = () => {
         if (!response.isSuccess) {
             openNotification('error', response.message);
         }
+        useGetUserBalanceQuery();
         openNotification('success', t("oprationSuccessfully"));
     };
     return (
