@@ -34,60 +34,72 @@ const BuyTokenForm = (props) => {
     {
       label: <img src={EthereumIcon} alt="ethereumIcon" />,
       value: 0,
+      enum: 2,
       name: 'eth',
       fullName: 'ethereum',
     },
     {
       label: <img src={SolanaIcon} alt="SolanaIcon" />,
       value: 1,
+      enum: 3,
       name: 'sol',
       fullName: 'solana',
     },
     {
       label: <img src={BscscanIcon} alt="BscscanIcon" />,
       value: 2,
+      enum: 4,
       name: 'bnb',
       fullName: 'bscscan',
     },
     {
       label: <img src={BitcoinIcon} alt="BitcoinIcon" />,
       value: 3,
+      enum: 1,
       name: 'btc',
       fullName: 'bitcoin',
     },
   ]
 
   const getPrice = async (value) => {
+    form.setFieldsValue({
+      cryptoAmount: ''
+    });
     setNetwork(value);
     const response = await coinPrice(networks[value].fullName).unwrap();
     if (response.data.current_price) {
+      setDeposit(props.content.minimumBuy);
       setPrice(response.data.current_price);
     } 
   };
 
   useEffect(() => {
-    getPrice(0)
+    getPrice(0);
+    form.setFieldsValue({
+      usdtAmount: props.content.minimumBuy,
+      tokenCount: (props.content.price/props.content.minimumBuy).toFixed(6),
+    });
   }, [data]);
 
   useEffect(() => {
-    setdepoValue();
-  }, [price]);
-
-  const setdepoValue = () => {
     form.setFieldsValue({
-      cryptoAmount: price/deposit
+      cryptoAmount: (deposit/price).toFixed(6)
     });
-  };
+  }, [price]);
 
   const setFormValue = (value) => {
     setDeposit(value)
     form.setFieldsValue({
-      cryptoAmount: value ? price/value : price
+      cryptoAmount: value ? (value/price).toFixed(6) : price,
+      tokenCount: value ? (props.content.price/value).toFixed(6) : props.content.price,
     });
   };
 
   const handleSubmit = async (values) => {
-    const finalData = Object.assign(values, { network: network, });
+    Object.keys(values).forEach(function(el){
+      values[el] = parseFloat(values[el])
+    })
+    const finalData = Object.assign(values, { network: networks[network].enum });
     const response = await data(finalData).unwrap();
     if (!response.isSuccess) {
       openNotification('error', response.message);
@@ -108,7 +120,8 @@ const BuyTokenForm = (props) => {
 
   return (
     <Col xs={24} xl={16} xxl={16} id="buy-form">
-      <ConfirmModal modalVisibility={modalVisibility} onClose={closeConfirmModal} content={modalData?.data} />
+      {modalData ? <ConfirmModal modalVisibility={modalVisibility} onClose={closeConfirmModal} content={modalData?.data} formData={form.getFieldValue()} network={networks[network]} /> : ''}
+      
       <div style={{ width: "100%" }} className="custom-card buy-card">
         <p className="buy-p">
           Plese choose the network you are going to transfer through.
@@ -142,7 +155,7 @@ const BuyTokenForm = (props) => {
                   { required: true, message: t("required") },
                   {
                     validator(_, value) {
-                      if (value > props.content.minimumBuy) {
+                      if (value >= props.content.minimumBuy) {
                         return Promise.resolve();
                       }
                       return Promise.reject(`The deposit can not be less than $${props.content.minimumBuy}.`);

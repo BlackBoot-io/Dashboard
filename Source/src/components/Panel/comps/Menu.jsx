@@ -52,12 +52,12 @@ const Menu = ({ items }) => {
           openKey: parent.key,
           selectedKey: child.key,
         });
-        else{
-          setState({
-            openKey: "none",
-            selectedKey: "none",
-          });
-        }
+      else {
+        setState({
+          openKey: "none",
+          selectedKey: "none",
+        });
+      }
     }
   }, []);
   const onOpenChange = (path) => {
@@ -95,9 +95,21 @@ const Menu = ({ items }) => {
         <h6 className="title">{t("profile")}</h6>
         <div className="content">
           <div className="user" role="button" onClick={navigateToProfile}>
-            <Avatar size={45}>
-              {user.fullName ? user.fullName[0].toUpperCase() : null}
-            </Avatar>
+            {user.avatar ? (
+              <Avatar
+              size={45}
+                src={
+                  user.avatar.startsWith("http")
+                    ? user.avatar
+                    : `data:image/png;base64,${user.avatar}`
+                }
+              />
+            ) : (
+              <Avatar size={45} src={user.avatar.startsWith}>
+                {user.fullName ? user.fullName[0].toUpperCase() : null}
+              </Avatar>
+            )}
+
             <div className="info">
               <span className="name" title={user.fullName}>
                 {user.fullName}

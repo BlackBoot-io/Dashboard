@@ -21,7 +21,7 @@ const ChangePassword = () => {
       const call = await changePassword(values).unwrap();
       if (!call.isSuccess) {
         notification['error']({
-          message: t("updateFailed"),
+          message: call.message,
         });
         return;
       }
@@ -30,7 +30,7 @@ const ChangePassword = () => {
       });
     } catch (e) {
       notification['error']({
-        message: t("updateFailed"),
+        message: e.data.message,
       });
     }
   };

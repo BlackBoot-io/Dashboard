@@ -1,19 +1,25 @@
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Col, Row, Modal, Input } from "antd";
 import { useTranslation } from "react-i18next";
 import Icon from "components/comps/Icon";
+import moment from 'moment';
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
-import EthereumIcon from "assets/images/networks/etheriumIcon.svg";
 import CopyIcon from "assets/images/copy.svg";
 import qrCode from "assets/images/QR.svg";
 
 const ConfirmModal = (props) => {
   const { t } = useTranslation();
+  const [timer, setTimer] = useState("08 : 00 : 00");
   const nameRef = useRef();
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(nameRef.current.input.value);
   };
+
+  const interval = setInterval(() => {
+    setTimer(moment(timer, 'hh : mm : ss').subtract(1, 'seconds').format('hh : mm : ss'));
+    clearInterval(interval);
+  }, 1000);
 
   return (
     <>
@@ -43,8 +49,8 @@ const ConfirmModal = (props) => {
             <Col xs={24} sm={12}>
               <h3 className="buy-title">{t("finalTransfarableValue")}</h3>
             </Col>
-            <Col xs={24} sm={12} className="final-transfarable" style={{textAlign: 'right'}}>
-              <span className="dollar-amount">${props.content.usdtAmount}</span><span className="almost-eq">≃</span><span className="token-amount">{props.content.cryptoAmount}</span><span><img src={EthereumIcon} alt="ethereumIcon" /></span>
+            <Col xs={24} sm={12} className="final-transfarable">
+              <span className="dollar-amount">${props.formData.usdtAmount}</span><span className="almost-eq">≃</span><span className="token-amount">{props.formData.cryptoAmount}</span><span>{props.network.label}</span>
             </Col>
           </Row>
         </Row>
@@ -76,7 +82,7 @@ const ConfirmModal = (props) => {
               <h3 className="buy-title" style={{marginBottom: 0}}>{t("timeLeft")}</h3>
             </Col>
             <Col xs={12} sm={12}>
-              <p className="buy-text">07 : 59 : 59</p>
+              <p className="buy-text">{ timer == "00 : 00 : 00" ? 'Ended' : timer }</p>
             </Col>
             <Col xs={24} sm={24}>
               <p className="buy-p" style={{color: '#d84423', marginTop: 20}}>

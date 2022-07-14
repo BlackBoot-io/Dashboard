@@ -115,5 +115,6 @@
   "moreThanAvailableWithdrawalAmount": "Entered amount is more than available withdrawal amount",
   "withdrawValueTypeError": "Type of value must be number",
   "delete": "Delete",
-  "oprationSuccessfully": "opration successfully."
+  "oprationSuccessfully": "opration successfully.",
+  "tokenWithdrawnSuccessfully": "Token withdrawn successfully"
 }

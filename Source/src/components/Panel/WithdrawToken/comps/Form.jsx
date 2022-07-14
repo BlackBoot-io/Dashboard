@@ -44,9 +44,9 @@ const WithdrawForm = () => {
         const response = await add(data).unwrap();
         if (!response.isSuccess) {
             openNotification('error', response.message);
+            return;
         }
-        useGetUserBalanceQuery();
-        openNotification('success', t("oprationSuccessfully"));
+        openNotification('success', t("tokenWithdrawnSuccessfully"));
     };
     return (
         <Col xs={24} xl={16} xxl={16} id="withdraw-form">
