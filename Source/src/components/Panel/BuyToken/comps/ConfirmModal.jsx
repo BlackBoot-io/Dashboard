@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Col, Row, Modal, Input } from "antd";
 import { useTranslation } from "react-i18next";
 import Icon from "components/comps/Icon";
