@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Col, Row, Card, Form, Segmented, Input, Alert, notification  } from "antd";
+import { Col, Row, Card, Form, Segmented, Input, Alert, notification } from "antd";
 import { useTranslation } from "react-i18next";
 import { useAddMutation, useGetUserBalanceQuery } from "api/transaction";
 import utils from 'config/utils'
 import { networkTypes, transactionTypes } from "config/enums";
-import Button from "../../../comps/Button"; 
-import EtheriumIcon from "assets/images/networks/ethereum.svg";
+import Button from "../../../comps/Button";
+import AvanodIcon from "assets/images/avanod.JPG";
 import routes from "../../../../config/routes";
 import { useSelector } from "react-redux";
 
@@ -34,7 +34,7 @@ const WithdrawForm = () => {
             amount: value,
         });
     };
-    const handleSubmit = async (value) => { 
+    const handleSubmit = async (value) => {
         const values = await form.validateFields();
         var data = {
             Network: selectedNetwork,
@@ -47,6 +47,7 @@ const WithdrawForm = () => {
             return;
         }
         openNotification('success', t("tokenWithdrawnSuccessfully"));
+        navigate(`/${routes.transactions}`)
     };
     return (
         <Col xs={24} xl={16} xxl={16} id="withdraw-form">
@@ -57,14 +58,19 @@ const WithdrawForm = () => {
                 <Form
                     validateMessages={validateMessages}
                     form={form}
-                    name="withdrawTokenForm" 
+                    name="withdrawTokenForm"
                     initialValues={{ address: user.walletAddress }}
                     layout="vertical" >
                     <Segmented
                         options={[
                             {
                                 icon: (
-                                    <img src={EtheriumIcon} alt="EtheriumIcon" onClick={() => setSelectedNetwork(networkTypes.Ethereum)} />
+                                    <img
+                                        src={AvanodIcon}
+                                        alt="AvanodIcon"
+                                        onClick={() => setSelectedNetwork(networkTypes.Ethereum)}
+                                        style={{ width: '40px', height: '40px' }}
+                                    />
                                 ),
                                 value: 'etherium',
                             }
@@ -73,8 +79,8 @@ const WithdrawForm = () => {
 
                     {
                         (user.walletAddress == null) ?
-                        <Col xs={24} md={24} lg={24} style={{ marginTop: "33px", padding: 0 }}>
-                            <Alert className="alert-wallet" action={
+                            <Col xs={24} md={24} lg={24} style={{ marginTop: "33px", padding: 0 }}>
+                                <Alert className="alert-wallet" action={
                                     <Button size="small" type="text" className="btn-profile" onClick={() => navigate(`/${routes.profile}`)} >
                                         Update Profile
                                     </Button>
@@ -82,7 +88,7 @@ const WithdrawForm = () => {
                             </Col>
                             :
                             <Col xs={24} md={24} lg={24} style={{ marginTop: "33px", padding: 0 }}>
-                                <label className="custom-label">{`${t("walleteAddress")}`}</label>
+                                <label className="custom-label">{`${t("walletAddress")}`}</label>
                                 <Form.Item name="address">
                                     <Input className="custom-input" disabled />
                                 </Form.Item>
@@ -121,7 +127,7 @@ const WithdrawForm = () => {
                             <Input className="custom-input" maxLength={userBalance.data?.data.length} />
                         </Form.Item>
                         <div className="withdraw-amount-holder">
-                            <p className="withdraw-amount"> Withdrrawal fees : <span >{utils.commaThousondSeperator(userBalance.data?.data)}</span> USDT </p>
+                            <p className="withdraw-amount"> Withdrawal fees : <span >{utils.commaThousondSeperator(userBalance.data?.data)}</span> USDT </p>
                         </div>
                     </Col>
 
