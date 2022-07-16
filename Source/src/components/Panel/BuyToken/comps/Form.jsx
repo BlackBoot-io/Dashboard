@@ -23,6 +23,7 @@ const BuyTokenForm = (props) => {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const [network, setNetwork] = useState(0);
+  const [netPrice, setNetPrice] = useState([]);
   const [price, setPrice] = useState(0);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [modalData, setmodalData] = useState('');
@@ -31,35 +32,43 @@ const BuyTokenForm = (props) => {
   const usdtAmount = useRef();
   const cryptoAmount = useRef();
   const tokenCount = useRef();
+  const eth = useRef();
+  const sol = useRef();
+  const bnb = useRef();
+  const btc = useRef();
 
   const networks = [
     {
-      label: <img src={EthereumIcon} alt="ethereumIcon" />,
+      label: <><img src={EthereumIcon} alt="ethereumIcon" /><p ref={eth}></p></>,
       value: 0,
       enum: 2,
       symbol: 'eth',
       name: 'ethereum',
+      price: ''
     },
     {
-      label: <img src={SolanaIcon} alt="SolanaIcon" />,
+      label: <><img src={SolanaIcon} alt="SolanaIcon" /><p ref={sol}></p></>,
       value: 1,
       enum: 3,
       symbol: 'sol',
       name: 'solana',
+      price: ''
     },
     {
-      label: <img src={BscscanIcon} alt="BscscanIcon" />,
+      label: <><img src={BscscanIcon} alt="BscscanIcon" /><p ref={bnb}></p></>,
       value: 2,
       enum: 4,
       symbol: 'bnb',
       name: 'binancecoin',
+      price: ''
     },
     {
-      label: <img src={BitcoinIcon} alt="BitcoinIcon" />,
+      label: <><img src={BitcoinIcon} alt="BitcoinIcon" /><p ref={btc}></p></>,
       value: 3,
       enum: 1,
       symbol: 'btc',
       name: 'bitcoin',
+      price: ''
     },
   ]
 
@@ -75,42 +84,57 @@ const BuyTokenForm = (props) => {
   //   } 
   // };
 
-  const getPrice = async (value) => {
+  const getPrice = async () => {
     form.setFieldsValue({
       cryptoAmount: ''
     });
-    setNetwork(value);
 
     var selecting = networks.map((network) => {
       return `${network.name},` 
     })
     var selected = selecting.join('');
-    
     const response = await coinPrice(selected).unwrap();
-    if (response.data.current_price) {
-      setPrice(response.data.current_price);
+    if (response.isSuccess) {
+      setNetPrice(response.data);
+      // for (var i=0; i<response.data.length; i++) {
+      //   `${response.data[i].symbol}`.current.innerText = response.data[i].current_price
+      // }
+      var price = response.data.find(data => data.symbol === networks[network].symbol).current_price;
+      setPrice(price);
     } 
   };
 
-  useEffect(() => {
-    getPrice(0);
-    // form.setFieldsValue({
-    //   usdtAmount: props.content.minimumBuy,
-    //   tokenCount: (props.content.price/props.content.minimumBuy).toFixed(6),
-    // });
-  }, [data]);
+  const changeNework = (value) => {
+    setNetwork(value);
+  };
 
   useEffect(() => {
-    form.setFieldsValue({
-      cryptoAmount: (usdtAmount.current.input.value/price).toFixed(6)
-    });
+    for (var i=0; i<netPrice.length; i++) {
+      if (networks[network].symbol === netPrice[i].symbol) {
+        setPrice(netPrice[i].current_price);
+      }
+    }
+  }, [network]);
+
+  useEffect(() => {
+    setFormValue();
   }, [price]);
+
+  useEffect(() => {
+    getPrice();
+    const interval = setInterval(() => {
+      getPrice();
+    }, 30000);
+    return () => {
+      clearInterval(interval)
+    };
+  }, []);
 
   const setFormValue = (value) => {
     form.setFieldsValue({
-      // usdtAmount: value !== 'usdtAmount' ? cryptoAmount.current.input.value*price : usdtAmount.current.input.value,
-      // cryptoAmount: value !== 'cryptoAmount' ? (usdtAmount.current.input.value/price).toFixed(6) : cryptoAmount.current.input.value,
-      // tokenCount: value !== 'tokenCount' ? (props.content.price/usdtAmount.current.input.value).toFixed(6) : tokenCount.current.input.value,
+      usdtAmount: value !== 'usdtAmount' ? (cryptoAmount.current.input.value*price).toFixed(2) : usdtAmount.current.input.value,
+      cryptoAmount: value !== 'cryptoAmount' ? (usdtAmount.current.input.value/price).toFixed(6) : cryptoAmount.current.input.value,
+      tokenCount: value !== 'tokenCount' ? (usdtAmount.current.input.value/props.content.price).toFixed(6) : tokenCount.current.input.value,
     });
   };
 
@@ -155,7 +179,7 @@ const BuyTokenForm = (props) => {
           <Segmented
             block
             value={network}
-            onChange={getPrice}
+            onChange={changeNework}
             options={networks}
           />
           <p className="buy-p" style={{ marginTop: 30 }}>
