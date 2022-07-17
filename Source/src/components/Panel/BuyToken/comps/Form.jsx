@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Col, Row, Segmented, Input, Button, Form, notification } from "antd";
 
@@ -23,75 +23,118 @@ const BuyTokenForm = (props) => {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const [network, setNetwork] = useState(0);
+  const [netPrice, setNetPrice] = useState([]);
   const [price, setPrice] = useState(0);
-  const [deposit, setDeposit] = useState(1);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [modalData, setmodalData] = useState('');
   const [data, { isLoading, error, isError }] = useAddMutation();
   const [coinPrice] = useGetBySymbolMutation();
+  const usdtAmount = useRef();
+  const cryptoAmount = useRef();
+  const tokenCount = useRef();
+  const eth = useRef();
+  const sol = useRef();
+  const bnb = useRef();
+  const btc = useRef();
 
   const networks = [
     {
-      label: <img src={EthereumIcon} alt="ethereumIcon" />,
+      label: <><img src={EthereumIcon} alt="ethereumIcon" /><p ref={eth}></p></>,
       value: 0,
       enum: 2,
-      name: 'eth',
-      fullName: 'ethereum',
+      symbol: 'eth',
+      name: 'ethereum',
+      price: ''
     },
     {
-      label: <img src={SolanaIcon} alt="SolanaIcon" />,
+      label: <><img src={SolanaIcon} alt="SolanaIcon" /><p ref={sol}></p></>,
       value: 1,
       enum: 3,
-      name: 'sol',
-      fullName: 'solana',
+      symbol: 'sol',
+      name: 'solana',
+      price: ''
     },
     {
-      label: <img src={BscscanIcon} alt="BscscanIcon" />,
+      label: <><img src={BscscanIcon} alt="BscscanIcon" /><p ref={bnb}></p></>,
       value: 2,
       enum: 4,
-      name: 'bnb',
-      fullName: 'bscscan',
+      symbol: 'bnb',
+      name: 'binancecoin',
+      price: ''
     },
     {
-      label: <img src={BitcoinIcon} alt="BitcoinIcon" />,
+      label: <><img src={BitcoinIcon} alt="BitcoinIcon" /><p ref={btc}></p></>,
       value: 3,
       enum: 1,
-      name: 'btc',
-      fullName: 'bitcoin',
+      symbol: 'btc',
+      name: 'bitcoin',
+      price: ''
     },
   ]
 
-  const getPrice = async (value) => {
+  // const getPrice = async (value) => {
+  //   form.setFieldsValue({
+  //     cryptoAmount: ''
+  //   });
+  //   setNetwork(value);
+  //   const response = await coinPrice(networks[value].name).unwrap();
+  //   if (response.data.current_price) {
+  //     setDeposit(props.content.minimumBuy);
+  //     setPrice(response.data.current_price);
+  //   } 
+  // };
+
+  const getPrice = async () => {
     form.setFieldsValue({
       cryptoAmount: ''
     });
-    setNetwork(value);
-    const response = await coinPrice(networks[value].fullName).unwrap();
-    if (response.data.current_price) {
-      setDeposit(props.content.minimumBuy);
-      setPrice(response.data.current_price);
+
+    var selecting = networks.map((network) => {
+      return `${network.name},` 
+    })
+    var selected = selecting.join('');
+    const response = await coinPrice(selected).unwrap();
+    if (response.isSuccess) {
+      setNetPrice(response.data);
+      // for (var i=0; i<response.data.length; i++) {
+      //   `${response.data[i].symbol}`.current.innerText = response.data[i].current_price
+      // }
+      var price = response.data.find(data => data.symbol === networks[network].symbol).current_price;
+      setPrice(price);
     } 
   };
 
-  useEffect(() => {
-    getPrice(0);
-    form.setFieldsValue({
-      usdtAmount: props.content.minimumBuy,
-      tokenCount: (props.content.price/props.content.minimumBuy).toFixed(6),
-    });
-  }, [data]);
+  const changeNework = (value) => {
+    setNetwork(value);
+  };
 
   useEffect(() => {
-    form.setFieldsValue({
-      cryptoAmount: (deposit/price).toFixed(6)
-    });
+    for (var i=0; i<netPrice.length; i++) {
+      if (networks[network].symbol === netPrice[i].symbol) {
+        setPrice(netPrice[i].current_price);
+      }
+    }
+  }, [network]);
+
+  useEffect(() => {
+    setFormValue();
   }, [price]);
 
+  useEffect(() => {
+    getPrice();
+    const interval = setInterval(() => {
+      getPrice();
+    }, 30000);
+    return () => {
+      clearInterval(interval)
+    };
+  }, []);
+
   const setFormValue = (value) => {
-    setDeposit(value)
     form.setFieldsValue({
-      cryptoAmount: value ? (value/price).toFixed(6) : price,
-      tokenCount: value ? (props.content.price/value).toFixed(6) : props.content.price,
+      usdtAmount: value !== 'usdtAmount' ? (cryptoAmount.current.input.value*price).toFixed(2) : usdtAmount.current.input.value,
+      cryptoAmount: value !== 'cryptoAmount' ? (usdtAmount.current.input.value/price).toFixed(6) : cryptoAmount.current.input.value,
+      tokenCount: value !== 'tokenCount' ? (usdtAmount.current.input.value/props.content.price).toFixed(6) : tokenCount.current.input.value,
     });
   };
 
@@ -136,7 +179,7 @@ const BuyTokenForm = (props) => {
           <Segmented
             block
             value={network}
-            onChange={getPrice}
+            onChange={changeNework}
             options={networks}
           />
           <p className="buy-p" style={{ marginTop: 30 }}>
@@ -148,9 +191,7 @@ const BuyTokenForm = (props) => {
               <label className="custom-label">{`${t("yourDeposit")}`}</label>
               <Form.Item
                 name="usdtAmount"
-                onChange={(e) => {
-                  setFormValue(e.target.value)
-                }}
+                onChange={(e) => { setFormValue('usdtAmount') }}
                 rules={[
                   { required: true, message: t("required") },
                   {
@@ -163,19 +204,25 @@ const BuyTokenForm = (props) => {
                   },
                 ]}
               >
-                <Input className="custom-input" addonAfter={<span>usd</span>} />
+                <Input className="custom-input" ref={usdtAmount} addonAfter={<span>usd</span>} />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>
-              <label className="custom-label">{`${t("yourDeposit")} in `}<span style={{ textTransform: 'uppercase' }}>{networks[network].name}</span></label>
-              <Form.Item name="cryptoAmount">
-                <Input className="custom-input" addonAfter={<span>{ networks[network].name }</span>} />
+              <label className="custom-label">{`${t("yourDeposit")} in `}<span style={{ textTransform: 'uppercase' }}>{networks[network].symbol}</span></label>
+              <Form.Item
+                name="cryptoAmount"
+                onChange={(e) => { setFormValue('cryptoAmount') }}
+              >
+                <Input className="custom-input" ref={cryptoAmount} addonAfter={<span>{ networks[network].symbol }</span>} />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>
               <label className="custom-label">{`${t("recieveToken")}`}</label>
-              <Form.Item name="tokenCount">
-                <Input className="custom-input" addonAfter={<span>avn</span>} />
+              <Form.Item
+                name="tokenCount"
+                onChange={(e) => { setFormValue('tokenCount') }}
+              >
+                <Input className="custom-input" ref={tokenCount} addonAfter={<span>avn</span>} />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={24}>
