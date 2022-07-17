@@ -6,7 +6,7 @@ import { useAddMutation, useGetUserBalanceQuery } from "api/transaction";
 import utils from 'config/utils'
 import { networkTypes, transactionTypes } from "config/enums";
 import Button from "../../../comps/Button";
-import AvanodIcon from "assets/images/avanod.JPG";
+import ethereumIcon from "assets/images/networks/ethereum.svg";
 import routes from "../../../../config/routes";
 import { useSelector } from "react-redux";
 
@@ -66,10 +66,9 @@ const WithdrawForm = () => {
                             {
                                 icon: (
                                     <img
-                                        src={AvanodIcon}
-                                        alt="AvanodIcon"
+                                        src={ethereumIcon}
+                                        alt="EthereumIcon"
                                         onClick={() => setSelectedNetwork(networkTypes.Ethereum)}
-                                        style={{ width: '40px', height: '40px' }}
                                     />
                                 ),
                                 value: 'etherium',
