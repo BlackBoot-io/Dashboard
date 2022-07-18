@@ -29,6 +29,7 @@ const BuyTokenForm = (props) => {
   const [modalData, setmodalData] = useState('');
   const [data, { isLoading, error, isError }] = useAddMutation();
   const [coinPrice] = useGetBySymbolMutation();
+  
   const usdtAmount = useRef();
   const cryptoAmount = useRef();
   const tokenCount = useRef();
@@ -72,23 +73,7 @@ const BuyTokenForm = (props) => {
     },
   ]
 
-  // const getPrice = async (value) => {
-  //   form.setFieldsValue({
-  //     cryptoAmount: ''
-  //   });
-  //   setNetwork(value);
-  //   const response = await coinPrice(networks[value].name).unwrap();
-  //   if (response.data.current_price) {
-  //     setDeposit(props.content.minimumBuy);
-  //     setPrice(response.data.current_price);
-  //   } 
-  // };
-
   const getPrice = async () => {
-    form.setFieldsValue({
-      cryptoAmount: ''
-    });
-
     var selecting = networks.map((network) => {
       return `${network.name},` 
     })
@@ -117,7 +102,7 @@ const BuyTokenForm = (props) => {
   }, [network]);
 
   useEffect(() => {
-    setFormValue();
+    setFormValue('priceChanged');
   }, [price]);
 
   useEffect(() => {
@@ -131,11 +116,23 @@ const BuyTokenForm = (props) => {
   }, []);
 
   const setFormValue = (value) => {
-    form.setFieldsValue({
-      usdtAmount: value !== 'usdtAmount' ? (cryptoAmount.current.input.value*price).toFixed(2) : usdtAmount.current.input.value,
-      cryptoAmount: value !== 'cryptoAmount' ? (usdtAmount.current.input.value/price).toFixed(6) : cryptoAmount.current.input.value,
-      tokenCount: value !== 'tokenCount' ? (usdtAmount.current.input.value/props.content.price).toFixed(6) : tokenCount.current.input.value,
-    });
+
+    if (value === 'priceChanged') {
+
+      if (cryptoAmount.current.input.value != '') {
+        form.setFieldsValue({
+          cryptoAmount: (usdtAmount.current.input.value/price).toFixed(6),
+          tokenCount: (usdtAmount.current.input.value/props.content.price).toFixed(6),
+        });
+      }
+      
+    } else {
+      form.setFieldsValue({
+        usdtAmount: value !== 'usdtAmount' ? (cryptoAmount.current.input.value*price).toFixed(2) : usdtAmount.current.input.value,
+        cryptoAmount: value !== 'cryptoAmount' ? (usdtAmount.current.input.value/price).toFixed(6) : cryptoAmount.current.input.value,
+        tokenCount: value !== 'tokenCount' ? (usdtAmount.current.input.value/props.content.price).toFixed(6) : tokenCount.current.input.value,
+      });
+    }
   };
 
   const handleSubmit = async (values) => {

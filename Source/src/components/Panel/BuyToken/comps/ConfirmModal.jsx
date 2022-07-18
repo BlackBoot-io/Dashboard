@@ -1,11 +1,16 @@
 import { useState, useRef } from "react";
-import { Col, Row, Modal, Input } from "antd";
+import { Col, Row, Modal, Input, notification } from "antd";
 import { useTranslation } from "react-i18next";
 import Icon from "components/comps/Icon";
 import moment from 'moment';
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 import CopyIcon from "assets/images/copy.svg";
-import qrCode from "assets/images/QR.svg";
+
+const openNotification = (type, message) => {
+  notification[type]({
+    message: message,
+  });
+};
 
 const ConfirmModal = (props) => {
   const { t } = useTranslation();
@@ -14,6 +19,7 @@ const ConfirmModal = (props) => {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(nameRef.current.input.value);
+    openNotification('success', 'The wallet address copied to clipboard!');
   };
 
   const interval = setInterval(() => {
@@ -70,7 +76,7 @@ const ConfirmModal = (props) => {
           <Row>
             <Col xs={12} sm={3}>
               <span className="qrcode">
-                <img src={qrCode} alt="QR Code" />
+                <img src={props.content.qr} alt="QR Code" />
               </span>
             </Col>
             <Col xs={12} sm={21} style={{ marginTop: 15 }}>
