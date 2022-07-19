@@ -2,7 +2,6 @@ import { Avatar, Menu as AntMenu } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoImage from "assets/images/logo.png";
-import darkLogoImage from "assets/images/logo-dark.png";
 import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "redux/auth";
@@ -78,7 +77,7 @@ const Menu = ({ items }) => {
     <div id="menu">
       <Link to="/" className="logo">
         <h4>
-          <img src={lightMode ? logoImage : darkLogoImage} alt="logo" />
+          <img src={logoImage} alt="logo" />
           <span>{t("appName")}</span>
         </h4>
       </Link>

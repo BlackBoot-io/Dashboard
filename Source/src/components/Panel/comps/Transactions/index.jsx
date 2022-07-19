@@ -18,7 +18,6 @@ const Transactions = ({
   });
   const [pageSize, setPageSize] = useState(50);
   const filterTransactionResult = async () => {
-    debugger;
     let filterdData = data.map((value) => {
       return {
         key: value.transactionId,

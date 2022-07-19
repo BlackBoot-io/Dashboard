@@ -13,9 +13,9 @@ const Login = () => {
         <TabPane tab={t("loginWithEmail")} key="1">
           <WithEmail />
         </TabPane>
-        <TabPane tab={t("loginWithWallet")} disabled key="2">
+        {/* <TabPane tab={t("loginWithWallet")} disabled key="2">
           <OAuth />
-        </TabPane>
+        </TabPane> */}
       </Tabs>
     </div>
   );
