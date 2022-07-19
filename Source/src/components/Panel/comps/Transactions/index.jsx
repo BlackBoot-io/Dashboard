@@ -18,6 +18,7 @@ const Transactions = ({
   });
   const [pageSize, setPageSize] = useState(50);
   const filterTransactionResult = async () => {
+    debugger;
     let filterdData = data.map((value) => {
       return {
         key: value.transactionId,
@@ -60,7 +61,7 @@ const Transactions = ({
         onFilterChange={handleFilterChange}
       />
       <List
-        data={data}
+        data={filteredData}
         Loading={loading}
         pageSize={pageSize}
         actions={actions}

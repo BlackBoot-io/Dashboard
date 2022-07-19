@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Utils from "config/utils";
-import { Row } from "antd";
+import { notification } from "antd";
 import DataTable from "components/comps/DataTable";
 import {
   transactionTypes,
@@ -83,7 +83,7 @@ const List = ({ data, pageSize, loading, actions }) => {
   const { t } = useTranslation();
   const columns = [
     {
-      key:"price",
+      key: "price",
       title: () => t("Price"),
       dataIndex: ["usdtAmount", "cryptoAmount", "network"],
       align: "center",
@@ -97,7 +97,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
-      key:"netwrok",
+      key: "netwrok",
       title: () => t("Network"),
       dataIndex: "network",
       align: "center",
@@ -105,7 +105,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       render: (value) => <NetworkType network={value}></NetworkType>,
     },
     {
-      key:"walletAddress",
+      key: "walletAddress",
       title: () => t("WalletAddress"),
       dataIndex: "walletAddress",
       align: "center",
@@ -115,7 +115,7 @@ const List = ({ data, pageSize, loading, actions }) => {
           {Utils.shortTextMiddle(value, 20)}
 
           <span
-            onClick={Utils.copyToClipboard(value)}
+            onClick={() => copyToClipboard(value)}
             style={{
               marginLeft: 4,
               cursor: "pointer",
@@ -142,7 +142,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
-      key:"type",
+      key: "type",
       title: () => t("Type"),
       dataIndex: "type",
       align: "center",
@@ -195,7 +195,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
-      key:"status",
+      key: "status",
       title: () => t("Status"),
       dataIndex: "status",
       align: "center",
@@ -214,7 +214,7 @@ const List = ({ data, pageSize, loading, actions }) => {
       ),
     },
     {
-      key:"date",
+      key: "date",
       title: () => t("Date"),
       dataIndex: "date",
       align: "center",
@@ -248,6 +248,13 @@ const List = ({ data, pageSize, loading, actions }) => {
     },
   ];
   if (actions) columns.push(actions);
+
+  const copyToClipboard = (value) => {
+    Utils.copyToClipboard(value);
+    notification["success"]({
+      message: "The wallet address copied to clipboard!",
+    });
+  };
   return (
     <>
       <DataTable
