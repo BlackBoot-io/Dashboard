@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
-import EthereumIcon from "assets/images/networks/etherium.svg";
+import EthereumIcon from "assets/images/networks/ethereum.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
 import TetherIcon from "assets/images/networks/tetherIcon.svg";
 

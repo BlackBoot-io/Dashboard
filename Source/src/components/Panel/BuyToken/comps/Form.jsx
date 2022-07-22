@@ -5,7 +5,7 @@ import { Col, Row, Segmented, Input, Button, Form, notification } from "antd";
 import BagIcon from "assets/images/bag.svg";
 import BitcoinIcon from "assets/images/networks/bitcoin.svg";
 import BscscanIcon from "assets/images/networks/bscscan.svg";
-import EthereumIcon from "assets/images/networks/etherium.svg";
+import EthereumIcon from "assets/images/networks/ethereum.svg";
 import SolanaIcon from "assets/images/networks/solana.svg";
 import DangerTriangleIcon from "assets/images/danger-triangle.svg";
 
