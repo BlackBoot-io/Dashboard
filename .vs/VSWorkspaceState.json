@@ -7,8 +7,6 @@
     "\\Source\\src\\components\\Panel",
     "\\Source\\src\\components\\Panel\\BuyToken",
     "\\Source\\src\\components\\Panel\\BuyToken\\comps",
-    "\\Source\\src\\components\\Panel\\comps",
-    "\\Source\\src\\components\\Panel\\Dashboard",
     "\\Source\\src\\components\\Panel\\Transaction"
   ],
   "SelectedNode": "\\Source\\src\\components\\Panel\\BuyToken\\comps\\Form.jsx",
